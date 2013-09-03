@@ -1,0 +1,27 @@
+html {
+  overflow: auto;
+}
+
+body {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: blue;
+}
+
+.applicationFrame {
+  @extend %transition;
+  @include backface-visibility(hidden);
+
+  position: relative;
+  width: 100%;
+  left: 0%;
+  &.open {
+    left: -30%;
+    .sideBar {
+      right: 0%;
+    }
+  }
+}

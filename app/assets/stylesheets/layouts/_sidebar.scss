@@ -1,0 +1,10 @@
+.sideBar {
+  @extend %transition;
+
+  background: gray;
+  position: fixed;
+  top: 0;
+  right: -30%;
+  width: 30%;
+  height: 100%;
+}
