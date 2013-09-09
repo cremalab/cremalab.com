@@ -1,6 +1,7 @@
 CremalabCom::Application.routes.draw do
   root 'home#index'
   get "contact" => 'contact#index'
+  get "process" => 'process#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
