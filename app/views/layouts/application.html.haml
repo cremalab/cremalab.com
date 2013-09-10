@@ -2,66 +2,68 @@
 %html
   %head
     %title Cremalab.com
+    %meta{ charset: "UTF-8" }
+    %meta{ content: "initial-scale=1.0, user-scalable=no", name: "viewport"}
+    %meta{ content: "yes", name: "apple-mobile-web-app-capable"}
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
 %body
-  .applicationFrame
-    %main
-      = yield
-    %aside.sideBar
-      %button.sideBarToggle
-      %nav.siteNav
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
-        %a{ href: "#" } Nav Item
+  %button.plain#sideBarToggle
+  %aside.sideBar
+    %nav.siteNav
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+      %a{ href: "#" } Nav Item
+  %main
+    = yield

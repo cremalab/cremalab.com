@@ -17,5 +17,6 @@
 
 $ ->
 
-  $('button.sideBarToggle').on 'click', ->
-    $('.applicationFrame').toggleClass 'open'
+  $('button#sideBarToggle').on 'click', ->
+    $('main').toggleClass 'open'
+    $('button#sideBarToggle').toggleClass 'close'
