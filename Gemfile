@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 1.2'
 
 gem "sorcery", "~> 0.8.2"
 
+gem "nested_form", "~> 0.3.2"
+gem "symbolize", "~> 4.4.1"
+
 group :assets, :development do
   gem "haml-rails", "~> 0.4"
 end

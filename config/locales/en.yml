@@ -21,3 +21,14 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    symbolizes:
+      social_link:
+        type:
+          website: Website
+          twitter: Twitter
+          github: Github
+          linked_in: LinkedIn
+          dribbble: dribbble
+          rdio: Rdio
