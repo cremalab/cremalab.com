@@ -1,6 +1,18 @@
 CremalabCom::Application.routes.draw do
+
   root 'home#index'
   get "contact" => 'contact#index'
+
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+
+  resources :session
+  resources :users do
+    collection do
+      get :login_from_http_basic
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
