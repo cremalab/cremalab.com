@@ -7,7 +7,7 @@ CremalabCom::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
 
-  resources :session
+  resources :sessions
   resources :users do
     collection do
       get :login_from_http_basic
