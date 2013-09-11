@@ -1,0 +1,9 @@
+Logged in as:
+%br
+= current_user.profile.full_name
+= "(#{current_user.email})"
+
+%nav
+  = link_to 'Logout', logout_path
+  = link_to 'New User', new_user_path
+  = link_to 'Edit My Profile', edit_user_path(current_user)
