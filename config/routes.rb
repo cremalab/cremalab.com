@@ -2,7 +2,7 @@ CremalabCom::Application.routes.draw do
 
   root 'home#index'
   get "contact" => 'contact#index'
-
+  get "process" => 'process#index'
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"

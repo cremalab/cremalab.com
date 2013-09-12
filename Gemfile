@@ -6,14 +6,12 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+# Assets
+gem 'haml-rails', '~> 0.4'
+gem 'sass-rails'
+gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'coffee-rails'
+gem 'uglifier'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -28,10 +26,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem "sorcery", "~> 0.8.2"
-
-group :assets, :development do
-  gem "haml-rails", "~> 0.4"
-end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
