@@ -7,7 +7,7 @@ gem 'rails', '4.0.0'
 gem 'pg'
 
 # Assets
-gem 'haml-rails'
+gem 'haml-rails', '~> 0.4'
 gem 'sass-rails'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'coffee-rails'
@@ -24,6 +24,8 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+gem "sorcery", "~> 0.8.2"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

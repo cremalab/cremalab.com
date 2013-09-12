@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Cremalab.com
+    %title Cremalab
     %meta{ charset: "UTF-8" }
     %meta{ content: "initial-scale=1.0, user-scalable=no", name: "viewport"}
     %meta{ content: "yes", name: "apple-mobile-web-app-capable"}
@@ -66,4 +66,5 @@
       %a{ href: "#" } Nav Item
       %a{ href: "#" } Nav Item
   %main
+    = render 'layouts/user_menu' if current_user
     = yield
