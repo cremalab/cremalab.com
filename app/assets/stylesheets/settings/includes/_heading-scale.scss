@@ -1,0 +1,50 @@
+@mixin header-scale($ratio: 5, $top-offset: 0, $bottom-offset-ratio: 0.875, $header-rank-shift: -1, $min-width: null, $max-width: null) {
+  
+  $min-width-query: "(min-width: #{$min-width})";
+  @if $min-width == null {
+    $min-width-query: "";
+  }
+  $max-width-query: "(max-width: #{$max-width})";
+  @if $max-width == null {
+    $max-width-query: "";
+  }
+  $conjunction: "";
+  @if $min-width != null and $max-width != null {
+    $conjunction: "and";  
+  }
+
+  $min-max-query: "#{$min-width-query} #{$conjunction} #{$max-width-query}";
+
+  @if $min-width != null or $max-width != null {
+    @media #{$min-max-query} {
+      @for $i from 1 through 6 {
+        h#{$i} { 
+          $power: 6 - ($i - $header-rank-shift);
+          $size: pow($ratio, $power);
+          font-size: #{$size}em;
+          margin: #{($ratio/$size)*($top-offset + 1)}em 0 #{($ratio/$size)*$bottom-offset-ratio}em; 
+        }
+        %h#{$i}Margin {
+          $power: 6 - ($i - $header-rank-shift);
+          $size: pow($ratio, $power);
+          margin: #{($ratio/$size*$size)*($top-offset + 1)}em 0 #{($ratio/$size)*$bottom-offset-ratio}em;
+        }
+      }
+    }
+  } @else {
+    @for $i from 1 through 6 {
+      h#{$i} { 
+        $power: 6 - ($i - $header-rank-shift);
+        $size: pow($ratio, $power);
+        font-size: #{$size}em;
+        margin: #{($ratio/$size)*($top-offset + 1)}em 0 #{($ratio/$size)*$bottom-offset-ratio}em;
+      }
+      %h#{$i}Margin {
+        $power: 6 - ($i - $header-rank-shift);
+        $size: pow($ratio, $power);
+        margin: #{($ratio/$size*$size)*($top-offset + 1)}em 0 #{($ratio/$size)*$bottom-offset-ratio}em;
+      }
+    }
+  }
+
+}
