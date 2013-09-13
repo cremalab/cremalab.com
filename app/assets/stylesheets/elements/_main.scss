@@ -1,7 +1,8 @@
 main {
   @extend %transition;
-  position: relative;
+  position: absolute;
   width: 100%;
+  min-height: 100%;
   padding: unit(2);
   background: white;
   &.open {
