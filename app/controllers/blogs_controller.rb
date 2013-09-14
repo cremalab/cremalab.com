@@ -33,7 +33,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog = Blog.find(params[:id])
     if @blog.destroy
-      render :json => ['Blog destroyed'], status :ok
+      render :json => ['Blog destroyed'], status: :ok
     else
       render :show, status: :unprocessable_entity
     end

@@ -28,6 +28,13 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    if @blog.update_attributes(blog_params)
+      render :show, status: :ok
+    else
+      render :show, status: :unprocessable_entity
+    end
+
   end
 
   def edit
