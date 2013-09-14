@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
-
+  has_many :blogs, foreign_key: "user_id"
   has_one :profile, dependent: :destroy
 
   accepts_nested_attributes_for :profile
