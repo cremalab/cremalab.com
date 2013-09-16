@@ -44,7 +44,7 @@ private
   def user_params
     params.require(:user).permit(
       :password, :password_confirmation, :email,
-      profile_attributes: [:first_name, :last_name, :title,
+      profile_attributes: [:first_name, :last_name, :title, :avatar,
         social_links_attributes: [
           :username, :full_url, :network, :_destroy
         ]
