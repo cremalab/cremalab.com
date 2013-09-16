@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(username: params[:id])
     if @user.update_attributes(user_params)
       redirect_to root_path
     else
@@ -28,17 +28,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    if @blog.update_attributes(blog_params)
-      render :show, status: :ok
-    else
-      render :show, status: :unprocessable_entity
-    end
-
+    @user = User.find_by(username: params[:id])
+    @social_links = @user.profile.social_links
+    @blogs = @user.blogs
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by(username: params[:id])
     if @user.profile.nil?
       @profile = @user.build_profile
     end
@@ -48,8 +44,12 @@ private
   def user_params
     params.require(:user).permit(
       :password, :password_confirmation, :email,
-      profile_attributes: [:first_name, :last_name, :title]
-      )
+      profile_attributes: [:first_name, :last_name, :title,
+        social_links_attributes: [
+          :username, :full_url, :network, :_destroy
+        ]
+      ]
+    )
   end
 
 end
