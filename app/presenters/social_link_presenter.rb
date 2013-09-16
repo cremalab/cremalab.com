@@ -9,12 +9,12 @@ class SocialLinkPresenter < BasePresenter
   def link
     h.link_to I18n.t("activerecord.symbolizes.social_link.network.#{@network}"), url, class: @network
   end
-
-private
-
   def url
     self.send("#{@network}_url")
   end
+
+private
+
 
   def twitter_url
     return "https://twitter.com/#{@username}"

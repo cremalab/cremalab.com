@@ -25,6 +25,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    ansi (1.4.3)
     arel (4.0.0)
     atomic (1.1.13)
     bcrypt-ruby (3.0.1)
@@ -128,6 +129,8 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (1.3.0)
       coffee-rails
+    turn (0.9.6)
+      ansi
     tzinfo (0.3.37)
     uglifier (2.2.1)
       execjs (>= 0.3.0)
@@ -149,4 +152,5 @@ DEPENDENCIES
   sorcery (~> 0.8.2)
   symbolize (~> 4.4.1)
   turbolinks
+  turn (~> 0.9.6)
   uglifier (>= 1.3.0)

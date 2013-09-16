@@ -3,9 +3,9 @@
 one:
   username: MyString
   full_url: MyString
-  type: 1
+  network: twitter
 
 two:
   username: MyString
   full_url: MyString
-  type: 1
+  network: github

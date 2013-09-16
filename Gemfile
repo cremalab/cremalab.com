@@ -32,8 +32,12 @@ gem "sorcery", "~> 0.8.2"
 gem "nested_form", "~> 0.3.2"
 gem "symbolize", "~> 4.4.1"
 
-group :assets, :development do
+group :assets, :development, :test do
   gem "haml-rails", "~> 0.4"
+end
+
+group :test do
+  gem "turn", "~> 0.9.6"
 end
 
 group :doc do
