@@ -1,0 +1,10 @@
+main {
+  @extend %transition;
+  position: relative;
+  width: 100%;
+  padding: unit(2);
+  background: white;
+  &.open {
+    @include transform(translate3d(-260px,0,0)) 
+  }
+}

@@ -1,0 +1,32 @@
+button {
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+button#sideBarToggle {
+  @extend %transition.fast;
+  font-family: 'test';
+  font-size: 24px;
+  line-height: 1;
+  position: fixed;
+  z-index: 1;
+  top: 0.5em;
+  right: 0.5em;
+  &:before {
+    content: "m";
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+  }
+  &.close {
+    color: white;
+    &:before {
+      content: "x";
+    }
+  }
+}
