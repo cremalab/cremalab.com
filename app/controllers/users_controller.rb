@@ -28,6 +28,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @social_links = @user.profile.social_links
   end
 
   def edit
@@ -41,8 +43,12 @@ private
   def user_params
     params.require(:user).permit(
       :password, :password_confirmation, :email,
-      profile_attributes: [:first_name, :last_name, :title]
-      )
+      profile_attributes: [:first_name, :last_name, :title,
+        social_links_attributes: [
+          :username, :full_url, :network, :_destroy
+        ]
+      ]
+    )
   end
 
 end
