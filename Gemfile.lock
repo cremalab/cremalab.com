@@ -68,6 +68,9 @@ GEM
     json (1.8.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -154,6 +157,7 @@ DEPENDENCIES
   haml-rails (~> 0.4)
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari (~> 0.14.1)
   nested_form (~> 0.3.2)
   pg
   rails (= 4.0.0)

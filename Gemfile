@@ -31,6 +31,7 @@ gem "sorcery", "~> 0.8.2"
 
 gem "nested_form", "~> 0.3.2"
 gem "symbolize", "~> 4.4.1"
+gem "kaminari", "~> 0.14.1"
 
 group :assets, :development, :test do
   gem "haml-rails", "~> 0.4"
