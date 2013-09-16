@@ -13,6 +13,8 @@ gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'coffee-rails'
 gem 'uglifier'
 
+gem "redcarpet", "~> 3.0.0"
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -26,6 +28,17 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem "sorcery", "~> 0.8.2"
+
+gem "nested_form", "~> 0.3.2"
+gem "symbolize", "~> 4.4.1"
+
+group :assets, :development, :test do
+  gem "haml-rails", "~> 0.4"
+end
+
+group :test do
+  gem "turn", "~> 0.9.6"
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

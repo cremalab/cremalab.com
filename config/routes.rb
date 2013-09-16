@@ -8,12 +8,11 @@ CremalabCom::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
 
   resources :sessions
-  resources :users do
-    collection do
-      get :login_from_http_basic
-    end
+  resources :users, path: 'team' do
+    resources :blogs
   end
-  resources :blog
+  resources :blogs
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
