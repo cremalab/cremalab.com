@@ -13,4 +13,15 @@ class BasePresenter
   def h
     @template
   end
+
+  def markdown(text)
+    renderer = Redcarpet::Render::HTML
+    options = {
+      autolink: true,
+      space_after_headers: true,
+      prettify: true
+    }
+    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
+  end
+
 end
