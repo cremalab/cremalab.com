@@ -16,3 +16,4 @@
 /tmp
 /public
 .DS_Store
+.env
