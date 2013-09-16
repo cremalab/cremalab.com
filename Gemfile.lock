@@ -102,6 +102,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (3.0.0)
     sass (3.2.10)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -148,6 +149,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 4.0.0)
+  redcarpet (~> 3.0.0)
   sass-rails
   sdoc
   sorcery (~> 0.8.2)

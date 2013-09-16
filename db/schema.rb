@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20130914135525) do
     t.datetime "updated_at"
   end
 
+  create_table "social_links", force: true do |t|
+    t.string   "username"
+    t.string   "full_url"
+    t.string   "network"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "crypted_password"

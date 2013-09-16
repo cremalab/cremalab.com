@@ -13,6 +13,8 @@ gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'coffee-rails'
 gem 'uglifier'
 
+gem "redcarpet", "~> 3.0.0"
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
