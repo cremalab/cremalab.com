@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    p @user.valid?
     if @user.update_attributes(user_params)
       redirect_to root_path
     else
@@ -28,6 +29,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @social_links = @user.profile.social_links
   end
 
   def edit
@@ -43,7 +46,7 @@ private
       :password, :password_confirmation, :email,
       profile_attributes: [:first_name, :last_name, :title,
         social_links_attributes: [
-          :username, :full_url, :network
+          :username, :full_url, :network, :_destroy
         ]
       ]
     )

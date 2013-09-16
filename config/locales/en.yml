@@ -25,7 +25,7 @@ en:
   activerecord:
     symbolizes:
       social_link:
-        type:
+        network:
           website: Website
           twitter: Twitter
           github: Github

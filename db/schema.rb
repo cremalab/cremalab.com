@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20130911194736) do
   create_table "social_links", force: true do |t|
     t.string   "username"
     t.string   "full_url"
-    t.integer  "network"
+    t.string   "network"
     t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -41,13 +41,9 @@ ActiveRecord::Schema.define(version: 20130911194736) do
     t.datetime "updated_at"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
-    t.string   "reset_password_token"
-    t.datetime "reset_password_token_expires_at"
-    t.datetime "reset_password_email_sent_at"
     t.integer  "profile_id"
   end
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
 
 end

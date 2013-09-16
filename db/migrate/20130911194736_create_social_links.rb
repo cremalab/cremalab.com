@@ -3,7 +3,7 @@ class CreateSocialLinks < ActiveRecord::Migration
     create_table :social_links do |t|
       t.string :username
       t.string :full_url
-      t.integer :network
+      t.string :network
       t.belongs_to :profile
 
       t.timestamps

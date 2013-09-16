@@ -22,7 +22,7 @@
     = pf.text_field :last_name
 
     = pf.fields_for :social_links do |sf|
-      = sf.select("type", options_for_select(SocialLink.get_type_values), :include_blank => true)
+      = sf.select :network, SocialLink.get_network_values
       = sf.text_field :username, placeholder: 'Username'
       or
       = sf.text_field :full_url, placeholder: 'Full URL'

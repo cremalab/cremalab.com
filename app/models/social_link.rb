@@ -1,5 +1,3 @@
-require 'url_generator'
-
 class SocialLink < ActiveRecord::Base
   belongs_to :profile
 
@@ -7,9 +5,5 @@ class SocialLink < ActiveRecord::Base
     :website, :twitter, :github,
     :linked_in, :dribbble, :rdio
   ], :scopes => true
-
-
-  def url
-  end
 
 end
