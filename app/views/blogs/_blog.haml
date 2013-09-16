@@ -1,1 +1,7 @@
-= blog.title
+- present blog do |blog_presenter|
+  %article
+    %header
+      %h1= blog_presenter.title_link
+      %h3= blog_presenter.author_link
+    %section
+      = blog_presenter.content

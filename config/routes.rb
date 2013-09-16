@@ -9,6 +9,7 @@ CremalabCom::Application.routes.draw do
 
   resources :sessions
   resources :users do
+    resources :blogs
     collection do
       get :login_from_http_basic
     end
