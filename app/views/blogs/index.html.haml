@@ -1,4 +1,5 @@
 %h1 Blog
 - if current_user
   = link_to 'New Blog Post', new_user_blog_path(current_user)
+= paginate @blogs
 = render @blogs
