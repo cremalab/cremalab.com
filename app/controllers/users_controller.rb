@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(username: params[:id])
     if @user.update_attributes(user_params)
       redirect_to root_path
     else
@@ -28,12 +28,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(username: params[:id])
     @social_links = @user.profile.social_links
+    @blogs = @user.blogs
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by(username: params[:id])
     if @user.profile.nil?
       @profile = @user.build_profile
     end

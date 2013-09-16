@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130911194736) do
+ActiveRecord::Schema.define(version: 20130916201129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blogs", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "published_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
 
   create_table "profiles", force: true do |t|
     t.string   "first_name"
@@ -42,6 +53,7 @@ ActiveRecord::Schema.define(version: 20130911194736) do
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.integer  "profile_id"
+    t.string   "username"
   end
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
