@@ -35,6 +35,7 @@ gem "kaminari", "~> 0.14.1"
 
 gem "carrierwave", "~> 0.9.0"
 gem "mini_magick", "~> 3.6.0"
+gem "fog", "~> 1.15.0"
 
 group :assets, :development, :test do
   gem "haml-rails", "~> 0.4"
@@ -48,6 +49,9 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+gem 'rails_12factor', group: :production
+gem "unicorn", "~> 4.6.3"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
