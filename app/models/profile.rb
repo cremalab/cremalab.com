@@ -2,6 +2,8 @@ class Profile < ActiveRecord::Base
   belongs_to :user
   has_many :social_links
 
+  mount_uploader :avatar, AvatarUploader
+
   validates_presence_of :first_name, :last_name
 
   accepts_nested_attributes_for :social_links, allow_destroy: true
