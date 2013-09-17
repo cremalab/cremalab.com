@@ -1,17 +1,19 @@
-= form_for [@user, @blog] do |f|
-  - if @blog.errors.any?
-    .error_messages
-      %h2 Form is invalid
-      %ul
-        - for message in @blog.errors.full_messages
-          %li= message
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :published_at
-    = f.date_select :published_at
-  .field
-    = f.label :content, 'Content (markdown enabled)'
-    = f.text_area :content, rows: 20, cols: 60
-  .actions= f.submit
+.blog-form
+  = form_for [@user, @blog] do |f|
+    - if @blog.errors.any?
+      .error_messages
+        %h2 Form is invalid
+        %ul
+          - for message in @blog.errors.full_messages
+            %li= message
+    .field
+      = f.label :title
+      = f.text_field :title
+    .field
+      = f.label :published_at
+      = f.date_select :published_at
+    .field
+      = f.label :content, 'Content (markdown enabled)'
+      = f.text_area :content, rows: 20, cols: 60, class: 'blog-content'
+    .actions= f.submit
+.blog-preview
