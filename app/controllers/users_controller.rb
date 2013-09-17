@@ -3,6 +3,11 @@ class UsersController < ApplicationController
   before_filter :require_login
   respond_to :html
 
+
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
     @profile = @user.build_profile
