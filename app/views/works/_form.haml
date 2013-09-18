@@ -1,4 +1,4 @@
-= form_for @work do |f|
+= nested_form_for @work do |f|
   - if @work.errors.any?
     .error_messages
       %h2 Form is invalid
@@ -11,4 +11,25 @@
   .field
     = f.label :description, 'Description (markdown enabled)'
     = f.text_area :description, rows: 20, cols: 60, class: 'work-description markdown'
+
+  .field
+    %legend Images
+    = f.fields_for :work_images do |wf|
+      = wf.label :image
+      = wf.file_field :image
+      = wf.link_to_remove "Remove this image"
+
+    %p= f.link_to_add "Add an image", :work_images
+
+  .field
+    %legend Links
+    = f.fields_for :links do |lf|
+      = lf.label :text
+      = lf.text_field :text
+      = lf.label :url
+      = lf.text_field :url
+      = lf.link_to_remove "Remove this link"
+
+    %p= f.link_to_add "Add a link", :links
+
   .actions= f.submit

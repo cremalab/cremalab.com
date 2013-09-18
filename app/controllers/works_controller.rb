@@ -7,6 +7,10 @@ class WorksController < ApplicationController
     @work = Work.new
   end
 
+  def edit
+    @work = Work.find(params[:id])
+  end
+
   def create
     @work = Work.new(work_params)
     if @work.save
@@ -41,8 +45,8 @@ private
 
   def work_params
     params.require(:work).permit(:description, :title,
-      work_images_attributes: [:image],
-      links_attributes: [:text, :url]
+      work_images_attributes: [:image, :_destroy, :id],
+      links_attributes: [:text, :url, :_destroy, :id]
     )
   end
 
