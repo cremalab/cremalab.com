@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130916211455) do
+ActiveRecord::Schema.define(version: 20130918131210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20130916211455) do
   end
 
   add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
+
+  create_table "links", force: true do |t|
+    t.string   "text"
+    t.string   "url"
+    t.integer  "linkable_id"
+    t.string   "linkable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profiles", force: true do |t|
     t.string   "first_name"
@@ -58,5 +67,19 @@ ActiveRecord::Schema.define(version: 20130916211455) do
   end
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
+
+  create_table "work_images", force: true do |t|
+    t.string   "image"
+    t.integer  "work_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "works", force: true do |t|
+    t.text     "description"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
