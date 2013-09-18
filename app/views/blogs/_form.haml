@@ -14,6 +14,6 @@
       = f.date_select :published_at
     .field
       = f.label :content, 'Content (markdown enabled)'
-      = f.text_area :content, rows: 20, cols: 60, class: 'blog-content'
+      = f.text_area :content, rows: 20, cols: 60, class: 'blog-content markdown'
     .actions= f.submit
-.blog-preview
+.markdown-preview
