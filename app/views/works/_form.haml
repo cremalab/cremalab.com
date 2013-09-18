@@ -1,0 +1,14 @@
+= form_for @work do |f|
+  - if @work.errors.any?
+    .error_messages
+      %h2 Form is invalid
+      %ul
+        - for message in @work.errors.full_messages
+          %li= message
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description, 'Description (markdown enabled)'
+    = f.text_area :description, rows: 20, cols: 60, class: 'work-description markdown'
+  .actions= f.submit
