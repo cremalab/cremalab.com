@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+best:
+  title: "The Best Blog"
+  content: "This is a blog"
+  user: dan
+
+better:
+  title: "The Better Blog"
+  content: "This a blog"
+  user: matt

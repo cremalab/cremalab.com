@@ -11,15 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130911171152) do
+ActiveRecord::Schema.define(version: 20130918131210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blogs", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "published_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
+
+  create_table "links", force: true do |t|
+    t.string   "text"
+    t.string   "url"
+    t.integer  "linkable_id"
+    t.string   "linkable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profiles", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "avatar"
+  end
+
+  create_table "social_links", force: true do |t|
+    t.string   "username"
+    t.string   "full_url"
+    t.string   "network"
+    t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,8 +63,23 @@ ActiveRecord::Schema.define(version: 20130911171152) do
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.integer  "profile_id"
+    t.string   "username"
   end
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
+
+  create_table "work_images", force: true do |t|
+    t.string   "image"
+    t.integer  "work_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "works", force: true do |t|
+    t.text     "description"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

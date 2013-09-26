@@ -1,0 +1,4 @@
+.team-member
+  = link_to user.profile.full_name, user_blogs_path(user)
+  = image_tag user.profile.avatar.thumb
+  = render user.profile.social_links
