@@ -1,11 +1,9 @@
 // Heading Scale
-@include header-scale (
-  $ratio:                 1.3,
-  $top-offset:            1,
-  $bottom-offset-ratio:   -0.35,
-  $header-rank-shift:     -2,
-  $min-width:             null,
-  $max-width:             null
+@include heading-scale( 
+  $ratio: 1.3, 
+  $top: 1, 
+  $bottom: -0.35, 
+  $shift: -2 
 );
 
 // Heading Weight
@@ -17,15 +15,3 @@ h3 {}
 h4 {}
 h5 {}
 h6 {}
-
-// Headings for nested sections
-section > h1 { @extend h2 }
-section > section > h1 { @extend h3 }
-section > section > section > h1 { @extend h4 }
-section > section > section > section > h1 { @extend h5 }
-section > section > section > section > section > h1 { @extend h6 }
-
-// Margins for nested sections. It is written this way to make it easier to add new contingent elements.
-h1, header {
-	~ section { @extend %h2Margin;}
-}
