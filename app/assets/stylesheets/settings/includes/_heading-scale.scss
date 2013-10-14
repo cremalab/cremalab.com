@@ -3,8 +3,8 @@
     h#{$i} {
       $power: 6 - ($i - $shift);
       $size: pow($ratio, $power);
-      font-size: $size;
-      margin: (($ratio/$size)*$top)em 0 (($ratio/$size)*$bottom)em !important;
+      font-size: #{$size}em;
+      margin: #{(($ratio/$size)*$top)}em 0 #{(($ratio/$size)*$bottom)}em !important;
     }
   }
 }
