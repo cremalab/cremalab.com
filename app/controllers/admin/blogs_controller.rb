@@ -34,7 +34,7 @@ class Admin::BlogsController < ApplicationController
     end
 
     if @blog.save
-      render :show, status: 201
+      redirect_to blog_path(@blog)
     else
       @user = blog_user
       @blog = @blog
@@ -54,7 +54,7 @@ class Admin::BlogsController < ApplicationController
   def update
     @blog = Blog.find(params[:id])
     if @blog.update_attributes(blog_params)
-      render :show, status: :ok
+      redirect_to blog_path(@blog)
     else
       render :show, status: :unprocessable_entity
     end
