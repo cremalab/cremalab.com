@@ -31,7 +31,6 @@ $ ->
       current_index = Number $(el).attr('data-index')
       work_id   = $(el).attr('data-id')
       unless index is current_index
-        console.log index
         $.ajax
           type: 'PUT'
           url: "/admin/work/#{work_id}"
