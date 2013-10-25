@@ -1,7 +1,5 @@
 class BlogsController < ApplicationController
 
-  before_filter :require_login, except: [:index, :show]
-
   def index
     if blog_user
       if current_user
