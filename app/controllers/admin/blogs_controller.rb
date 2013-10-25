@@ -73,7 +73,7 @@ class Admin::BlogsController < ApplicationController
 private
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :published_at, :user_id)
+    params.require(:blog).permit(:title, :content, :published_at, :user_id, :tag_list)
   end
 
   def blog_user

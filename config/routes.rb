@@ -13,6 +13,9 @@ CremalabCom::Application.routes.draw do
     resources :blogs
   end
   resources :blogs, path: 'blog'
+
+  get 'blog/categories/:id' => 'blogs#category'
+
   resources :works, path: 'work'
 
   namespace :admin do
