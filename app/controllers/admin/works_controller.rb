@@ -1,6 +1,7 @@
 class Admin::WorksController < ApplicationController
 
   before_filter :require_login
+  respond_to :html, :json
 
   def index
     @works = Work.all
@@ -17,7 +18,7 @@ class Admin::WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
-      redirect_to admin_works_path
+      respond_with @work
     else
       render :new
     end
@@ -26,7 +27,10 @@ class Admin::WorksController < ApplicationController
   def update
     @work = Work.find(params[:id])
     if @work.update_attributes(work_params)
-      redirect_to works_path
+      respond_to do |format|
+        format.html { redirect_to works_path }
+        format.json { render :json => @work }
+      end
     else
       render :edit
     end
@@ -47,7 +51,7 @@ class Admin::WorksController < ApplicationController
 private
 
   def work_params
-    params.require(:work).permit(:description, :title,
+    params.require(:work).permit(:description, :title, :order_index,
       work_images_attributes: [:image, :_destroy, :id],
       links_attributes: [:text, :url, :_destroy, :id]
     )

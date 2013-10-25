@@ -1,3 +1,5 @@
-%article
-  - present work do |work_presenter|
-    %h4= work_presenter.title_link
+%article.work{:'data-index' => "#{work.order_index}", :'data-id' => "#{work.id}"}
+  .drag-handle
+  %header
+    - present work do |work_presenter|
+      %h4= work_presenter.title_link
