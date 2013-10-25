@@ -22,15 +22,12 @@ class BlogsController < ApplicationController
     render :show, status: 200
   end
 
-  def edit
-    @blog = Blog.find(params[:id])
+  def category
+    @blogs = Blog.tagged_with(params[:id]).order("published_at DESC").page(params[:page]).per(5)
+    render :index
   end
 
 private
-
-  def blog_params
-    params.require(:blog).permit(:title, :content, :published_at, :user_id)
-  end
 
   def blog_user
     if params[:user_id]
