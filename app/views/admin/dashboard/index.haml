@@ -1,0 +1,8 @@
+%h1 Blog Posts
+
+= render partial: 'admin/blogs/preview', collection: @blogs, as: :blog
+= paginate @blogs
+
+%h1 Work
+
+= render @work

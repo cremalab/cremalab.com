@@ -16,6 +16,7 @@ CremalabCom::Application.routes.draw do
   resources :works, path: 'work'
 
   namespace :admin do
+    get "/" => 'dashboard#index'
     resources :users, path: 'team' do
       resources :blogs
     end
