@@ -15,9 +15,29 @@
 #= require turbolinks
 #= require_tree .
 #= require marked
+#= require jquery.sortable.min
 
 $ ->
 
   $('button#sideBarToggle').on 'click', ->
     $('main').toggleClass 'open'
     $('button#sideBarToggle').toggleClass 'close'
+
+  $('.works.sortable').sortable(
+    items: '.work'
+    handle: '.drag-handle'
+  ).bind 'sortupdate', (a,b,c) ->
+    $('.works.sortable .work').each (index,el) ->
+      current_index = Number $(el).attr('data-index')
+      work_id   = $(el).attr('data-id')
+      unless index is current_index
+        console.log index
+        $.ajax
+          type: 'PUT'
+          url: "/admin/work/#{work_id}"
+          dataType: 'json'
+          data:
+            work:
+              order_index: index
+          success: (res) ->
+            $(el).attr('data-index', res.order_index)

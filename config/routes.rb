@@ -15,6 +15,15 @@ CremalabCom::Application.routes.draw do
   resources :blogs, path: 'blog'
   resources :works, path: 'work'
 
+  namespace :admin do
+    get "/" => 'dashboard#index'
+    resources :users, path: 'team' do
+      resources :blogs
+    end
+    resources :blogs, path: 'blog'
+    resources :works, path: 'work'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

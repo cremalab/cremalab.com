@@ -1,0 +1,12 @@
+.drag-handle {
+  cursor: move;
+  width:  20px;
+  height: 20px;
+  background: blue;
+  display: inline-block;
+}
+
+.sortable-placeholder {
+  height: 80px;
+  border: 1px dashed #ccc;
+}

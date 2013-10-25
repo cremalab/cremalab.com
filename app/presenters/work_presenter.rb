@@ -10,7 +10,7 @@ class WorkPresenter < BasePresenter
 
   def admin_links
     if h.current_user
-      h.link_to 'Edit', h.edit_work_path(@object)
+      h.link_to 'Edit', h.edit_admin_work_path(@object)
     end
   end
 
