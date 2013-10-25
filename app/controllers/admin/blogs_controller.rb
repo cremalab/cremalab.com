@@ -1,6 +1,6 @@
-class BlogsController < ApplicationController
+class Admin::BlogsController < ApplicationController
 
-  before_filter :require_login, except: [:index, :show]
+  before_filter :require_login
 
   def index
     if blog_user
@@ -19,6 +19,29 @@ class BlogsController < ApplicationController
     render :index, status: 200
   end
 
+  def new
+    @blog = Blog.new()
+    if blog_user
+      @user = blog_user
+    end
+  end
+
+  def create
+    if blog_user
+      @blog = blog_user.blogs.new(blog_params)
+    else
+      @blog = Blog.new(blog_params)
+    end
+
+    if @blog.save
+      render :show, status: 201
+    else
+      @user = blog_user
+      @blog = @blog
+      render :edit
+    end
+  end
+
   def show
     @blog = Blog.find(params[:id])
     render :show, status: 200
@@ -26,6 +49,25 @@ class BlogsController < ApplicationController
 
   def edit
     @blog = Blog.find(params[:id])
+  end
+
+  def update
+    @blog = Blog.find(params[:id])
+    if @blog.update_attributes(blog_params)
+      render :show, status: :ok
+    else
+      render :show, status: :unprocessable_entity
+    end
+
+  end
+
+  def destroy
+    @blog = Blog.find(params[:id])
+    if @blog.destroy
+      redirect_to blogs_path
+    else
+      render @blog
+    end
   end
 
 private
