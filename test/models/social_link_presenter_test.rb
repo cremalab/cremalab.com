@@ -3,8 +3,11 @@ require 'test_helper'
 class SocialLinkPresenterTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.create(email: 'test@cremalab.com', password: 'testtest', password_confirmation: 'testtest')
-    @profile = @user.create_profile(first_name: "Guy", last_name: "Testerson")
+    @user = User.create(
+      email: 'test@cremalab.com', password: 'testtest', password_confirmation: 'testtest',
+      profile_attributes: {first_name: "Guy", last_name: "Testerson"}
+    )
+    @profile = @user.profile
   end
 
   test "should generate a twitter url" do

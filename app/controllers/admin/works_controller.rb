@@ -17,7 +17,7 @@ class Admin::WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
-      redirect_to works_path
+      redirect_to admin_works_path
     else
       render :new
     end

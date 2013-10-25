@@ -1,5 +1,5 @@
 .blog-form
-  = form_for [@user, @blog] do |f|
+  = form_for [:admin, @user, @blog] do |f|
     - if @blog.errors.any?
       .error_messages
         %h2 Form is invalid

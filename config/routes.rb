@@ -19,6 +19,7 @@ CremalabCom::Application.routes.draw do
     resources :users, path: 'team' do
       resources :blogs
     end
+    resources :blogs, path: 'blog'
     resources :works, path: 'work'
   end
 
