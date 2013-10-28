@@ -2,24 +2,20 @@ class BlogsController < ApplicationController
 
   def index
     if blog_user
-      if current_user
-        @blogs = blog_user.blogs.order("published_at DESC").page(params[:page]).per(5)
-      else
-        @blogs = blog_user.blogs.published.order("published_at DESC").page(params[:page]).per(5)
-      end
+      @blogs = blog_user.blogs.active.order("published_at DESC").page(params[:page]).per(5)
     else
-      if current_user
-        @blogs = Blog.all.order("published_at DESC").page(params[:page]).per(5)
-      else
-        @blogs = Blog.published.order("published_at DESC").page(params[:page]).per(5)
-      end
+      @blogs = Blog.active.order("published_at DESC").page(params[:page]).per(5)
     end
     render :index, status: 200
   end
 
   def show
     @blog = Blog.find(params[:id])
-    render :show, status: 200
+    if !current_user && !@blog.is_published?
+      raise ActiveRecord::RecordNotFound
+    else
+      render :show, status: 200
+    end
   end
 
   def category

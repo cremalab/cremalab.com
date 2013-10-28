@@ -4,14 +4,16 @@ class Blog < ActiveRecord::Base
 
   validates_presence_of :title, :content
 
-  scope :published, -> { where("published_at <= ?", Time.now) }
-
   def to_param
     "#{self.id}-#{self.title.parameterize}"
   end
 
   def is_published?
-    published_at <= Time.now
+    published_at <= Time.now && self.published == true
+  end
+
+  def self.active
+    where("published = ? AND published_at <= ?", true, Time.now)
   end
 
 
