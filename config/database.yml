@@ -52,5 +52,4 @@ production:
   encoding: unicode
   database: cremalab_com_production
   pool: 5
-  username: cremalab_com
   password:
