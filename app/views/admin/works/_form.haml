@@ -9,6 +9,9 @@
     = f.label :title
     = f.text_field :title
   .field
+    = f.label :published, "Published?"
+    = f.check_box :published
+  .field
     = f.label :description, 'Description (markdown enabled)'
     = f.text_area :description, rows: 20, cols: 60, class: 'work-description markdown'
   .markdown-preview
@@ -33,4 +36,6 @@
 
     %p= f.link_to_add "Add a link", :links
 
-  .actions= f.submit
+  .actions
+    = f.submit "Save"
+    = f.submit "Save and Publish"

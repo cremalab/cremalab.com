@@ -5,4 +5,8 @@ class Work < ActiveRecord::Base
   accepts_nested_attributes_for :work_images, allow_destroy: true
   accepts_nested_attributes_for :links, allow_destroy: true
 
+  def self.active
+    where(published: true)
+  end
+
 end

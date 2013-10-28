@@ -13,10 +13,15 @@
       = f.label :published_at
       = f.date_select :published_at
     .field
+      = f.label :published, "Published?"
+      = f.check_box :published
+    .field
       = f.label :content, 'Content (markdown enabled)'
       = f.text_area :content, rows: 20, cols: 60, class: 'blog-content markdown'
     .field
       = f.label :tag_list, 'Tag list (comma separated)'
       = f.text_field :tag_list
-    .actions= f.submit
+    .actions
+      = f.submit "Save"
+      = f.submit "Save and Publish"
 .markdown-preview

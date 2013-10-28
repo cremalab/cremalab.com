@@ -1,22 +1,15 @@
 class Admin::BlogsController < ApplicationController
 
   before_filter :require_login
+  before_filter :check_publish, only: [:create, :update]
 
   def index
     if blog_user
-      if current_user
-        @blogs = blog_user.blogs.order("published_at DESC").page(params[:page]).per(5)
-      else
-        @blogs = blog_user.blogs.published.order("published_at DESC").page(params[:page]).per(5)
-      end
+      @blogs = blog_user.blogs.order("published_at DESC").page(params[:page]).per(5)
     else
-      if current_user
-        @blogs = Blog.all.order("published_at DESC").page(params[:page]).per(5)
-      else
-        @blogs = Blog.published.order("published_at DESC").page(params[:page]).per(5)
-      end
+      @blogs = Blog.all.order("published_at DESC").page(params[:page]).per(5)
     end
-    render :index, status: 200
+    render 'blogs/index', status: 200
   end
 
   def new
@@ -73,7 +66,10 @@ class Admin::BlogsController < ApplicationController
 private
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :published_at, :user_id, :tag_list)
+    params.require(:blog).permit(
+      :title, :content, :published_at,
+      :user_id, :tag_list, :published
+    )
   end
 
   def blog_user
@@ -81,6 +77,12 @@ private
       return User.find_by(username: params[:user_id])
     else
       return false
+    end
+  end
+
+  def check_publish
+    if params[:commit].include?("Publish")
+      params[:blog][:published] = true
     end
   end
 

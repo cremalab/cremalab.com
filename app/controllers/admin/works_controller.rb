@@ -1,10 +1,12 @@
 class Admin::WorksController < ApplicationController
 
   before_filter :require_login
+  before_filter :check_publish, only: [:create, :update]
   respond_to :html, :json
 
   def index
-    @works = Work.all
+    @works = Work.all.order("order_index ASC")
+    render 'works/index'
   end
 
   def new
@@ -28,7 +30,7 @@ class Admin::WorksController < ApplicationController
     @work = Work.find(params[:id])
     if @work.update_attributes(work_params)
       respond_to do |format|
-        format.html { redirect_to works_path }
+        format.html { redirect_to admin_works_path }
         format.json { render :json => @work }
       end
     else
@@ -51,10 +53,16 @@ class Admin::WorksController < ApplicationController
 private
 
   def work_params
-    params.require(:work).permit(:description, :title, :order_index,
+    params.require(:work).permit(:description, :title, :order_index, :published,
       work_images_attributes: [:image, :_destroy, :id],
       links_attributes: [:text, :url, :_destroy, :id]
     )
+  end
+
+  def check_publish
+    if params[:commit] && params[:commit].include?("Publish")
+      params[:work][:published] = true
+    end
   end
 
 end

@@ -14,4 +14,12 @@ class WorkPresenter < BasePresenter
     end
   end
 
+  def state
+    if @object.published == true
+      "Published"
+    else
+      "Draft"
+    end
+  end
+
 end
