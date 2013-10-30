@@ -19,5 +19,5 @@
 $ ->
 
   $('button#sideBarToggle').on 'click', ->
-    $('main').toggleClass 'open'
+    $('.contentWrapper').toggleClass 'open'
     $('button#sideBarToggle').toggleClass 'close'

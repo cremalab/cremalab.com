@@ -8,6 +8,7 @@ aside.sideBar {
   right: 0;
   bottom: 0;
   width: 260px;
-  background: gray;
+  background: $black;
+  color: $gray;
   overflow-y: none;
 }
