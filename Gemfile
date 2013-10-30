@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 1.2'
 gem "sorcery", "~> 0.8.2"
 
 gem "nested_form", "~> 0.3.2"
+gem 'acts-as-taggable-on', "~> 2.4.1"
 gem "symbolize", "~> 4.4.1"
 gem "kaminari", "~> 0.14.1"
 

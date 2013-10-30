@@ -1,4 +1,4 @@
-= nested_form_for @user do |f|
+= nested_form_for [:admin, @user] do |f|
   - if @user.errors.any?
     .error_messages
       %h2 Form is invalid

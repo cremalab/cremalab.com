@@ -5,7 +5,5 @@
       %h3= blog_presenter.author_link
       - unless blog.is_published?
         %h5 Unpublished
-    %section.tags
-      = blog_presenter.tag_list
     %section
       = blog_presenter.content

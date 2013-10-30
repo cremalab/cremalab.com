@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
     self.username = profile.full_name.parameterize
   end
 
+  def full_name
+    "#{profile.first_name} #{profile.last_name}"
+  end
+
 end
