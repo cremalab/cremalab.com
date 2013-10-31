@@ -1,6 +1,8 @@
 class Blog < ActiveRecord::Base
   belongs_to :user
-  acts_as_taggable
+  unless (ARGV & ['assets:precompile', 'assets:clean']).any?
+    acts_as_taggable
+  end
 
   validates_presence_of :title, :content
 
