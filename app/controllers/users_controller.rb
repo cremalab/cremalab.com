@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :require_login
   respond_to :html
-
 
   def index
     @users = User.all
