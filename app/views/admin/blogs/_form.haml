@@ -21,6 +21,9 @@
     .field
       = f.label :tag_list, 'Tag list (comma separated)'
       = f.text_field :tag_list
+    .field
+      %h3 Images
+      %p= f.link_to_add "Add an image", :blog_images
     .actions
       = f.submit "Save"
       = f.submit "Save and Publish"

@@ -54,7 +54,7 @@ private
 
   def work_params
     params.require(:work).permit(:description, :title, :order_index, :published,
-      work_images_attributes: [:image, :_destroy, :id],
+      images_attributes: [:image, :_destroy, :id],
       links_attributes: [:text, :url, :_destroy, :id]
     )
   end

@@ -1,5 +1,6 @@
 class Blog < ActiveRecord::Base
   belongs_to :user
+  has_many :blog_images, :dependent => :destroy
   acts_as_taggable
 
   validates_presence_of :title, :content
