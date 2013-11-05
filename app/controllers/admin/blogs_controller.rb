@@ -25,7 +25,7 @@ class Admin::BlogsController < ApplicationController
     else
       @blog = Blog.new(blog_params)
     end
-
+    add_new_images
     if @blog.save
       redirect_to blog_path(@blog)
     else
@@ -68,7 +68,7 @@ private
   def blog_params
     params.require(:blog).permit(
       :title, :content, :published_at,
-      :user_id, :tag_list, :published
+      :user_id, :tag_list, :published, :new_image_ids
     )
   end
 
@@ -83,6 +83,16 @@ private
   def check_publish
     if params[:commit].include?("Publish")
       params[:blog][:published] = true
+    end
+  end
+
+  def add_new_images
+    ids = params[:new_image_ids]
+    if ids
+      ids = ids.split(',')
+      for id in ids
+        @blog.images << Image.find(id)
+      end
     end
   end
 

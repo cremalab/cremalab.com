@@ -1,5 +1,6 @@
 .blog-form
   = form_for [:admin, @user, @blog] do |f|
+    #meta_data{data: {imageable_id: @blog.id ? @blog.id : '', imageable_type: 'Blog', controller: 'blogs'}}
     - if @blog.errors.any?
       .error_messages
         %h2 Form is invalid
@@ -23,7 +24,10 @@
       = f.text_field :tag_list
     .field
       %h3 Images
-      %p= f.link_to_add "Add an image", :blog_images
+      #images_json{style: "display: none"}= @blog.images.to_json
+
+      %a.add-image{href: '#'} Add an Image
+      #existing_images
     .actions
       = f.submit "Save"
       = f.submit "Save and Publish"

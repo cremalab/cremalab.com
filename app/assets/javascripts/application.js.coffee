@@ -16,6 +16,10 @@
 #= require_tree .
 #= require marked
 #= require jquery.sortable.min
+#= require jquery.ui.widget.js
+#= require jquery.iframe-transport.js
+#= require jquery.fileupload
+
 
 $ ->
 

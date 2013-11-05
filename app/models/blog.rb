@@ -1,7 +1,9 @@
 class Blog < ActiveRecord::Base
   belongs_to :user
-  has_many :blog_images, :dependent => :destroy
+  has_many :images, as: :imageable, :dependent => :destroy
   acts_as_taggable
+
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   validates_presence_of :title, :content
 
