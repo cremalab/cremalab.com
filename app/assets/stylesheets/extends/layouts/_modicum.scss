@@ -1,7 +1,8 @@
 .grid {
-  display: table;
+  display: inline-table;
   table-layout: fixed;
   width: 100%;
+  text-align: left;
 
   &.auto   { table-layout: auto }; // Switch table back to natural layout.
 
@@ -12,6 +13,7 @@
 
   &.rtl {
     direction: rtl;
+    text-align: right;
     > * { direction: ltr }
   }
 

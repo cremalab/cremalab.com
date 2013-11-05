@@ -20,7 +20,7 @@
 $(document).on 'ready page:load', ->
 
   $('button#sideBarToggle').on 'click', ->
-    $('.contentWrapper').toggleClass 'open'
+    $('.layout-main-wrapper').toggleClass 'open'
     $('button#sideBarToggle').toggleClass 'close'
 
   $('.works.sortable').sortable(

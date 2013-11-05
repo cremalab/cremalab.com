@@ -1,0 +1,8 @@
+.backgroundWrapper {
+  background: teal;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &.process {
+    background-image: url("kelly-desk.jpg");
+  }
+}

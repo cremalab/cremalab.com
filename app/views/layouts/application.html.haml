@@ -11,9 +11,10 @@
 %body
   %button.plain#sideBarToggle
   %aside.layout-sidebar
-    = render 'layouts/site_navigation'
-  .contentWrapper
-    = yield :video
-    %main
-      = render 'layouts/user_menu' if current_user
-      = yield
+    = render "layouts/site_navigation"
+  %section.layout-main-wrapper
+    .layout-main
+      = yield :video
+      %main.layout-main-content
+        = render "layouts/user_menu" if current_user
+        = yield
