@@ -18,7 +18,8 @@
       = f.check_box :published
     .field
       = f.label :content, 'Content (markdown enabled)'
-      = f.text_area :content, rows: 20, cols: 60, class: 'blog-content markdown'
+      = render partial: 'ace_editor', locals: {content: @blog.content}
+      = f.text_area :content, rows: 20, cols: 60, class: 'blog-content editor-content'
     .field
       = f.label :tag_list, 'Tag list (comma separated)'
       = f.text_field :tag_list

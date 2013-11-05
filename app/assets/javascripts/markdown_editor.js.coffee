@@ -1,4 +1,6 @@
+
 $(document).on 'ready page:load', ->
+  hljs.initHighlightingOnLoad()
   marked.setOptions
     gfm: true
     tables: true
@@ -7,7 +9,9 @@ $(document).on 'ready page:load', ->
     sanitize: true
     smartLists: true
     smartypants: true
-    langPrefix: 'lang-'
+    langPrefix: ''
+    highlight: (code, lang) ->
+      hljs.highlightAuto(code, lang).value
 
 
   editor = new MarkdownEditor() unless editor
@@ -18,15 +22,41 @@ class MarkdownEditor
 
   bindEditor: ->
     @$form      = $('form')
-    @$textarea  = @$form.find('textarea.markdown')
+    @$textarea  = @$form.find('textarea.editor-content')
     @$preview   = $('.markdown-preview')
-    @generateMarkdownPreview @$textarea.val()
+
+    @editor = ace.edit("editor")
+    @editor.setTheme("ace/theme/github")
+    @editor.getSession().setMode("ace/mode/markdown")
+    @editor.getSession().setUseWrapMode(true)
+    @editor.setValue @$textarea.val()
+    @editor.setHighlightActiveLine(false)
+    @editor.getSession().setUseSoftTabs(true)
+    @editor.getSession().setTabSize(2)
+    @editor.renderer.setShowGutter(false)
+    @editor.commands.addCommand
+      name: 'save'
+      bindKey:
+        win: 'Ctrl-S'
+        mac: 'Command-S'
+      exec: (editor) =>
+        @$form.submit()
+      readOnly: false
+
+    @bindForm()
+
+    @generateMarkdownPreview @editor.getSession().getValue()
     @setupFormHelper()
     @setupExistingImages()
     @setupNewImages()
 
-    @$textarea.on 'keyup', (e) =>
-      @generateMarkdownPreview $(e.target).val()
+    @editor.getSession().on 'change', =>
+      @generateMarkdownPreview @editor.getSession().getValue()
+
+  bindForm: ->
+    @$form.on 'submit', (e) =>
+      @$textarea.val @editor.getSession().getValue()
+      return true
 
   setupFormHelper: ->
     @$form.find('.add-image').on 'click', (e) =>
@@ -106,14 +136,25 @@ class MarkdownEditor
         progress = progress = parseInt(data.loaded / data.total * 100, 10)
         field.find('.progress').css('width', progress + '%')
 
+  previewTemplate: (image) ->
+    "
+    <img src='#{image.image.thumb.url}' />
+    <a class='remove' href='#'>Delete image</a>
+    <button data-imageurl='#{image.image.thumb.url}'>Insert Thumbnail</button>
+    <button data-imageurl='#{image.image.url}'>Insert Full Size</button>
+    "
 
   renderPreview: (image, $field) ->
-    $field.append("<img src='#{image.image.thumb.url}' /><a class='remove' href='#'>Delete image</a>").append("
-      <p>Full size: <pre>![Alt text](#{image.image.url})</pre></p>
-      <p>Thumb: <pre>![Alt text](#{image.image.thumb.url})</pre></p>
-    ")
-    $field.find('.image-upload').fileupload('destroy').remove().end().find('.cancel, .progress').remove()
+    $field.html @previewTemplate(image)
+    $field.find("[data-imageurl]").on 'click', (e) =>
+      e.preventDefault()
+      url = $(e.target).attr('data-imageurl')
+      @insertImage(url)
     @setupDestroy(image, $field)
+
+  insertImage: (url) ->
+    markup = "![Alt Text](#{url})"
+    @editor.insert(markup)
 
   setupDestroy: (image, $field) ->
     $field.find('.remove').off().on 'click', (e) =>
@@ -130,7 +171,7 @@ class MarkdownEditor
         @removeNewImage(image.id)
 
   checkForEditor: ->
-    if $('textarea.markdown').length
+    if $('textarea.editor-content').length
       @bindEditor()
 
   generateMarkdownPreview: (text) ->

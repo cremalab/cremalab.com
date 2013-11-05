@@ -81,7 +81,7 @@ private
   end
 
   def check_publish
-    if params[:commit].include?("Publish")
+    if params[:commit] and params[:commit].include?("Publish")
       params[:blog][:published] = true
     end
   end
