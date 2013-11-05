@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131104194311) do
+ActiveRecord::Schema.define(version: 20131105190016) do
 
   create_table "blog_images", force: true do |t|
     t.string   "image"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20131104194311) do
     t.string   "imageable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "featured"
   end
 
   create_table "links", force: true do |t|

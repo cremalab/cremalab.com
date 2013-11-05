@@ -19,5 +19,7 @@ class Blog < ActiveRecord::Base
     where("published = ? AND published_at <= ?", true, Time.now)
   end
 
-
+  def featured_image
+    self.images.featured.first
+  end
 end

@@ -7,7 +7,7 @@ class Admin::ImagesController < ApplicationController
     if @image.save
       render json: @image.as_json
     else
-      render json: @image.errors
+      @image = Image.find(params[:id])
     end
   end
 
@@ -18,8 +18,20 @@ class Admin::ImagesController < ApplicationController
     end
   end
 
+  def update
+    @image = Image.find(params[:id])
+    if @image.update_attributes(featured_params)
+      render json: @image.as_json
+    else
+      @image = Image.find(params[:id])
+    end
+  end
+
 private
   def image_params
-    params.permit(:image, :imageable_id, :imageable_type)
+    params.permit(:image, :imageable_id, :imageable_type, :featured)
+  end
+  def featured_params
+    params.require(:image).permit(:featured)
   end
 end

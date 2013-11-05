@@ -30,6 +30,7 @@ class MarkdownEditor
     @editor.getSession().setMode("ace/mode/markdown")
     @editor.getSession().setUseWrapMode(true)
     @editor.setValue @$textarea.val()
+    @editor.clearSelection()
     @editor.setHighlightActiveLine(false)
     @editor.getSession().setUseSoftTabs(true)
     @editor.getSession().setTabSize(2)
@@ -139,13 +140,18 @@ class MarkdownEditor
   previewTemplate: (image) ->
     "
     <img src='#{image.image.thumb.url}' />
+    <label><input id='image_#{image.id}_featured' class='featured' type='checkbox' #{'checked' if image.featured} /> Featured?</label>
     <a class='remove' href='#'>Delete image</a>
     <button data-imageurl='#{image.image.thumb.url}'>Insert Thumbnail</button>
     <button data-imageurl='#{image.image.url}'>Insert Full Size</button>
+    #{image.featured}
     "
 
   renderPreview: (image, $field) ->
-    $field.html @previewTemplate(image)
+    $field.html(@previewTemplate(image))
+    $field.find('input.featured').change (e) =>
+      featured = e.target.checked
+      @updateFeatured(image, $field, featured)
     $field.find("[data-imageurl]").on 'click', (e) =>
       e.preventDefault()
       url = $(e.target).attr('data-imageurl')
@@ -169,6 +175,14 @@ class MarkdownEditor
       success: =>
         $field.remove()
         @removeNewImage(image.id)
+
+  updateFeatured: (image, $field, featured) ->
+    $.ajax
+      type: 'PUT'
+      url: "/admin/images/#{image.id}"
+      data:
+        image:
+          featured: featured
 
   checkForEditor: ->
     if $('textarea.editor-content').length
