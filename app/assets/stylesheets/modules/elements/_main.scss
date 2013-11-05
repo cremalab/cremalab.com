@@ -1,11 +1,5 @@
 main {
-  @extend %transition;
-  position: absolute;
-  width: 100%;
-  min-height: 100%;
+  position: relative;
+  z-index: 1;
   padding: unit(2);
-  background: white;
-  &.open {
-    @include transform(translate3d(-260px,0,0)) 
-  }
 }

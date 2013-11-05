@@ -2,12 +2,13 @@ aside {
 
 }
 
-aside.sideBar {
+.layout-sidebar {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   width: 260px;
-  background: gray;
+  background: $black;
+  color: $gray;
   overflow-y: none;
 }

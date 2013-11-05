@@ -20,10 +20,10 @@
 #= require jquery.iframe-transport.js
 #= require jquery.fileupload
 
+$(document).on 'ready page:load', ->
 
-$ ->
   $('button#sideBarToggle').on 'click', ->
-    $('main').toggleClass 'open'
+    $('.contentWrapper').toggleClass 'open'
     $('button#sideBarToggle').toggleClass 'close'
 
   $('.works.sortable').sortable(

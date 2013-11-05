@@ -12,61 +12,10 @@
     = csrf_meta_tags
 %body
   %button.plain#sideBarToggle
-  %aside.sideBar
-    %nav.siteNav
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-  %main
-    = render 'layouts/user_menu' if current_user
-    = yield
+  %aside.layout-sidebar
+    = render 'layouts/site_navigation'
+  .contentWrapper
+    = yield :video
+    %main
+      = render 'layouts/user_menu' if current_user
+      = yield
