@@ -108,7 +108,10 @@ class MarkdownEditor
 
 
   renderPreview: (image, $field) ->
-    $field.append("<img src='#{image.image.thumb.url}' /><a class='remove' href='#'>Delete image</a>")
+    $field.append("<img src='#{image.image.thumb.url}' /><a class='remove' href='#'>Delete image</a>").append("
+      <p>Full size: <pre>![Alt text](#{image.image.url})</pre></p>
+      <p>Thumb: <pre>![Alt text](#{image.image.thumb.url})</pre></p>
+    ")
     $field.find('.image-upload').fileupload('destroy').remove().end().find('.cancel, .progress').remove()
     @setupDestroy(image, $field)
 
