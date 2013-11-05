@@ -9,12 +9,12 @@ button {
 }
 
 button#sideBarToggle {
-  @extend %transition.fast;
+  @extend %transition;
   font-family: 'test';
   font-size: 24px;
   line-height: 1;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0.5em;
   right: 0.5em;
   &:before {
@@ -24,7 +24,7 @@ button#sideBarToggle {
     height: 32px;
   }
   &.close {
-    color: white;
+    color: $gray;
     &:before {
       content: "x";
     }
