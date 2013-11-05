@@ -10,20 +10,10 @@
     = csrf_meta_tags
 %body
   %button.plain#sideBarToggle
-  %aside.sideBar
-    %nav.siteNav
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
-      %a{ href: "#" } Nav Item
+  %aside.layout-sidebar
+    = render 'layouts/site_navigation'
   .contentWrapper
-    %video.background{loop: true, autoplay: true}
-      %source{src: "/video/Cremalab.mp4", type: "video/mp4; codecs=avc1.42E01E,mp4a.40.2"}
-      %source{src: "/video/Cremalab.webm", type: "video/webm; codecs=vp8,vorbis"}
-      %source{src: "/video/Cremalab.ogv", type: "video/ogg; codecs=theora,vorbis"}
+    = yield :video
     %main
       = render 'layouts/user_menu' if current_user
       = yield
