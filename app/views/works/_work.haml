@@ -4,4 +4,4 @@
   = work_presenter.description
 
   = render work.links
-  = render work.work_images
+  = render partial: '/images/image', collection: work.images, as: :image

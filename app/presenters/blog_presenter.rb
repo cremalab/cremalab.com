@@ -16,6 +16,14 @@ class BlogPresenter < BasePresenter
     h.link_to @object.published_at.strftime("%m/%d/%y"), h.blog_path(@object)
   end
 
+  def featured_image
+    if @object.featured_image.nil?
+      "https://www.google.com/logos/doodles/2013/raymond-loewys-120th-birthday-ca-fr-us-nl-uk-ie-6388231276855296-hp.jpg"
+    else
+      @object.featured_image.image.url
+    end
+  end
+
   def tag_list
     list = h.content_tag(:div)
     @object.tags.collect do |tag|
