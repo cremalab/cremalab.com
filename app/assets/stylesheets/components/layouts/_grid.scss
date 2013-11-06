@@ -10,7 +10,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    @media (max-width: 640px) {
+    @media (max-width: $small) {
       position: relative;
     }
   }
@@ -28,7 +28,7 @@
     &.two-fifth    { width: 40% }
     &.three-fifth  { width: 60% }
     &.four-fifth   { width: 80% }
-    @media (max-width: 1024px) {
+    @media (max-width: $small) {
       width: auto !important;
     }
   }

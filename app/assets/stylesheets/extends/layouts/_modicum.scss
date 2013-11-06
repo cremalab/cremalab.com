@@ -19,7 +19,7 @@
 
   > * { 
     display: table-cell;
-    @media (max-width: 640px ) {
+    @media (max-width: $small ) {
       display: block;
       width: 100% !important;
     }
