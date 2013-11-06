@@ -10,6 +10,7 @@ button {
 
 button#sideBarToggle {
   @extend %transition;
+  -webkit-transform: translateZ(100);
   font-family: 'test';
   font-size: 24px;
   line-height: 1;
