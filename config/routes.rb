@@ -1,6 +1,8 @@
 CremalabCom::Application.routes.draw do
 
 
+  get "images/create"
+  get "images/destroy"
   root 'home#index'
   get "contact" => 'contact#index'
   get "process" => 'process#index'
@@ -20,10 +22,16 @@ CremalabCom::Application.routes.draw do
 
   namespace :admin do
     get "/" => 'dashboard#index'
+    resources :images
     resources :users, path: 'team' do
       resources :blogs
     end
-    resources :blogs, path: 'blog'
+    resources :blogs do
+      resources :images
+    end
+    resources :blogs, path: 'blog' do
+      resources :images
+    end
     resources :works, path: 'work'
   end
 

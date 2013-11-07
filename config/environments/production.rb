@@ -24,8 +24,9 @@ CremalabCom::Application.configure do
 
   config.assets.paths << Rails.root.join('fonts')
 
-  config.assets.precompile += %w( .svg .eot .woff .ttf )
-  config.assets.precompile += %w( print.css )
+  config.assets.precompile += %w( .svg .eot .woff .ttf print.css)
+
+  config.assets.initialize_on_precompile = false
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier

@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028155440) do
+ActiveRecord::Schema.define(version: 20131105190016) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  create_table "blog_images", force: true do |t|
+    t.string   "image"
+    t.integer  "blog_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "blogs", force: true do |t|
     t.string   "title"
@@ -27,6 +31,15 @@ ActiveRecord::Schema.define(version: 20131028155440) do
   end
 
   add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
+
+  create_table "images", force: true do |t|
+    t.string   "image"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "featured"
+  end
 
   create_table "links", force: true do |t|
     t.string   "text"
@@ -85,13 +98,6 @@ ActiveRecord::Schema.define(version: 20131028155440) do
   end
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
-
-  create_table "work_images", force: true do |t|
-    t.string   "image"
-    t.integer  "work_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "works", force: true do |t|
     t.text     "description"

@@ -1,5 +1,6 @@
 .blog-form
   = form_for [:admin, @user, @blog] do |f|
+    #meta_data{data: {imageable_id: @blog.id ? @blog.id : '', imageable_type: 'Blog', controller: 'blogs'}}
     - if @blog.errors.any?
       .error_messages
         %h2 Form is invalid
@@ -17,10 +18,17 @@
       = f.check_box :published
     .field
       = f.label :content, 'Content (markdown enabled)'
-      = f.text_area :content, rows: 20, cols: 60, class: 'blog-content markdown'
+      = render partial: 'ace_editor', locals: {content: @blog.content}
+      = f.text_area :content, rows: 20, cols: 60, class: 'blog-content editor-content'
     .field
       = f.label :tag_list, 'Tag list (comma separated)'
       = f.text_field :tag_list
+    .field
+      %h3 Images
+      #images_json{style: "display: none"}= @blog.images.to_json
+
+      %a.add-image{href: '#'} Add an Image
+      #existing_images
     .actions
       = f.submit "Save"
       = f.submit "Save and Publish"

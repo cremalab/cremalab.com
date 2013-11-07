@@ -18,12 +18,12 @@
 
   .field
     %legend Images
-    = f.fields_for :work_images do |wf|
+    = f.fields_for :images do |wf|
       = wf.label :image
-      = wf.file_field :image
+      = wf.file_field :image, multiple: true
       = wf.link_to_remove "Remove this image"
 
-    %p= f.link_to_add "Add an image", :work_images
+    %p= f.link_to_add "Add an image", :images
 
   .field
     %legend Links
