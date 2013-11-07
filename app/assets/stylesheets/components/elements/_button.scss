@@ -10,6 +10,7 @@ button {
 
 button#sideBarToggle {
   @extend %transition;
+  -webkit-transform: translateZ(100);
   font-family: 'test';
   font-size: 24px;
   line-height: 1;
@@ -17,6 +18,7 @@ button#sideBarToggle {
   z-index: 2;
   top: 0.5em;
   right: 0.5em;
+  color: $white;
   &:before {
     content: "m";
     display: inline-block;
@@ -24,7 +26,7 @@ button#sideBarToggle {
     height: 32px;
   }
   &.close {
-    color: $gray;
+    color: $gray-dark;
     &:before {
       content: "x";
     }

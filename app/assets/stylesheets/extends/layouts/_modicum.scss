@@ -1,0 +1,28 @@
+.grid {
+  display: inline-table;
+  table-layout: fixed;
+  width: 100%;
+  text-align: left;
+
+  &.auto   { table-layout: auto }; // Switch table back to natural layout.
+
+  &.spaced { 
+    border-spacing: 3em;
+    > * + * { margin-top: 3em } // Applies a matching top margin between elements when display:block.
+  };
+
+  &.rtl {
+    direction: rtl;
+    text-align: right;
+    > * { direction: ltr }
+  }
+
+  > * { 
+    display: table-cell;
+    @media (max-width: $small ) {
+      display: block;
+      width: 100% !important;
+    }
+  }
+
+}

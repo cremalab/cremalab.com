@@ -1,0 +1,23 @@
+.layout-main-wrapper {
+  @extend %transition;
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background: white;
+  z-index: 1;
+  overflow: hidden;
+
+  // STATE - Navigation Revealed
+  &.open { @include transform(translate3d(-260px,0,0)) }
+  
+}
+
+.layout-main {
+  position: relative;
+  text-align: center;
+}
+
+.layout-main-content {
+  width: 100%;
+  min-height: 100%;
+}

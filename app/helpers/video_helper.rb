@@ -5,7 +5,7 @@ module VideoHelper
       {extension: "webm", type: "video/webm; codecs=vp8,vorbis"},
       {extension: "ogv", type: "video/ogg; codecs=theora,vorbis"}
     ]
-    content_tag(:video, loop: true, autoplay: true, class: "background") do
+    content_tag(:video, loop: true, autoplay: true, class: "background", autobuffer: true) do
       types.each do |video|
         concat tag(:source, src: "/video/#{filename}.#{video[:extension]}", type: video[:type])
       end
