@@ -37,6 +37,10 @@
     border-spacing: unit(2);
 
     > * + * { margin-top: unit(2) } // Applies a matching top margin between elements when display:block.
+    
+    @media (max-width: $small) {
+      border-spacing: unit(1);
+    }
 
   }
 

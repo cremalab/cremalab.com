@@ -1,12 +1,13 @@
-Logged in as:
-%br
-- if current_user.profile
-  = current_user.profile.full_name
-= "(#{current_user.email})"
+.userMenu
+  Logged in as:
+  %br
+  - if current_user.profile
+    = current_user.profile.full_name
+  = "(#{current_user.email})"
 
-%nav
-  = link_to 'Logout', logout_path
-  = link_to 'New User', new_admin_user_path
-  = link_to 'Edit My Profile', edit_admin_user_path(current_user)
-  = link_to 'My Blog Posts', admin_user_blogs_path(current_user)
-  = link_to 'Add Work', new_admin_work_path
+  %nav
+    = link_to 'Logout', logout_path
+    = link_to 'New User', new_admin_user_path
+    = link_to 'Edit My Profile', edit_admin_user_path(current_user)
+    = link_to 'My Blog Posts', admin_user_blogs_path(current_user)
+    = link_to 'Add Work', new_admin_work_path
