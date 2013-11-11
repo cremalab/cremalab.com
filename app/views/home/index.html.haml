@@ -2,7 +2,20 @@
   .videoBackground
     = video_tag("Cremalab")
 
-.grid.spaced.cover
-  .siteIntro
-    %h1 We believe in building the right thing.
-    %p We’re a small team of creatives who turn big ideas into beautiful and useable digital experiences.
+/ START LAYOUT
+.layout-cover
+  .layout-cover-content
+    / END LAYOUT
+    
+    / CONTENT
+    .siteIntro
+      = image_tag "cremalab_logo.svg", class: "logo landing"
+      %h1 We believe in building the right thing.
+      %p.subHeading We’re a small team of creatives who turn big ideas into beautiful and useable digital experiences.
+      
+      / START LAYOUT
+      .layout-buttons.centered
+        .layout-buttons-content
+          = link_to "Our Process", "process", class: "button outline"
+        .layout-buttons-content
+          = link_to "Our Work", "work", class: "button outline"
