@@ -1,0 +1,14 @@
+.icon {
+  font-family: 'cremalab-icons';
+  text-decoration: none;
+  color: inherit;
+
+  // Icon Characters
+  &.sub-website:before  { content: ""}
+  &.sub-twitter:before  { content: ""}
+  &.sub-github:before   { content: ""}
+  &.sub-rdio:before     { content: ""}
+  &.sub-dribbble:before { content: ""}
+  &.sub-linked_in:before{ content: ""}
+
+}

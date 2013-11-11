@@ -22,9 +22,13 @@
 
 $(document).on 'ready page:load', ->
 
+  # Menu Toggle
   $('button#sideBarToggle').on 'click', ->
     $('.layout-main-wrapper').toggleClass 'open'
     $('button#sideBarToggle').toggleClass 'close'
+
+  # Detect Touchscreen
+  document.documentElement.className += ((if ("ontouchstart" of document.documentElement) then " touch" else " no-touch"))
 
   $('.works.sortable').sortable(
     items: '.work'

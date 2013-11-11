@@ -2,4 +2,7 @@
   padding: 20% 0;
   text-align: center;
   color: $white;
+  @media (max-width: $small) {
+    padding: 10% 0;
+  }
 }

@@ -1,10 +1,19 @@
 // Heading Scale
 @include heading-scale( 
-  $ratio: 1.315, 
+  $ratio: 1.4, 
   $top: 2, 
   $bottom: -0.35, 
-  $shift: -2 
+  $shift: -1 
 );
+
+@media (max-width: $small) {
+  @include heading-scale( 
+    $ratio: 1.2, 
+    $top: 2, 
+    $bottom: -0.35, 
+    $shift: -2 
+  );
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "AvenirLTCom-Black";

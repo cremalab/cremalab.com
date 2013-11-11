@@ -1,0 +1,14 @@
+.layout-gridWrap {
+  font-size: 0;
+  width: 101%;
+  @media (max-width: $small) {
+    width: 100%;
+  }
+  > * {
+    display: inline-block;
+    font-size: 1rem;
+    @media (max-width: $small) { padding: 50% 50% }
+    padding: 20% 25%;
+    @media (min-width: $large){ padding: 14% 16.666666667% }
+  }
+}
