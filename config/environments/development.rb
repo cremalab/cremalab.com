@@ -23,7 +23,7 @@ CremalabCom::Application.configure do
   config.active_record.migration_error = :page_load
 
   # Do not compress assets
-  config.assets.compress = false
+  config.assets.compress = true
 
   config.assets.paths << Rails.root.join('fonts')
 
@@ -32,5 +32,7 @@ CremalabCom::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.debug = true
+  config.assets.debug = false
+
+  config.assets.css_compressor = :yui
 end
