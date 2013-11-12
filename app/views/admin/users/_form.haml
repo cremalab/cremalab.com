@@ -20,6 +20,8 @@
     = pf.text_field :first_name
     = pf.label :last_name
     = pf.text_field :last_name
+    = pf.label :job_title
+    = pf.text_field :job_title
     - if @user.profile.avatar
       = image_tag @user.profile.avatar.thumb
     = pf.label :avatar
