@@ -1,8 +1,7 @@
-%header{style: "background-image: url(#{blog_presenter.featured_image});"}
-  %h1= blog_presenter.title_link
-  %h3= blog_presenter.author_link
-  %h4= blog_presenter.published_at
+%header.post-header{style: "background-image: url(#{blog_presenter.featured_image});"}
+  %h1
+    = blog_presenter.title_link
+    %span.subHeading By #{blog_presenter.author_link} on #{blog_presenter.published_at}
+  %p.tags= blog_presenter.tag_list
   - unless blog.is_published?
     %h5 Unpublished
-%section.tags
-  = blog_presenter.tag_list

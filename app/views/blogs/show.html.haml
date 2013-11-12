@@ -1,3 +1,4 @@
 - if current_user
   = link_to 'Edit', edit_admin_blog_path(@blog)
-= render 'blog', blog: @blog
+%section.post-body
+  = render 'blog', blog: @blog
