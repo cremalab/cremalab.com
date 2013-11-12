@@ -5,11 +5,11 @@ class Admin::BlogsController < ApplicationController
 
   def index
     if blog_user
-      @blogs = blog_user.blogs.order("published_at DESC").page(params[:page]).per(5)
+      @blogs = blog_user.blogs.order("published_at DESC").page(params[:page]).per(20)
     else
-      @blogs = Blog.all.order("published_at DESC").page(params[:page]).per(5)
+      @blogs = Blog.all.order("published_at DESC").page(params[:page]).per(20)
     end
-    render 'blogs/index', status: 200
+    render :index, status: 200
   end
 
   def new

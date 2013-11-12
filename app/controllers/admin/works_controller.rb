@@ -6,7 +6,7 @@ class Admin::WorksController < ApplicationController
 
   def index
     @works = Work.all.order("order_index ASC")
-    render 'works/index'
+    render :index
   end
 
   def new

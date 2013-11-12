@@ -26,20 +26,24 @@ $(document).on 'ready page:load', ->
     $('.layout-main-wrapper').toggleClass 'open'
     $('button#sideBarToggle').toggleClass 'close'
 
-  $('.works.sortable').sortable(
-    items: '.work'
+  $('.sortable').sortable(
+    items: '.item'
     handle: '.drag-handle'
-  ).bind 'sortupdate', (a,b,c) ->
-    $('.works.sortable .work').each (index,el) ->
+  ).bind 'sortupdate', (e) ->
+    $list = $(e.target)
+    controller = $list.attr('data-controller')
+    model      = $list.attr('data-model')
+    $('.sortable .item').each (index,el) ->
       current_index = Number $(el).attr('data-index')
-      work_id   = $(el).attr('data-id')
+      item_id   = $(el).attr('data-id')
       unless index is current_index
+        data = {}
+        data["#{model}"] = {}
+        data["#{model}"]['order_index'] = index
         $.ajax
           type: 'PUT'
-          url: "/admin/work/#{work_id}"
+          url: "/admin/#{controller}/#{item_id}"
           dataType: 'json'
-          data:
-            work:
-              order_index: index
+          data: data
           success: (res) ->
             $(el).attr('data-index', res.order_index)
