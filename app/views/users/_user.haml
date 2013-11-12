@@ -1,12 +1,11 @@
-- for i in 1..6
-  .teamMember
-    = picture_tag("#{user.profile.avatar.thumb}", "sub-teamMember")
-    .teamMember-size
-      .teamMember-size-info
-        .teamMember-size-info-content
-          %h2= user.profile.full_name
-          .teamMember-size-info-content-button
-            = link_to "Meet #{user.profile.first_name}", user_blogs_path(user), class: "button sub-outline"
-          .teamMember-size-info-content-links
-            .socialLinks.sub-team
-              = render user.profile.social_links
+.teamMember
+  = picture_tag("#{user.profile.avatar.thumb}", "sub-cover")
+  .teamMember-size
+    .teamMember-size-info
+      .teamMember-size-info-content
+        %h2= user.profile.full_name
+        .teamMember-size-info-content-button
+          = link_to "Meet #{user.profile.first_name}", user_blogs_path(user), class: "button sub-outline"
+        .teamMember-size-info-content-links
+          .socialLinks.sub-team
+            = render user.profile.social_links
