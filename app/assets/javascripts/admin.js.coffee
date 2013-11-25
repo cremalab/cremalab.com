@@ -8,6 +8,23 @@
 
 $(document).on 'ready page:load', ->
 
+  hljs.initHighlightingOnLoad()
+  marked.setOptions
+    gfm: true
+    tables: true
+    breaks: false
+    pedantic: false
+    sanitize: true
+    smartLists: true
+    smartypants: true
+    langPrefix: ''
+    highlight: (code, lang) ->
+      hljs.highlightAuto(code, lang).value
+
+
+  editor = new MarkdownEditor() unless editor
+  console.log editor
+
   $('.sortable').sortable(
     items: '.item'
     handle: '.drag-handle'
