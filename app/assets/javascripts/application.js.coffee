@@ -10,6 +10,7 @@
 # Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 # about supported directives.
 #
+#= require modernizr
 #= require jquery
 #= require jquery_ujs
 #= require turbolinks
@@ -20,12 +21,7 @@
 #= require jquery.iframe-transport.js
 #= require jquery.fileupload
 
-$(document).on 'ready page:load', ->
-
-  $('button#sideBarToggle').on 'click', ->
-    $('.layout-main-wrapper').toggleClass 'open'
-    $('button#sideBarToggle').toggleClass 'close'
-
+bindSidebar = ->
   $('.layout-main-wrapper').bind 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', (e) ->
     $(window).trigger('nav-transition-done')
 
@@ -39,6 +35,14 @@ $(document).on 'ready page:load', ->
       $(window).off 'nav-transition-done'
       Turbolinks.visit(href) # Visit the page via Turbolinks
 
+$(document).on 'ready page:load', ->
+
+  $('button#sideBarToggle').on 'click', ->
+    $('.layout-main-wrapper').toggleClass 'open'
+    $('button#sideBarToggle').toggleClass 'close'
+
+
+  bindSidebar() if Modernizr.csstransitions
 
 
   $('.sortable').sortable(
