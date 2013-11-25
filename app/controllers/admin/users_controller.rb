@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < AdminController
 
   before_filter :require_login
   respond_to :html, :json

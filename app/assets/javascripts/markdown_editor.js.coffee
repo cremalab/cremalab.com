@@ -15,6 +15,7 @@ $(document).on 'ready page:load', ->
 
 
   editor = new MarkdownEditor() unless editor
+  console.log editor
 
 class MarkdownEditor
   constructor: ->
@@ -52,6 +53,7 @@ class MarkdownEditor
     @setupNewImages()
 
     @editor.getSession().on 'change', =>
+      console.log 'change'
       @generateMarkdownPreview @editor.getSession().getValue()
 
   bindForm: ->

@@ -1,4 +1,4 @@
-class Admin::ImagesController < ApplicationController
+class Admin::ImagesController < AdminController
   respond_to :json
   before_filter :require_login
 

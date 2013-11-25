@@ -1,4 +1,4 @@
-class Admin::BlogsController < ApplicationController
+class Admin::BlogsController < AdminController
 
   before_filter :require_login
   before_filter :check_publish, only: [:create, :update]
