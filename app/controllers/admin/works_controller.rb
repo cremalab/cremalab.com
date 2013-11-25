@@ -1,4 +1,4 @@
-class Admin::WorksController < ApplicationController
+class Admin::WorksController < AdminController
 
   before_filter :require_login
   before_filter :check_publish, only: [:create, :update]

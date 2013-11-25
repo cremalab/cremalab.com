@@ -1,6 +1,7 @@
-class Admin::DashboardController < ApplicationController
+class Admin::DashboardController < AdminController
 
   before_filter :require_login
+  layout 'admin'
 
   def index
     @blogs = Blog.all.order("published_at DESC").page(params[:page]).per(20)
