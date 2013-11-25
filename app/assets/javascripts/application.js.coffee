@@ -26,6 +26,21 @@ $(document).on 'ready page:load', ->
     $('.layout-main-wrapper').toggleClass 'open'
     $('button#sideBarToggle').toggleClass 'close'
 
+  $('.layout-main-wrapper').bind 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', (e) ->
+    $(window).trigger('nav-transition-done')
+
+  $('.siteNav a ').on 'click', (e) ->
+    href = @href
+    e.preventDefault()
+    $('.layout-main-wrapper').toggleClass('open')
+    $('button#sideBarToggle').toggleClass 'close'
+
+    $(window).on 'nav-transition-done', ->
+      $(window).off 'nav-transition-done'
+      Turbolinks.visit(href) # Visit the page via Turbolinks
+
+
+
   $('.sortable').sortable(
     items: '.item'
     handle: '.drag-handle'
