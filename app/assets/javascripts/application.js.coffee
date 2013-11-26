@@ -14,6 +14,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require turbolinks
+#= require highlight.pack
 
 bindSidebar = ->
   $('.layout-main-wrapper').bind 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', (e) ->
@@ -30,6 +31,18 @@ bindSidebar = ->
       Turbolinks.visit(href) # Visit the page via Turbolinks
 
 $(document).on 'ready page:load', ->
+  hljs.initHighlightingOnLoad()
+  marked.setOptions
+    gfm: true
+    tables: true
+    breaks: false
+    pedantic: false
+    sanitize: true
+    smartLists: true
+    smartypants: true
+    langPrefix: ''
+    highlight: (code, lang) ->
+      hljs.highlightAuto(code, lang).value
 
   $('button#sideBarToggle').on 'click', ->
     $('.layout-main-wrapper').toggleClass 'open'
