@@ -1,3 +1,39 @@
-.post {
-  
+.post {}
+
+// POST HEADER
+.post-header {
+  background-size: cover;
+  background-position: center;
+  color: white;
+  a {
+    color: white;
+  }
+}
+
+// POST BODY
+.post-body {}
+
+// POST INFO
+.post-info {
+  @extend .grid;
+}
+  .post-info-avatar {
+    width: unit(4);
+    @media (max-width: $small) {
+      width: unit(2);
+    }
+    img {
+      display: block;
+      border-radius: 500px;
+    }
+  }
+  .post-info-content {
+    padding-left: unit(1);
+    > * {
+      @extend %verticalSpacing.quarter
+    }
+  }
+
+.post-excerpt {
+  @extend %verticalSpacing
 }

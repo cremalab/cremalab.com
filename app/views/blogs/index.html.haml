@@ -1,8 +1,6 @@
-.backgroundWrapper.process
-  .grid.spaced.centered
-    %header.pageBanner
-      %h1 Blog
+%header.layout-header.sub-blog
+  %h1 Blog
 - if current_user
   = link_to 'New Blog Post', new_admin_user_blog_path(current_user)
 = paginate @blogs
-= render @blogs
+= render partial: "preview", collection: @blogs, as: :blog

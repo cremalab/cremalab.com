@@ -1,4 +1,9 @@
 $black: #222222;
 $gray: #999999;
   $gray-dark: darken($gray, 25);
+  $gray-light: lighten($gray, 25);
 $white: #FFFFFF;
+
+
+// Links
+$link-color: $gray-dark;

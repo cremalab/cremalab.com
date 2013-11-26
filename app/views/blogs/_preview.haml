@@ -1,0 +1,7 @@
+.layout-wrap-content
+  .layout-content
+    - present blog do |blog_presenter|
+      .post
+        .post-body
+          = render :partial => "post_info", locals: {blog_presenter: blog_presenter}
+          .post-excerpt= blog_presenter.excerpt

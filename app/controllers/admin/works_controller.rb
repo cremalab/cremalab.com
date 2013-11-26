@@ -1,4 +1,4 @@
-class Admin::WorksController < ApplicationController
+class Admin::WorksController < AdminController
 
   before_filter :require_login
   before_filter :check_publish, only: [:create, :update]
@@ -6,7 +6,7 @@ class Admin::WorksController < ApplicationController
 
   def index
     @works = Work.all.order("order_index ASC")
-    render 'works/index'
+    render :index
   end
 
   def new

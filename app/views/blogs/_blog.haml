@@ -1,6 +1,6 @@
-.layout-centered
+- present blog do |blog_presenter|
+  = render partial: 'header', locals: {blog: blog, blog_presenter: blog_presenter}
+.layout-content
   - present blog do |blog_presenter|
-    %article.post
-      = render partial: 'header', locals: {blog: blog, blog_presenter: blog_presenter}
-      %section.post-body
-        = blog_presenter.content
+    .post-body
+      = blog_presenter.content

@@ -1,7 +1,3 @@
-%header.post-header{style: "background-image: url(#{blog_presenter.featured_image});"}
-  %h1
-    = blog_presenter.title_link
-    %span.subHeading By #{blog_presenter.author_link} on #{blog_presenter.published_at}
-  %p.tags= blog_presenter.tag_list
-  - unless blog.is_published?
-    %h5 Unpublished
+%header.layout-header{style: "background-image: url(#{blog_presenter.featured_image});"}
+  .layout-header-content
+    = render :partial => "post_info", locals: {blog_presenter: blog_presenter}
