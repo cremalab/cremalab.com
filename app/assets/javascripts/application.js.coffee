@@ -32,17 +32,6 @@ bindSidebar = ->
 
 $(document).on 'ready page:load', ->
   hljs.initHighlightingOnLoad()
-  marked.setOptions
-    gfm: true
-    tables: true
-    breaks: false
-    pedantic: false
-    sanitize: true
-    smartLists: true
-    smartypants: true
-    langPrefix: ''
-    highlight: (code, lang) ->
-      hljs.highlightAuto(code, lang).value
 
   $('button#sideBarToggle').on 'click', ->
     $('.layout-main-wrapper').toggleClass 'open'

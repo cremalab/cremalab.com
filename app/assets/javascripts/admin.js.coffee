@@ -8,6 +8,18 @@
 
 $(document).on 'ready page:load', ->
 
+  marked.setOptions
+    gfm: true
+    tables: true
+    breaks: false
+    pedantic: false
+    sanitize: true
+    smartLists: true
+    smartypants: true
+    langPrefix: ''
+    highlight: (code, lang) ->
+      hljs.highlightAuto(code, lang).value
+
   editor = new MarkdownEditor() unless editor
 
   $('.sortable').sortable(
