@@ -3,7 +3,7 @@ require "html_truncate"
 class BlogPresenter < BasePresenter
 
   def content
-    markdown(@object.content)
+    h.find_and_preserve(markdown(@object.content)).html_safe
   end
 
   def author_link
