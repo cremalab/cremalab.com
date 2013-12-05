@@ -1,0 +1,21 @@
+.contactBlock {
+  position: relative;
+}
+  .contactBlock-size {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+    .contactBlock-size-wrap {
+      display: table;
+      width: 100%;
+      height: 100%;
+    }
+      .contactBlock-size-wrap-content {
+        display: table-cell;
+        outline: 1px solid;
+        text-align: center;
+        vertical-align: middle;
+      }
