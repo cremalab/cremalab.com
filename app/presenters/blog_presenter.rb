@@ -14,6 +14,14 @@ class BlogPresenter < BasePresenter
     h.image_tag @object.user.profile.avatar.thumb, alt: @object.user.full_name
   end
 
+  def path
+    h.blog_path(@object)
+  end
+
+  def title
+    @object.title
+  end
+
   def title_link
     h.link_to @object.title, h.blog_path(@object)
   end

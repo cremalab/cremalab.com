@@ -23,7 +23,7 @@ bindSidebar = ->
   $('.siteNav a ').on 'click', (e) ->
     href = @href
     e.preventDefault()
-    $('.layout-main-wrapper').toggleClass('open')
+    $('.layout-main-wrapper').toggleClass 'open'
     $('button#sideBarToggle').toggleClass 'close'
 
     $(window).on 'nav-transition-done', ->

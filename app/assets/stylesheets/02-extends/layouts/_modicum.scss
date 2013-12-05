@@ -1,11 +1,9 @@
 .grid {
-  display: table;
+  display: inline-table;
   table-layout: fixed;
   width: 100%;
 
   &.auto   { table-layout: auto }; // Switch table back to natural layout.
-
-  &.inline { display: inline-table }
 
   &.rtl {
     direction: rtl;

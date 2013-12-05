@@ -1,5 +1,6 @@
 %header.layout-header.sub-blog
-  %h1 Blog
+  .layout-content
+    %h1 Blog
 - if current_user
   = link_to 'New Blog Post', new_admin_user_blog_path(current_user)
 = paginate @blogs
