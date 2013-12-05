@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20131112173004) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar"
+    t.string   "job_title"
   end
 
   create_table "social_links", force: true do |t|
