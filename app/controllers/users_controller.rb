@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   respond_to :html
 
   def index
-    @users = User.all
+    @users = User.all.order("order_index ASC")
   end
 
   def show

@@ -1,11 +1,9 @@
 .grid {
-  display: table;
+  display: inline-table;
   table-layout: fixed;
   width: 100%;
 
   &.auto   { table-layout: auto }; // Switch table back to natural layout.
-
-  &.inline { display: inline-table }
 
   &.rtl {
     direction: rtl;
@@ -50,8 +48,6 @@
 
     // Vertical Alignment
     vertical-align: top;
-    &.middle { vertical-align: middle }
-    &.bottom { vertical-align: bottom }
 
     // Widths
     &.one-third    { width: 33.3333% }
@@ -64,11 +60,27 @@
     &.three-fifth  { width: 60% }
     &.four-fifth   { width: 80% }
 
-    @media (max-width: $small) {
-      display: block;
-      width: 100% !important;
-    }
+  }
 
+  &.break {
+    > * {
+      @media (max-width: $small) {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  &.middle {
+    > * {
+      vertical-align: middle
+    }
+  }
+
+  &.bottom {
+    > * {
+      vertical-align: bottom
+    }
   }
 
 }

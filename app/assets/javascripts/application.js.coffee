@@ -10,40 +10,33 @@
 # Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 # about supported directives.
 #
+#= require modernizr
 #= require jquery
 #= require jquery_ujs
 #= require turbolinks
-#= require_tree .
-#= require marked
-#= require jquery.sortable.min
-#= require jquery.ui.widget.js
-#= require jquery.iframe-transport.js
-#= require jquery.fileupload
+#= require highlight.pack
+
+bindSidebar = ->
+  $('.layout-main-wrapper').bind 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', (e) ->
+    $(window).trigger('nav-transition-done')
+
+  $('.siteNav a ').on 'click', (e) ->
+    href = @href
+    e.preventDefault()
+    $('.layout-main-wrapper').toggleClass 'open'
+    $('button#sideBarToggle').toggleClass 'close'
+
+    $(window).on 'nav-transition-done', ->
+      $(window).off 'nav-transition-done'
+      Turbolinks.visit(href) # Visit the page via Turbolinks
 
 $(document).on 'ready page:load', ->
+  hljs.initHighlightingOnLoad()
 
   # Menu Toggle
   $('button#sideBarToggle').on 'click', ->
     $('.layout-main-wrapper').toggleClass 'open'
     $('button#sideBarToggle').toggleClass 'close'
 
-  # Detect Touchscreen
-  document.documentElement.className += ((if ("ontouchstart" of document.documentElement) then " touch" else " no-touch"))
 
-  $('.works.sortable').sortable(
-    items: '.work'
-    handle: '.drag-handle'
-  ).bind 'sortupdate', (a,b,c) ->
-    $('.works.sortable .work').each (index,el) ->
-      current_index = Number $(el).attr('data-index')
-      work_id   = $(el).attr('data-id')
-      unless index is current_index
-        $.ajax
-          type: 'PUT'
-          url: "/admin/work/#{work_id}"
-          dataType: 'json'
-          data:
-            work:
-              order_index: index
-          success: (res) ->
-            $(el).attr('data-index', res.order_index)
+  bindSidebar() if Modernizr.csstransitions

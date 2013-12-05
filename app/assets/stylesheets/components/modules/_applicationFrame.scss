@@ -1,0 +1,12 @@
+.applicationFrame {
+  @extend %transition;
+  position: relative;
+  width: 100%;
+  right: 0;
+}
+
+.image-upload-form .progress {
+  background: blue;
+  height: 2px;
+  width: 0%;
+}
