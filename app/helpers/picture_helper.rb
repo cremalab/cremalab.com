@@ -1,7 +1,7 @@
 module PictureHelper
-  def picture_tag(filename)
-    content_tag(:div, class: "picture", style: "background-image: url('/assets/#{filename}')") do
-      concat tag(:img, src: "/assets/#{filename}")
+  def picture_tag(filename, subClass = nil)
+    content_tag(:div, class: "picture #{subClass}", style: "background-image: url('#{filename}')") do
+      concat tag(:img, src: filename)
     end
   end
 end

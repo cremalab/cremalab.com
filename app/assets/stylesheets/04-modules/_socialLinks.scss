@@ -1,0 +1,33 @@
+.socialLinks {
+
+  &.sub-team {
+    @extend %transition.sub-fast;
+    display: inline-table;
+    border-spacing: 0.5em 0;
+    font-size: unit(2);
+    margin: 0 -20%;
+    @media (max-width: $medium) { 
+      border-spacing: 0.25em 0;
+      font-size: unit(1.5);
+    }
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    display: table-cell;
+    vertical-align: top;
+    @extend %transition.sub-fast;
+  }
+
+
+}
+.no-touch .socialLinks {
+  &:hover {
+   height: 1em !important; 
+  }
+  .icon {
+    &:hover, &:active {
+      font-size: 1.25em;
+      padding: 0 0.5em;
+    }
+  }
+}

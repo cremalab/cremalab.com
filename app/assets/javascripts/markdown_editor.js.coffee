@@ -38,6 +38,7 @@ class @MarkdownEditor
 
   bindForm: ->
     @$form.on 'submit', (e) =>
+      console.log @editor.getSession().getValue()
       @$textarea.val @editor.getSession().getValue()
       return true
 

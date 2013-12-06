@@ -1,0 +1,50 @@
+// Heading Scale
+@include heading-scale( 
+  $ratio: 1.4, 
+  $top: 2, 
+  $bottom: -0.35, 
+  $shift: -1 
+);
+
+@media (max-width: $small) {
+  @include heading-scale( 
+    $ratio: 1.2, 
+    $top: 2, 
+    $bottom: -0.35, 
+    $shift: -1 
+  );
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "AvenirLTCom-Black";
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+// Heading Weight
+h1 { 
+  text-transform: uppercase
+}
+h2 {
+  text-transform: uppercase
+}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+
+span.subHeading {
+  display: block;
+  font-family: "AvenirLTCom-Light";
+  font-size: 77%;
+  text-transform: none;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+
+.sub-centered {
+  text-align: center;
+}

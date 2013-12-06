@@ -21,7 +21,13 @@ class BasePresenter
     options = {
       fenced_code_blocks: true,
       autolink: true,
-      space_after_headers: true
+      space_after_headers: true,
+      hightlight: true,
+      footnotes: true,
+      with_toc_data: true,
+      tables: true,
+      strikethrough: true,
+      no_styles: true
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end

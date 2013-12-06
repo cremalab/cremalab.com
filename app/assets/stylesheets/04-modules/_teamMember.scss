@@ -1,0 +1,44 @@
+.teamMember {
+  position: relative;
+  color: $white;
+  @media (max-width: $small) { padding: 0 }
+}
+
+.teamMember-size {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @media (max-width: $small) { position: relative }
+}
+
+.teamMember-size-info {
+  @extend %transition.sub-fast;
+  opacity: 0;
+  display: table;
+  table-layout: fixed;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  @media (max-width: $small) { position: relative }
+
+  &:hover, &:active {
+    opacity: 1;
+  }
+
+}
+
+.touch .teamMember-size-info {
+  opacity: 1;
+}
+
+.teamMember-size-info-content {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: unit(2) unit(1);
+  > * {
+    @extend %verticalSpacing;
+  }
+}
