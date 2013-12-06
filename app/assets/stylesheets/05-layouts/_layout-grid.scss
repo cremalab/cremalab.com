@@ -1,4 +1,4 @@
-.layout-gridWrap {
+.layout-grid {
   font-size: 0;
   width: 101%;
   @media (max-width: $small) {
@@ -7,8 +7,23 @@
   > * {
     display: inline-block;
     font-size: 1rem;
+  }
+
+  &.sub-three > * {
     @media (max-width: $small) { padding: 0% }
     padding: 20% 25%;
     @media (min-width: $large){ padding: 14% 16.666666667% }
+  }
+  &.sub-four > * {
+    @media (max-width: $small) { 
+      width: 50%;
+      padding-top: 50%;
+    }
+    width: 25%;
+    padding-top: 25%;
+    @media (min-width: $large){ 
+      width: 12.5%;
+      padding-top: 12.5%;
+    }
   }
 }
