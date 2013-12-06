@@ -1,0 +1,23 @@
+.work {
+  @extend .grid;
+  @extend .grid.bottom;
+  @extend .grid.break;
+  &:nth-child(odd) {
+    @extend .grid.rtl;
+    background: whitesmoke;
+  }
+  script { display: none }
+  > * {
+    padding: unit(2);
+  }
+}
+
+.work-content {
+  
+}
+
+.work-showcase {
+  position: relative;
+  padding-bottom: 0;
+  text-align: center;
+}

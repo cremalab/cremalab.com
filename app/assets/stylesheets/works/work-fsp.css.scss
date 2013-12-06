@@ -8,6 +8,22 @@
 //   background: blue;
 // }
 
+// Remote Imports
+@import "compass/css3";
+@import "compass/css3/transform";
+
+@import "../01-settings/**/*";
+@import "../02-extends/**/*";
+@import "../03-base/**/*";
+
 #work-fsp {
-  background: red;
+  
+}
+
+.thing {
+  padding-top: 50%;
+  width: 100%;
+  margin: 0 auto;
+  background: url(http://images.apple.com/iphone/home/images/business.jpg) center bottom no-repeat;
+  background-size: contain;
 }
