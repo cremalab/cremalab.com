@@ -12,7 +12,7 @@
     }
   }
   
-  .icon {
+  [class^="icon-"], [class*=" icon-"] {
     display: table-cell;
     vertical-align: top;
     @extend %transition.sub-fast;

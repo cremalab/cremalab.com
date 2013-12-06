@@ -17,7 +17,24 @@
       height: 100%;
     }
       .contactBlock-size-wrap-content {
+        @extend %transition.sub-fast;
         display: table-cell;
-        text-align: center;
         vertical-align: middle;
+        text-align: center;
+        font-size: unit(3);
+        color: $gray-light;
+        &:hover {
+          @include transform(scale(1.1));
+          position: relative;
+          z-index: 1;
+          color: $white;
+        }
+        &.sub-red:hover    { background: transparentize($red, 0.2) }   
+        &.sub-orange:hover { background: transparentize($orange, 0.2) }
+        &.sub-yellow:hover { background: transparentize($yellow, 0.2) }
+        &.sub-green:hover  { background: transparentize($green, 0.2) } 
+        &.sub-blue:hover   { background: transparentize($blue, 0.2) }  
+        &.sub-indigo:hover { background: transparentize($indigo, 0.2) }
+        &.sub-violet:hover { background: transparentize($violet, 0.2) }
+        &.sub-brown:hover  { background: transparentize($brown, 0.2) }
       }
