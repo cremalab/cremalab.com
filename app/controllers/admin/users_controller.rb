@@ -61,7 +61,7 @@ private
     params.require(:user).permit(
       :password, :password_confirmation, :email, :order_index,
       profile_attributes: [:first_name, :last_name,
-        :title, :avatar,
+        :title, :avatar, :job_title,
         social_links_attributes: [
           :username, :full_url, :network, :_destroy
         ]

@@ -1,0 +1,45 @@
+.button {
+  -webkit-appearance: none !important;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: "AvenirLTCom-Black";
+  font-weight: normal !important;
+  display: inline-block;
+
+  &.sub-outline {
+    border: 2px solid;
+    padding: unit(0.5) unit(1) unit(0.35);
+    text-transform: uppercase;
+  }
+
+}
+
+button#sideBarToggle {
+  @extend %transition;
+  -webkit-transform: translateZ(100);
+  font-family: 'test';
+  font-size: 24px;
+  line-height: 1;
+  position: fixed;
+  z-index: 2;
+  top: 0.5em;
+  right: 0.5em;
+  color: $white;
+  &:before {
+    content: "m";
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+  }
+  &.close {
+    color: $gray-dark;
+    &:before {
+      content: "x";
+    }
+  }
+}

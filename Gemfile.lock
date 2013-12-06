@@ -28,7 +28,7 @@ GEM
     acts-as-taggable-on (2.4.1)
       rails (>= 3, < 5)
     ansi (1.4.3)
-    arel (4.0.1)
+    arel (4.0.0)
     atomic (1.1.14)
     bcrypt-ruby (3.0.1)
     builder (3.1.4)
@@ -200,7 +200,7 @@ DEPENDENCIES
   coffee-rails
   compass-rails (~> 2.0.alpha.0)
   fog (~> 1.15.0)
-  haml-rails (~> 0.4)
+  haml-rails (~> 0.5.1)
   hogan_assets
   jbuilder (~> 1.2)
   jquery-rails

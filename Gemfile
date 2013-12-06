@@ -8,7 +8,7 @@ gem 'rails', '4.0.0'
 gem 'pg'
 
 # Assets
-gem 'haml-rails', '~> 0.4'
+gem 'haml-rails', '~> 0.5.1'
 gem 'sass-rails'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'coffee-rails'
@@ -40,7 +40,7 @@ gem "mini_magick", "~> 3.6.0"
 gem "fog", "~> 1.15.0"
 
 group :assets, :development, :test do
-  gem "haml-rails", "~> 0.4"
+  gem "haml-rails", "~> 0.5.1"
   gem 'hogan_assets'
 end
 

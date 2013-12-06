@@ -2,10 +2,4 @@
 @import "compass/css3";
 
 // Local Imports (Order Dependant)
-@import "settings/variables/**/*";
-// @import "settings/base/**/*";
-@import "settings/includes/**/*";
-@import "settings/typography/**/*";
-
-@import "extends/**/*";
-@import "components/**/*";
+@import "*/**/*";

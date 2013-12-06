@@ -39,7 +39,7 @@ bindSidebar = ->
   $('.siteNav a ').on 'click', (e) ->
     href = @href
     e.preventDefault()
-    $('.layout-main-wrapper').toggleClass('open')
+    $('.layout-main-wrapper').toggleClass 'open'
     $('button#sideBarToggle').toggleClass 'close'
 
     $(window).on 'nav-transition-done', ->
@@ -47,8 +47,10 @@ bindSidebar = ->
       Turbolinks.visit(href) # Visit the page via Turbolinks
 
 $(document).on 'ready page:load', ->
-  hljs.initHighlightingOnLoad()
+  $('pre code').each (i, e) ->
+    hljs.highlightBlock(e)
 
+  # Menu Toggle
   $('button#sideBarToggle').on 'click', ->
     $('.layout-main-wrapper').toggleClass 'open'
     $('button#sideBarToggle').toggleClass 'close'
