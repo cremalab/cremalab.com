@@ -15,6 +15,7 @@ gem 'coffee-rails'
 gem 'uglifier'
 
 gem "redcarpet", "~> 3.0.0"
+gem 'active_attr'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
