@@ -24,15 +24,17 @@
     = pf.text_field :job_title
     - if @user.profile.avatar
       = image_tag @user.profile.avatar.thumb
-    = pf.label :avatar
-    = pf.file_field :avatar
+    %fieldset
+      = pf.label :avatar
+      = pf.file_field :avatar
 
-    = pf.fields_for :social_links do |sf|
-      = sf.select :network, SocialLink.get_network_values
-      = sf.text_field :username, placeholder: 'Username'
-      or
-      = sf.text_field :full_url, placeholder: 'Full URL'
-      = sf.link_to_remove "Remove this social link"
+    %fieldset
+      = pf.fields_for :social_links do |sf|
+        = sf.select :network, SocialLink.get_network_values
+        = sf.text_field :username, placeholder: 'Username'
+        or
+        = sf.text_field :full_url, placeholder: 'Full URL'
+        = sf.link_to_remove "Remove this social link"
 
-    %p= pf.link_to_add "Add a social link", :social_links
+      %p= pf.link_to_add "Add a social link", :social_links
   .actions= f.submit

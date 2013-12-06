@@ -1,6 +1,15 @@
 %header.layout-header.sub-blog
   .layout-content
-    %h1 Blog
+    - if @user
+      %h1
+        Blogs by
+        = @user.full_name
+    - elsif @category
+      %h1
+        == &ldquo;#{@category.titleize}&rdquo;
+        Blogs
+    - else
+      %h1 Blog
 - if current_user
   = link_to 'New Blog Post', new_admin_user_blog_path(current_user)
 = paginate @blogs

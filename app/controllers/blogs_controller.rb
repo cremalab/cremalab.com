@@ -2,6 +2,7 @@ class BlogsController < ApplicationController
 
   def index
     if blog_user
+      @user  = blog_user
       @blogs = blog_user.blogs.active.order("published_at DESC").page(params[:page]).per(5)
     else
       @blogs = Blog.active.order("published_at DESC").page(params[:page]).per(5)
@@ -19,7 +20,8 @@ class BlogsController < ApplicationController
   end
 
   def category
-    @blogs = Blog.tagged_with(params[:id]).order("published_at DESC").page(params[:page]).per(5)
+    @category = params[:id]
+    @blogs = Blog.tagged_with(@category).order("published_at DESC").page(params[:page]).per(5)
     render :index
   end
 
