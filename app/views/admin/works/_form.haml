@@ -19,6 +19,9 @@
       %code app/assets/javascripts/templates/underscored_work_title.hamstache
       and
       %code app/assets/stylesheets/work/underscored_work_title.css.scss
+    .template_name
+      = f.label :template_file_name
+      = f.text_field :template_file_name, placeholder: "template file name"
   .field
     = f.label :description, 'Description (markdown enabled)'
     = f.text_area :description, rows: 20, cols: 60, class: 'work-description markdown'
