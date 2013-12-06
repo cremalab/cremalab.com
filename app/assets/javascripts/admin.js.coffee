@@ -7,7 +7,6 @@
 #= require jquery.fileupload
 
 $(document).on 'ready page:load', ->
-
   marked.setOptions
     gfm: true
     tables: true

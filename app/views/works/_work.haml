@@ -8,6 +8,6 @@
     = render work.links
     .showcase{:'data-id' => work.id}
       = render partial: '/images/image', collection: work.images, as: :image
-
-    :javascript
-      loadWorkTemplate("#{work.title.parameterize.underscore}", "#{work.id}" )
+    - if work.templated
+      :javascript
+        loadWorkTemplate("#{work.title.parameterize.underscore}", "#{work.id}" )

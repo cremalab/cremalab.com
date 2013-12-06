@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131112173004) do
+ActiveRecord::Schema.define(version: 20131206192512) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "blog_images", force: true do |t|
     t.string   "image"
@@ -108,6 +111,7 @@ ActiveRecord::Schema.define(version: 20131112173004) do
     t.datetime "updated_at"
     t.integer  "order_index", default: 0
     t.boolean  "published",   default: false
+    t.boolean  "templated",   default: false
   end
 
 end
