@@ -6,8 +6,14 @@
 #= require jquery.iframe-transport.js
 #= require jquery.fileupload
 
-$(document).on 'ready page:load', ->
+toggleTemplateInput = ->
+  $el = $('.template_name')
+  if $("#work_templated").is(":checked")
+    $el.show()
+  else
+    $el.hide()
 
+$(document).on 'ready page:load', ->
   marked.setOptions
     gfm: true
     tables: true
@@ -21,6 +27,13 @@ $(document).on 'ready page:load', ->
       hljs.highlightAuto(code, lang).value
 
   editor = new MarkdownEditor() unless editor
+
+
+  toggleTemplateInput()
+  $("#work_templated").on 'change', (e) ->
+    toggleTemplateInput(e)
+
+
 
   $('.sortable').sortable(
     items: '.item'

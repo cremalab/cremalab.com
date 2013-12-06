@@ -15,8 +15,24 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require highlight.pack
+#= require hogan
+
+loadCss = (url) ->
+  link = document.createElement("link")
+  link.type = "text/css"
+  link.rel = "stylesheet"
+  link.href = url
+  document.getElementsByTagName("head")[0].appendChild(link)
+
+@loadWorkTemplate = (slug, id) ->
+  loadCss("/assets/works/#{slug}.css");
+  require ["/assets/templates/#{slug}"], ->
+    template = HoganTemplates["#{slug}"].render()
+    $(".showcase[data-id='#{id}']").html(template)
+
 
 bindSidebar = ->
+
   $('.layout-main-wrapper').bind 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', (e) ->
     $(window).trigger('nav-transition-done')
 

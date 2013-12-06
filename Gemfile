@@ -41,6 +41,7 @@ gem "fog", "~> 1.15.0"
 
 group :assets, :development, :test do
   gem "haml-rails", "~> 0.5.1"
+  gem 'hogan_assets'
 end
 
 group :test do
