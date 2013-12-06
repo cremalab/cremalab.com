@@ -1,12 +1,13 @@
 - present work do |work_presenter|
   .work{id: work.template_file_name.blank? ? work.title.parameterize.underscore : work.template_file_name}
-    = work_presenter.admin_links
-    %h1= work_presenter.title_link
-    = work_presenter.description
-    = work.title.parameterize.underscore
+    .work-content
+      = work_presenter.admin_links
+      %h1= work_presenter.title_link
+      = work_presenter.description
+      = work.title.parameterize.underscore
+      = render work.links
 
-    = render work.links
-    .showcase{:'data-id' => work.id}
+    .work-showcase{:'data-id' => work.id}
       = render partial: '/images/image', collection: work.images, as: :image
     - if work.templated
       :javascript
