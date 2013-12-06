@@ -31,7 +31,8 @@ bindSidebar = ->
       Turbolinks.visit(href) # Visit the page via Turbolinks
 
 $(document).on 'ready page:load', ->
-  hljs.initHighlightingOnLoad()
+  $('pre code').each (i, e) ->
+    hljs.highlightBlock(e)
 
   $('button#sideBarToggle').on 'click', ->
     $('.layout-main-wrapper').toggleClass 'open'
