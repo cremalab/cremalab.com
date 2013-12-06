@@ -9,4 +9,9 @@
   padding: unit(2);
   margin-left: auto;
   margin-right: auto;
+
+  &.sub-narrow {
+    max-width: $small;
+  }
+
 }
