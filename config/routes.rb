@@ -4,11 +4,13 @@ CremalabCom::Application.routes.draw do
   get "images/create"
   get "images/destroy"
   root 'home#index'
-  get "contact" => 'contact#index'
   get "process" => 'process#index'
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
+
+  get "contact"  => 'contact#new'
+  post "contact" => 'contact#create'
 
   resources :sessions
   resources :users, path: 'team' do
