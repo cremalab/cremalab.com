@@ -6,6 +6,7 @@
     %meta{ content: "initial-scale=1.0, user-scalable=no", name: "viewport"}
     %meta{ content: "yes", name: "apple-mobile-web-app-capable"}
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "admin", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "https://raw.github.com/ajaxorg/ace-builds/master/src-min-noconflict/ace.js"
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag "admin", "data-turbolinks-track" => true
@@ -17,5 +18,6 @@
   %section.layout-main-wrapper
     .layout-main
       %main.layout-main-content
+        %h1 Admin
         = render "layouts/user_menu" if current_user
         = yield

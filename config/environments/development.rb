@@ -27,7 +27,7 @@ CremalabCom::Application.configure do
 
   config.assets.paths << Rails.root.join('fonts')
 
-  config.assets.precompile += %w( .svg .eot .woff .ttf *templates/* *works/*)
+  config.assets.precompile += %w( .svg .eot .woff .ttf *templates/* *works/* admin.css)
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large

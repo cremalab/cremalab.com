@@ -173,4 +173,6 @@ class @MarkdownEditor
 
   generateMarkdownPreview: (text) ->
     @$preview.html marked(text)
+    @$preview.find('pre code').each (i, e) ->
+      hljs.highlightBlock(e)
 
