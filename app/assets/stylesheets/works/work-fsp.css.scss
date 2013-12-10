@@ -17,12 +17,33 @@
 @import "../02-extends/**/*";
 @import "../03-base/**/*";
 
-@include keyframes(slide-from-right) {
+@include keyframes(ipad-from-right) {
   0% {
+    @include transform( translateX(110%) );
+  }
+  50% {
     @include transform( translateX(0%) );
   }
+  75% {
+    @include transform( translateX(30%) );
+  }
   100% {
-    @include transform( translateX(50%) );
+    @include transform( translateX(0%) );
+  }
+}
+
+@include keyframes(iphone-from-right) {
+  0% {
+    opacity: 0;
+    @include transform( translateX(100%) );
+  }
+  50% {
+    opacity: 1;
+    @include transform( translateX(-50%) );
+  }
+  100% {
+    @include transform( translateX(10%) );
+    z-index: 1;
   }
 }
 
@@ -38,17 +59,38 @@
   background: #fafafa;
 
   &:hover {
+
     .ipad {
-      @include animation(slide-from-right 1s ease-in-out both);
+      @include animation(ipad-from-right 1.5s ease-in-out both);
+      
     }
+
+    .iphone {
+      @include animation(iphone-from-right 0.75s 0.75s ease-in-out both);
+    }
+    
   }
 
   .ipad {
     margin-bottom: -15%;
+    margin-left: 5%;
+    width: 95%;
   }
 
   .ipad-content {
     background-image: url(../work/fsp/screen-1.png);
+    @include animation(cycle-screens 10s infinite linear);
+  }
+
+  .iphone {
+    position: absolute;
+    bottom: -20%;
+    left: 5%;
+    width: 22%;
+  }
+
+  .phone-content {
+    background-image: url(../work/fsp/screen-2.png);
     @include animation(cycle-screens 10s infinite linear);
   }
 
