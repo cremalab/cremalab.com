@@ -11,19 +11,45 @@
 // Remote Imports
 @import "compass/css3";
 @import "compass/css3/transform";
+@import "animation";
 
 @import "../01-settings/**/*";
 @import "../02-extends/**/*";
 @import "../03-base/**/*";
 
-#work-fsp {
-  
+@include keyframes(slide-from-right) {
+  0% {
+    @include transform( translateX(0%) );
+  }
+  100% {
+    @include transform( translateX(50%) );
+  }
 }
 
-.thing {
-  padding-top: 50%;
-  width: 100%;
-  margin: 0 auto;
-  background: url(http://images.apple.com/iphone/home/images/business.jpg) center bottom no-repeat;
-  background-size: contain;
+@include keyframes(cycle-screens) {
+   0%, 24% { background-image: url(../work/fsp/screen-1.png) }
+  25%, 49% { background-image: url(../work/fsp/screen-2.png) }
+  50%, 74% { background-image: url(../work/fsp/screen-1.png) }
+  75%, 99% { background-image: url(../work/fsp/screen-3.png) }
+}
+
+#work-fsp {
+
+  background: #fafafa;
+
+  &:hover {
+    .ipad {
+      @include animation(slide-from-right 1s ease-in-out both);
+    }
+  }
+
+  .ipad {
+    margin-bottom: -15%;
+  }
+
+  .ipad-content {
+    background-image: url(../work/fsp/screen-1.png);
+    @include animation(cycle-screens 10s infinite linear);
+  }
+
 }

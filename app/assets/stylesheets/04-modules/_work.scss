@@ -2,6 +2,7 @@
   @extend .grid;
   @extend .grid.bottom;
   @extend .grid.break;
+  overflow: hidden;
   &:nth-child(odd) {
     @extend .grid.rtl;
     background: whitesmoke;
@@ -20,4 +21,72 @@
   position: relative;
   padding-bottom: 0;
   text-align: center;
+  width: 60%;
+  @media (max-width: $small) {
+    width: 100%;
+  }
+}
+
+// Devices
+.ipad {
+  position: relative;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  &.sub-landscape {
+    width: 100%;
+    border-radius: 3.5%/4.5%;
+    box-shadow: 0 0 20px -10px rgba($black, 0.75);
+    &.sub-black { background-image: url(devices/ipad-black-landscape.png);}
+    &.sub-white { background-image: url(devices/ipad-white-landscape.png);}
+    &:after {
+      content: "";
+      display: block;
+      padding-top: 77.02702703%;
+    }
+    
+    .ipad-content {
+      position: absolute;
+      top: 10.25%;
+      left: 8.9%;
+      width: 81.3990461%;
+      background-size: 100%;
+      &:after {
+        content: "";
+        display: block;
+        padding-top: 75%;
+      }
+    }
+
+  }
+  &.sub-portrait {}
+}
+
+.iphone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 25%;
+  border-radius: 3.5%/4.5%;
+  box-shadow: 0 0 20px -10px rgba($black, 0.75);
+  &.sub-black { background-image: url(devices/iphone-black.svg);}
+  &:after {
+    content: "";
+    display: block;
+    padding-top: 211.42222981%;
+  }
+}
+
+.iphone-content {
+  position: absolute;
+  top: 10.25%;
+  left: 8.9%;
+  width: 81.3990461%;
+  background-size: 100%;
+  &:after {
+    content: "";
+    display: block;
+    padding-top: 75%;
+  }
 }

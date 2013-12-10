@@ -1,8 +1,3 @@
-/ %h1 EXAMPLE
-/ Name your template file after the template file name you specified
-/ in the admin.
-/ Follow the same conventions for the corresponding CSS file in
-/ assets/stylesheets/works
-/ This template is injected into a .showcase div within the work container
-
-.thing
+.ipad.sub-landscape.sub-white
+  .ipad-content
+.iphone.sub-black
