@@ -1,0 +1,83 @@
+.work {
+  @extend .grid;
+  @extend .grid.bottom;
+  @extend .grid.break;
+  overflow: hidden;
+  &:nth-child(odd) {
+    @extend .grid.rtl;
+    background: whitesmoke;
+  }
+  script { display: none }
+  > * {
+    padding: unit(2);
+  }
+}
+
+.work-content {
+  
+}
+
+.work-showcase {
+  position: relative;
+  padding-bottom: 0;
+  text-align: center;
+  width: 60%;
+  @media (max-width: $small) {
+    width: 100%;
+  }
+}
+
+// Devices
+.ipad {
+  position: relative;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  &.sub-landscape {
+    &.sub-black { background-image: url(devices/ipad-black-landscape.png);}
+    &.sub-white { background-image: url(devices/ipad-white-landscape.png);}
+    &:after {
+      content: "";
+      display: block;
+      padding-top: 77.02702703%;
+    }
+    
+    .ipad-content {
+      position: absolute;
+      top: 10.25%;
+      left: 8.9%;
+      width: 81.3990461%;
+      background-size: 100%;
+      &:after {
+        content: "";
+        display: block;
+        padding-top: 75%;
+      }
+    }
+
+  }
+  &.sub-portrait {}
+}
+
+.iphone {
+  position: relative;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  &.sub-black { background-image: url(devices/iphone-black.svg);}
+  &:after {
+    content: "";
+    display: block;
+    padding-top: 209.5%;
+  }
+}
+
+.iphone-content {
+  position: absolute;
+  top: 14.8%;
+  left: 8.5%;
+  width: 84%;
+  &:after {
+    content: "";
+    display: block;
+    padding-top: 177.5%;
+  }
+}

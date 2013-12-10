@@ -28,7 +28,7 @@ loadCss = (url) ->
   loadCss("/assets/works/#{slug}.css");
   require ["/assets/templates/#{slug}"], ->
     template = HoganTemplates["#{slug}"].render()
-    $(".showcase[data-id='#{id}']").html(template)
+    $(".work-showcase[data-id='#{id}']").html(template)
 
 
 bindSidebar = ->
