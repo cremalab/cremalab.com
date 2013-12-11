@@ -32,8 +32,8 @@
         %a.add-image.button{href: '#'} Add an Image
         #existing_images
     .actions
-      = f.submit "Save"
-      = f.submit "Save and Publish"
+      = f.submit "Save", class: 'button'
+      = f.submit "Save and Publish", class: 'button'
       - if @blog.id
-        = link_to 'Delete', admin_blog_path(@blog), :confirm => 'Are you sure?', :method => :delete, class: 'delete'
+        = link_to 'Delete', admin_blog_path(@blog), :confirm => 'Are you sure?', :method => :delete, class: 'delete button'
 .markdown-preview

@@ -116,6 +116,10 @@ a.delete {
   color: darken($gray, 20%);
   padding: .5em .5em .3em .5em;
   border: 1px solid darken($lt-gray, 5%);
+  line-height: 1.5em;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 80%;
 
   &:hover {
     @include background(lighten($lt-gray, 10%));
@@ -123,6 +127,12 @@ a.delete {
   &:active {
     @include background(linear-gradient(darken(desaturate($lt-gray, 10%), 2%), darken($lt-gray, 0%)));
     @include single-box-shadow(transparentize(#000, .3), 0, 1px, 3px, 0, true);
+  }
+  &.delete {
+    @include background(linear-gradient(lighten($red, 10%), $red));
+    @include text-shadow(0 -1px 1px darken($red, 20%));
+    border: 1px solid darken($red, 10%);
+    color: $white;
   }
 }
 
