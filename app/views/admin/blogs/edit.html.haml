@@ -1,5 +1,5 @@
 %h1
   Editing
-  = @blog.title
+  = link_to @blog.title, blog_path(@blog)
 .blog-content
   = render 'form'
