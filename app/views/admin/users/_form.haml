@@ -5,36 +5,40 @@
       %ul
         - for message in @user.errors.full_messages
           %li= message
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :password
-    = f.password_field :password
-  .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
+  %fieldset
+    %legend Account Info
+    .field
+      = f.label :email
+      = f.text_field :email
+    .field
+      = f.label :password
+      = f.password_field :password
+    .field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+  %fieldset
+    %legend Profile
+    = f.fields_for :profile do |pf|
+      = pf.label :first_name
+      = pf.text_field :first_name
+      = pf.label :last_name
+      = pf.text_field :last_name
+      = pf.label :job_title
+      = pf.text_field :job_title
+      %fieldset
+        %legend Avatar
+        - if @user.profile.avatar
+          = image_tag @user.profile.avatar.thumb
+        = pf.file_field :avatar
 
-  = f.fields_for :profile do |pf|
-    = pf.label :first_name
-    = pf.text_field :first_name
-    = pf.label :last_name
-    = pf.text_field :last_name
-    = pf.label :job_title
-    = pf.text_field :job_title
-    - if @user.profile.avatar
-      = image_tag @user.profile.avatar.thumb
-    %fieldset
-      = pf.label :avatar
-      = pf.file_field :avatar
+      %fieldset
+        %legend Social Links
+        = pf.fields_for :social_links do |sf|
+          = sf.select :network, SocialLink.get_network_values
+          = sf.text_field :username, placeholder: 'Username'
+          or
+          = sf.text_field :full_url, placeholder: 'Full URL'
+          = sf.link_to_remove "Remove this social link"
 
-    %fieldset
-      = pf.fields_for :social_links do |sf|
-        = sf.select :network, SocialLink.get_network_values
-        = sf.text_field :username, placeholder: 'Username'
-        or
-        = sf.text_field :full_url, placeholder: 'Full URL'
-        = sf.link_to_remove "Remove this social link"
-
-      %p= pf.link_to_add "Add a social link", :social_links
+        %p= pf.link_to_add "Add a social link", :social_links
   .actions= f.submit

@@ -1,5 +1,5 @@
 - title @blog.title
 - if current_user
-  = link_to 'Edit', edit_admin_blog_path(@blog)
+  = link_to 'Edit', edit_admin_blog_path(@blog), class: 'button'
 .post
   = render 'blog', blog: @blog

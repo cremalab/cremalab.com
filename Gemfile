@@ -11,6 +11,7 @@ gem 'pg'
 gem 'haml-rails', '~> 0.5.1'
 gem 'sass-rails'
 gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'animation'
 gem 'coffee-rails'
 gem 'uglifier'
 
