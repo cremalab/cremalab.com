@@ -41,6 +41,9 @@ article {
   width: 60%;
   padding: 2em;
   vertical-align: top;
+  @media (max-width: $small) {
+    width: 100%;
+  }
 }
 
 form fieldset {
