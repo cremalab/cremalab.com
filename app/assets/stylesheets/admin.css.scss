@@ -32,8 +32,12 @@ article {
   position: relative;
   padding-bottom: 0;
   width: 40%;
-  @media (max-width: $small) {
+  @media (max-width: $small), screen and (orientation:portrait) {
     width: 100%;
+    display: block;
+  }
+  @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+    width: 50%;
   }
 }
 
@@ -41,8 +45,12 @@ article {
   width: 60%;
   padding: 2em;
   vertical-align: top;
-  @media (max-width: $small) {
+  @media (max-width: $small), screen and (orientation:portrait) {
     width: 100%;
+    display: block;
+  }
+  @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+    width: 50%;
   }
 }
 

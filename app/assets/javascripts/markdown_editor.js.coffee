@@ -30,6 +30,7 @@ class @MarkdownEditor
       @editor.getSession().setUseSoftTabs(true)
       @editor.getSession().setTabSize(2)
       @editor.renderer.setShowGutter(false)
+      @editor.setShowPrintMargin(false)
       @editor.commands.addCommand
         name: 'save'
         bindKey:
