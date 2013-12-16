@@ -23,7 +23,7 @@
     %fieldset
       = f.label :content, 'Content (markdown enabled)'
       = render partial: 'ace_editor', locals: {content: @blog.content}
-      = f.text_area :content, rows: 20, cols: 60, class: 'blog-content editor-content'
+      = f.text_area :content, rows: 60, cols: 60, class: 'blog-content editor-content'
     %fieldset
       %legend Images
       #images_json{style: "display: none"}= @blog.images.to_json
