@@ -13,6 +13,7 @@
 #= require modernizr
 #= require jquery
 #= require jquery_ujs
+#= require work
 #= require turbolinks
 #= require highlight.pack
 #= require hogan
@@ -28,7 +29,10 @@ loadCss = (url) ->
   loadCss("/assets/works/#{slug}.css");
   require ["/assets/templates/#{slug}"], ->
     template = HoganTemplates["#{slug}"].render()
-    $(".work-showcase[data-id='#{id}']").html(template)
+    $el = $(".work-showcase[data-id='#{id}']")
+    $el.html(template)
+    window.scrollWatcher = new ScrollWatcher unless window.scrollWatcher
+    window.scrollWatcher.addItem($el.parent())
 
 
 bindSidebar = ->
