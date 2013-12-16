@@ -15,6 +15,8 @@ class @MarkdownEditor
     if mobile
       $('#ace_container').remove()
       @generateMarkdownPreview @$textarea.val()
+      $("[for='blog_content']").html $("[for='blog_content']").text() +
+        "<br/> preview generated when keyboard is hidden"
       @$textarea.show().on 'change', =>
         @generateMarkdownPreview @$textarea.val()
     else
