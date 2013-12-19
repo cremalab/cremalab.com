@@ -11,6 +11,11 @@
       .field
         = f.label :title
         = f.text_field :title
+      .filed
+        = f.label :user, "Author"
+        = f.collection_select(:user_id, User.all, :id, :full_name)
+        %br
+        %br
       .field
         = f.label :published_at
         = f.date_select :published_at

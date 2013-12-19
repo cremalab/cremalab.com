@@ -1,7 +1,6 @@
 - present work do |work_presenter|
   .work{id: work.template_file_name.blank? ? work.title.parameterize.underscore : work.template_file_name}
     .work-content
-      = work_presenter.admin_links
       %h2= work_presenter.title
       = work_presenter.description
       .links

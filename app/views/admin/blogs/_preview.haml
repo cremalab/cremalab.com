@@ -2,5 +2,6 @@
   %article
     %h4= blog_presenter.title_link
     %time= blog_presenter.published_at
+    by
     %span.author= blog_presenter.author_link
     = link_to 'Edit', edit_admin_blog_path(blog), class: 'button'
