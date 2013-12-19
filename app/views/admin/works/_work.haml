@@ -4,3 +4,4 @@
     - present work do |work_presenter|
       %h4= work_presenter.title_link
       %small= work_presenter.state
+      = link_to 'Edit', edit_admin_work_path(work), class: 'button'

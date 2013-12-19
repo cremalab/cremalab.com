@@ -3,42 +3,56 @@ class @MarkdownEditor
     @checkForEditor()
 
   bindEditor: ->
+    isiPad   = navigator.userAgent.match(/iPad/i) != null;
+    isiPhone = navigator.userAgent.match(/iPhone/i) != null;
+    isiPod   = navigator.userAgent.match(/iPod/i) != null;
+    mobile   = isiPad or isiPhone or isiPod
+
     @$form      = $('form')
     @$textarea  = @$form.find('textarea.editor-content')
     @$preview   = $('.markdown-preview')
 
-    @editor = ace.edit("editor")
-    @editor.setTheme("ace/theme/github")
-    @editor.getSession().setMode("ace/mode/markdown")
-    @editor.getSession().setUseWrapMode(true)
-    @editor.setValue @$textarea.val()
-    @editor.clearSelection()
-    @editor.setHighlightActiveLine(false)
-    @editor.getSession().setUseSoftTabs(true)
-    @editor.getSession().setTabSize(2)
-    @editor.renderer.setShowGutter(false)
-    @editor.commands.addCommand
-      name: 'save'
-      bindKey:
-        win: 'Ctrl-S'
-        mac: 'Command-S'
-      exec: (editor) =>
-        @$form.submit()
-      readOnly: false
+    if mobile
+      $('#ace_container').remove()
+      @generateMarkdownPreview @$textarea.val()
+      $("[for='blog_content']").html $("[for='blog_content']").text() +
+        "<br/> preview generated when keyboard is hidden"
+      @$textarea.show().on 'change', =>
+        @generateMarkdownPreview @$textarea.val()
+    else
+      @editor = ace.edit("editor")
+      @editor.setTheme("ace/theme/github")
+      @editor.getSession().setMode("ace/mode/markdown")
+      @editor.getSession().setUseWrapMode(true)
+      @editor.setValue @$textarea.val()
+      @editor.clearSelection()
+      @editor.setHighlightActiveLine(false)
+      @editor.getSession().setUseSoftTabs(true)
+      @editor.getSession().setTabSize(2)
+      @editor.renderer.setShowGutter(false)
+      @editor.setShowPrintMargin(false)
+      @editor.commands.addCommand
+        name: 'save'
+        bindKey:
+          win: 'Ctrl-S'
+          mac: 'Command-S'
+        exec: (editor) =>
+          @$form.submit()
+        readOnly: false
 
-    @bindForm()
+      @bindForm()
 
-    @generateMarkdownPreview @editor.getSession().getValue()
+      @generateMarkdownPreview @editor.getSession().getValue()
+      @editor.getSession().on 'change', =>
+        @generateMarkdownPreview @editor.getSession().getValue()
+
     @setupFormHelper()
     @setupExistingImages()
     @setupNewImages()
 
-    @editor.getSession().on 'change', =>
-      @generateMarkdownPreview @editor.getSession().getValue()
 
   bindForm: ->
     @$form.on 'submit', (e) =>
-      console.log @editor.getSession().getValue()
       @$textarea.val @editor.getSession().getValue()
       return true
 

@@ -35,10 +35,11 @@
         %legend Social Links
         = pf.fields_for :social_links do |sf|
           = sf.select :network, SocialLink.get_network_values
-          = sf.text_field :username, placeholder: 'Username'
-          or
-          = sf.text_field :full_url, placeholder: 'Full URL'
+          .grouped-inputs
+            = sf.text_field :username, placeholder: 'Username'
+            or
+            = sf.text_field :full_url, placeholder: 'Full URL'
           = sf.link_to_remove "Remove this social link"
 
-        %p= pf.link_to_add "Add a social link", :social_links
+        = pf.link_to_add "Add a social link", :social_links, class: 'button'
   .actions= f.submit
