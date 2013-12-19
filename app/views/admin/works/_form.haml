@@ -5,27 +5,42 @@
       %ul
         - for message in @work.errors.full_messages
           %li= message
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :published, "Published?"
-    = f.check_box :published
-  .field
-    = f.label :description, 'Description (markdown enabled)'
-    = f.text_area :description, rows: 20, cols: 60, class: 'work-description markdown'
+  %fieldset
+    .field
+      = f.label :title
+      = f.text_field :title
+    .field
+      = f.label :published, "Published?"
+      = f.check_box :published
+    .field
+      = f.label :templated, "Templated?"
+      = f.check_box :templated
+      %small
+        Template (HAML) and CSS (SCSS) files are expected to be at
+        %code app/assets/javascripts/templates/underscored_work_title.hamstache
+        and
+        %code app/assets/stylesheets/work/underscored_work_title.css.scss
+      .template_name
+        = f.label :template_file_name
+        = f.text_field :template_file_name, placeholder: "template file name"
+  %fieldset
+    .field
+      = f.label :description, 'Description (markdown enabled)'
+      = f.text_area :description, rows: 20, cols: 60, class: 'work-description markdown'
   .markdown-preview
 
-  .field
+  %fieldset
     %legend Images
     = f.fields_for :images do |wf|
+      - if wf.object.image
+        = image_tag wf.object.image.thumb
       = wf.label :image
-      = wf.file_field :image, multiple: true
+      = wf.file_field :image
       = wf.link_to_remove "Remove this image"
 
-    %p= f.link_to_add "Add an image", :images
+    %p= f.link_to_add "Add an image", :images, class: 'button'
 
-  .field
+  %fieldset
     %legend Links
     = f.fields_for :links do |lf|
       = lf.label :text
@@ -34,8 +49,8 @@
       = lf.text_field :url
       = lf.link_to_remove "Remove this link"
 
-    %p= f.link_to_add "Add a link", :links
+    %p= f.link_to_add "Add a link", :links, class: 'button'
 
   .actions
-    = f.submit "Save"
-    = f.submit "Save and Publish"
+    = f.submit "Save", class: 'button'
+    = f.submit "Save and Publish", class: 'button'

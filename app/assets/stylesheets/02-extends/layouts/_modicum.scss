@@ -1,13 +1,14 @@
 .grid {
-  display: inline-table;
+  display: table;
   table-layout: fixed;
   width: 100%;
 
   &.auto   { table-layout: auto }; // Switch table back to natural layout.
 
+  &.inline { display: inline-table }
+
   &.rtl {
     direction: rtl;
-    text-align: right;
     > * { direction: ltr }
   }
 
@@ -67,6 +68,14 @@
       @media (max-width: $small) {
         display: block;
         width: 100%;
+      }
+    }
+    &.work {
+      > * {
+        @media (max-width: $medium) {
+          display: block;
+          width: 100%;
+        }
       }
     }
   }

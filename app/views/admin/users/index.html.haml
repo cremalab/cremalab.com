@@ -1,4 +1,5 @@
-= link_to 'New Team Member', new_admin_user_path
+- content_for :admin_actions do
+  = link_to 'New Team Member', new_admin_user_path, class: 'button primary'
 
 .users.sortable{:'data-controller' => 'team', :'data-model' => 'user'}
   = render @users

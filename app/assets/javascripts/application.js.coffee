@@ -13,10 +13,30 @@
 #= require modernizr
 #= require jquery
 #= require jquery_ujs
+#= require work
 #= require turbolinks
 #= require highlight.pack
+#= require hogan
+
+loadCss = (url) ->
+  link = document.createElement("link")
+  link.type = "text/css"
+  link.rel = "stylesheet"
+  link.href = url
+  document.getElementsByTagName("head")[0].appendChild(link)
+
+@loadWorkTemplate = (slug, id) ->
+  loadCss("/assets/works/#{slug}.css");
+  require ["/assets/templates/#{slug}"], ->
+    template = HoganTemplates["#{slug}"].render()
+    $el = $(".work-showcase[data-id='#{id}']")
+    $el.html(template)
+    window.scrollWatcher = new ScrollWatcher unless window.scrollWatcher
+    window.scrollWatcher.addItem($el.parent())
+
 
 bindSidebar = ->
+
   $('.layout-main-wrapper').bind 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', (e) ->
     $(window).trigger('nav-transition-done')
 
@@ -31,7 +51,8 @@ bindSidebar = ->
       Turbolinks.visit(href) # Visit the page via Turbolinks
 
 $(document).on 'ready page:load', ->
-  hljs.initHighlightingOnLoad()
+  $('pre code').each (i, e) ->
+    hljs.highlightBlock(e)
 
   # Menu Toggle
   $('button#sideBarToggle').on 'click', ->

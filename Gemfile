@@ -11,10 +11,12 @@ gem 'pg'
 gem 'haml-rails', '~> 0.5.1'
 gem 'sass-rails'
 gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'animation'
 gem 'coffee-rails'
 gem 'uglifier'
 
 gem "redcarpet", "~> 3.0.0"
+gem 'active_attr'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -41,6 +43,7 @@ gem "fog", "~> 1.15.0"
 
 group :assets, :development, :test do
   gem "haml-rails", "~> 0.5.1"
+  gem 'hogan_assets'
 end
 
 group :test do
