@@ -9,22 +9,13 @@
 // }
 
 // Remote Imports
-@import "compass/css3";
-@import "compass/css3/transform";
-@import "animation";
+@import "../imports";
 
-@import "../01-settings/**/*";
-@import "../02-extends/**/*";
-@import "../03-base/**/*";
-
-@include keyframes(ipad-from-right) {
+@include keyframes(ipad) {
   0% {
-    @include transform( translateX(110%) );
-  }
-  50% {
     @include transform( translateX(0%) );
   }
-  75% {
+  50% {
     @include transform( translateX(30%) );
   }
   100% {
@@ -32,17 +23,15 @@
   }
 }
 
-@include keyframes(iphone-from-right) {
+@include keyframes(iphone) {
   0% {
-    opacity: 0;
-    @include transform( translateX(100%) );
+    @include transform( translateX(0%) );
   }
   50% {
-    opacity: 1;
     @include transform( translateX(-50%) );
   }
   100% {
-    @include transform( translateX(10%) );
+    @include transform( translateX(0%) );
     z-index: 1;
   }
 }
@@ -58,18 +47,27 @@
 
   background: #fafafa;
 
-  &:hover {
-
+  &.animate {
     .ipad {
-      @include animation(ipad-from-right 1.5s ease-in-out both);
-      
+      @include animation(ipad 1s alternate cubic-bezier(0.68, 0.1, 0.265, 1.55) both);
     }
 
     .iphone {
-      @include animation(iphone-from-right 0.75s 0.75s ease-in-out both);
+      @include animation(iphone 1s alternate cubic-bezier(0.68, 0.1, 0.265, 1.55) both);
     }
-    
   }
+
+  &.reverse {
+    .ipad {
+      @include animation(ipad 1s alternate-reverse cubic-bezier(0.68, 0.1, 0.265, 1.55) forwards);
+    }
+
+    .iphone {
+      @include animation(iphone 1s alternate-reverse cubic-bezier(0.68, 0.1, 0.265, 1.55) forwards);
+    }
+  }
+
+
 
   .ipad {
     margin-bottom: -15%;
@@ -85,7 +83,7 @@
   .iphone {
     position: absolute;
     bottom: -20%;
-    left: 5%;
+    left: 0%;
     width: 22%;
   }
 

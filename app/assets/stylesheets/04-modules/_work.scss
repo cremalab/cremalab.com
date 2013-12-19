@@ -1,9 +1,9 @@
 .work {
   @extend .grid;
   @extend .grid.bottom;
-  @extend .grid.break;
+  @extend .grid.break.work;
   overflow: hidden;
-  &:nth-child(odd) {
+  &:nth-child(even) {
     @extend .grid.rtl;
     background: whitesmoke;
   }
@@ -14,16 +14,25 @@
 }
 
 .work-content {
+  width: 40em;
+  @media (max-width: $medium) {
+    width: 100%;
+  }
+}
+
+.work-content-links {
   
 }
 
 .work-showcase {
+  padding-top: unit(4);
   position: relative;
   padding-bottom: 0;
   text-align: center;
-  width: 60%;
-  @media (max-width: $small) {
+  width: 65%;
+  @media (max-width: $medium) {
     width: 100%;
+    padding-top: 0;
   }
 }
 
