@@ -5,8 +5,6 @@
 @import "01-settings/**/*";
 @import "02-extends/**/*";
 @import "03-base/**/*";
-@import "04-modules/**/*";
-@import "05-layouts/**/*";
 
 $lt-gray: #f3f8ff;
 $dk-gray: desaturate(darken($lt-gray, 60%), 40%);

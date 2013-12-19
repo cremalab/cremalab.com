@@ -40,7 +40,7 @@ bindSidebar = ->
   $('.layout-main-wrapper').bind 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', (e) ->
     $(window).trigger('nav-transition-done')
 
-  $('.siteNav a ').on 'click', (e) ->
+  $('.site_nav-list a ').on 'click', (e) ->
     href = @href
     e.preventDefault()
     $('.layout-main-wrapper').toggleClass 'open'
