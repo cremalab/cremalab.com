@@ -4,6 +4,10 @@ class WorkPresenter < BasePresenter
     markdown(@object.description)
   end
 
+  def title
+    @object.title
+  end
+
   def title_link
     h.link_to @object.title, h.work_path(@object)
   end
