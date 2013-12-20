@@ -37,7 +37,7 @@ class BlogPresenter < BasePresenter
   def featured_image
     if @object.featured_image.nil?
       # TODO: CHANGE THIS TO A DEFAULT IMAGE
-      "https://www.google.com/logos/doodles/2013/raymond-loewys-120th-birthday-ca-fr-us-nl-uk-ie-6388231276855296-hp.jpg"
+      "https://s3.amazonaws.com/cremalab/static/blog-bg.jpg"
     else
       @object.featured_image.image.url
     end
