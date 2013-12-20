@@ -1,0 +1,12 @@
+.layout-box {
+  padding: 3em;
+  &.right {
+    text-align: right;
+  }
+}
+
+.layout-box-content {
+  display: inline-block;
+  max-width: 35em;
+  text-align: left;
+}

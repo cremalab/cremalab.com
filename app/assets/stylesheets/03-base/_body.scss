@@ -1,0 +1,17 @@
+body {
+
+  // Typography
+  font: 100%/1.5 "Georgia";
+  -webkit-font-smoothing: antialiased;
+  color: $black;
+
+  // Layout
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+
+  // Skin
+  background: white;
+  
+}

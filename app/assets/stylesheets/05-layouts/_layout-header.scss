@@ -1,0 +1,48 @@
+.layout-header {
+
+  // Dimensions
+  position: relative;
+  padding: 5% 0;
+
+  // Typography
+  text-align: center;
+  color: $white;
+  a { color: $white; }
+
+  // Global Background Styles
+  background-size: auto, auto, cover;
+  background-position: center;
+
+  // Sub Classes
+  &.sub-blog {
+    background-image:
+      linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
+      url(kelly-desk.jpg)
+  }
+  &.sub-contact {
+    background-image:
+      linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
+      url(kelly-desk.jpg)
+  }
+  &.sub-process {
+    background-image: 
+      linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
+      url(rob-ross.jpg)
+  }
+  &.sub-team {
+    background-image: 
+      linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
+      url(team.jpg)
+  }
+  &.sub-work {
+    background-image: 
+      linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
+      url(team.jpg)
+  }
+
+}

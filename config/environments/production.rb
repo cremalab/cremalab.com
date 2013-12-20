@@ -24,8 +24,9 @@ CremalabCom::Application.configure do
 
   config.assets.paths << Rails.root.join('fonts')
 
-  config.assets.precompile += %w( .svg .eot .woff .ttf )
-  config.assets.precompile += %w( print.css )
+  config.assets.precompile += %w( .svg .eot .woff .ttf print.css admin.css)
+
+  config.assets.initialize_on_precompile = false
 
   config.assets.initialize_on_precompile = false
 
@@ -54,6 +55,15 @@ CremalabCom::Application.configure do
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
+
+  config.action_mailer.smtp_settings = {
+    :address              => 'smtp.gmail.com',
+    :port                 => 587,
+    :user_name            => ENV['GMAIL_USERNAME'],
+    :password             => ENV['GMAIL_PASSWORD'],
+    :authentication       => :plain,
+    :enable_starttls_auto => true
+  }
 
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)

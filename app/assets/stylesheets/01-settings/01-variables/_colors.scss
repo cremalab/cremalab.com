@@ -1,0 +1,33 @@
+// Blacks
+$black: #222222;
+
+// Whites
+$white: #FFFFFF;
+
+// Grays
+$gray: #999999;
+$gray-dark: darken($gray, 25);
+$gray-light: lighten($gray, 25);
+
+// Admin Grays
+$lt-gray: #f3f8ff;
+$dk-gray: desaturate(darken($lt-gray, 60%), 40%);
+
+// Colors
+
+$base: 2;
+$offset: 51;
+$saturation: 100%;
+$lightness: 40%;
+
+$red:    hsl($base + ($offset * 0), $saturation, $lightness);
+$orange: hsl($base + ($offset * 1), $saturation, $lightness);
+$yellow: hsl($base + ($offset * 2), $saturation, $lightness);
+$green:  hsl($base + ($offset * 3), $saturation, $lightness);
+$blue:   hsl($base + ($offset * 4), $saturation, $lightness);
+$indigo: hsl($base + ($offset * 5), $saturation, $lightness);
+$violet: hsl($base + ($offset * 6), $saturation, $lightness);
+$brown:  hsl(30, $saturation, 20);
+
+// Links
+$link-color: $gray-dark;

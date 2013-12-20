@@ -1,27 +1,44 @@
 .blog-form
   = form_for [:admin, @user, @blog] do |f|
+    #meta_data{data: {imageable_id: @blog.id ? @blog.id : '', imageable_type: 'Blog', controller: 'blogs'}}
     - if @blog.errors.any?
       .error_messages
         %h2 Form is invalid
         %ul
           - for message in @blog.errors.full_messages
             %li= message
-    .field
-      = f.label :title
-      = f.text_field :title
-    .field
-      = f.label :published_at
-      = f.date_select :published_at
-    .field
-      = f.label :published, "Published?"
-      = f.check_box :published
-    .field
+    %fieldset
+      .field
+        = f.label :title
+        = f.text_field :title
+      .filed
+        = f.label :user, "Author"
+        = f.collection_select(:user_id, User.all, :id, :full_name)
+        %br
+        %br
+      .field
+        = f.label :published_at
+        = f.date_select :published_at
+      .field
+        = f.label :published, "Published?"
+        = f.check_box :published
+      .field
+        = f.label :tag_list, 'Tag list (comma separated)'
+        = f.text_field :tag_list
+    %fieldset
       = f.label :content, 'Content (markdown enabled)'
-      = f.text_area :content, rows: 20, cols: 60, class: 'blog-content markdown'
-    .field
-      = f.label :tag_list, 'Tag list (comma separated)'
-      = f.text_field :tag_list
+      = render partial: 'ace_editor', locals: {content: @blog.content}
+      = f.text_area :content, rows: 60, cols: 60, class: 'blog-content editor-content'
+    %fieldset
+      %legend Images
+      #images_json{style: "display: none"}= @blog.images.to_json
+
+      .field
+        %a.add-image.button{href: '#'} Add an Image
+        #existing_images
     .actions
-      = f.submit "Save"
-      = f.submit "Save and Publish"
+      = f.submit "Save", class: 'button'
+      = f.submit "Save and Publish", class: 'button'
+      - if @blog.id
+        = link_to 'Delete', admin_blog_path(@blog), :confirm => 'Are you sure?', :method => :delete, class: 'delete button'
 .markdown-preview

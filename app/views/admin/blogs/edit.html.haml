@@ -1,5 +1,5 @@
-%h1
+%h3
   Editing
-  = @blog.title
-= link_to 'Delete', admin_blog_path(@blog), :confirm => 'Are you sure?', :method => :delete
-= render 'form'
+  = link_to @blog.title, blog_path(@blog)
+.blog-content
+  = render 'form'

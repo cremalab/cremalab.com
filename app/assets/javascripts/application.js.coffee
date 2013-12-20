@@ -10,33 +10,54 @@
 # Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 # about supported directives.
 #
+#= require modernizr
 #= require jquery
 #= require jquery_ujs
+#= require work
 #= require turbolinks
-#= require_tree .
-#= require marked
-#= require jquery.sortable.min
+#= require highlight.pack
+#= require hogan
 
-$ ->
+loadCss = (url) ->
+  link = document.createElement("link")
+  link.type = "text/css"
+  link.rel = "stylesheet"
+  link.href = url
+  document.getElementsByTagName("head")[0].appendChild(link)
 
-  $('button#sideBarToggle').on 'click', ->
-    $('main').toggleClass 'open'
+@loadWorkTemplate = (slug, id) ->
+  loadCss("/assets/works/#{slug}.css");
+  require ["/assets/templates/#{slug}"], ->
+    template = HoganTemplates["#{slug}"].render()
+    $el = $(".work-showcase[data-id='#{id}']")
+    $el.html(template)
+    window.scrollWatcher = new ScrollWatcher unless window.scrollWatcher
+    window.scrollWatcher.addItem($el.parent())
+
+
+bindSidebar = ->
+
+  $('.layout-main-wrapper').bind 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', (e) ->
+    $(window).trigger('nav-transition-done')
+
+  $('.siteNav a ').on 'click', (e) ->
+    href = @href
+    e.preventDefault()
+    $('.layout-main-wrapper').toggleClass 'open'
     $('button#sideBarToggle').toggleClass 'close'
 
-  $('.works.sortable').sortable(
-    items: '.work'
-    handle: '.drag-handle'
-  ).bind 'sortupdate', (a,b,c) ->
-    $('.works.sortable .work').each (index,el) ->
-      current_index = Number $(el).attr('data-index')
-      work_id   = $(el).attr('data-id')
-      unless index is current_index
-        $.ajax
-          type: 'PUT'
-          url: "/admin/work/#{work_id}"
-          dataType: 'json'
-          data:
-            work:
-              order_index: index
-          success: (res) ->
-            $(el).attr('data-index', res.order_index)
+    $(window).on 'nav-transition-done', ->
+      $(window).off 'nav-transition-done'
+      Turbolinks.visit(href) # Visit the page via Turbolinks
+
+$(document).on 'ready page:load', ->
+  $('pre code').each (i, e) ->
+    hljs.highlightBlock(e)
+
+  # Menu Toggle
+  $('button#sideBarToggle').on 'click', ->
+    $('.layout-main-wrapper').toggleClass 'open'
+    $('button#sideBarToggle').toggleClass 'close'
+
+
+  bindSidebar() if Modernizr.csstransitions

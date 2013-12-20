@@ -1,0 +1,53 @@
+.post {}
+
+// POST HEADER
+.post-header {
+  background-size: cover;
+  background-position: center;
+  color: white;
+  a {
+    color: white;
+  }
+}
+
+// POST BODY
+.post-body {}
+
+// POST INFO
+.post-info {
+  @extend %verticalSpacing;
+  display: inline-table;
+  > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+  .post-info-avatar {
+    width: unit(2);
+    @media (max-width: $small) {
+      width: unit(1.5);
+    }
+    img {
+      display: block;
+      border-radius: 500px;
+    }
+  }
+  .post-info-content {
+    padding-left: unit(1);
+    line-height: 1;
+    text-align: left;
+    @media (max-width: $small) {
+      padding-left: unit(0.5);
+    }
+    > * {
+      @extend %verticalSpacing.quarter
+    }
+  }
+
+.post-excerpt {
+  @extend %verticalSpacing
+}
+
+.post-action {
+  @extend %verticalSpacing
+}

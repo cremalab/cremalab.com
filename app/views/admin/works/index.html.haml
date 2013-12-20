@@ -1,0 +1,4 @@
+- content_for :admin_actions do
+  = link_to 'Add Work', new_admin_work_path, class: 'button primary'
+.works.sortable{:'data-controller' => 'work', :'data-model' => 'work'}
+  = render @works

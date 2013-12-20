@@ -1,11 +1,6 @@
 - present blog do |blog_presenter|
-  %article
-    %header
-      %h1= blog_presenter.title_link
-      %h3= blog_presenter.author_link
-      - unless blog.is_published?
-        %h5 Unpublished
-    %section.tags
-      = blog_presenter.tag_list
-    %section
+  = render partial: 'header', locals: {blog: blog, blog_presenter: blog_presenter}
+.layout-content
+  - present blog do |blog_presenter|
+    .post-body
       = blog_presenter.content

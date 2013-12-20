@@ -1,8 +1,11 @@
 class Blog < ActiveRecord::Base
   belongs_to :user
+  has_many :images, as: :imageable, :dependent => :destroy
+  acts_as_taggable
   unless (ARGV & ['assets:precompile', 'assets:clean']).any?
     acts_as_taggable
   end
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   validates_presence_of :title, :content
 
@@ -18,5 +21,7 @@ class Blog < ActiveRecord::Base
     where("published = ? AND published_at <= ?", true, Time.now)
   end
 
-
+  def featured_image
+    self.images.featured.first
+  end
 end

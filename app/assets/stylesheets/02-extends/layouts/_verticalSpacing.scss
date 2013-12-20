@@ -1,0 +1,9 @@
+%verticalSpacing {
+  margin-top: unit() !important;
+  &.half {
+  	margin-top: unit(0.5) !important;
+  }
+  &.quarter {
+    margin-top: unit(0.25) !important;
+  }
+}

@@ -1,12 +1,21 @@
-Logged in as:
-%br
-- if current_user.profile
-  = current_user.profile.full_name
-= "(#{current_user.email})"
+- if params[:controller].split("/")[0] != 'admin' || params[:controller].split("/")[1] == 'dashboard'
+  - button_text = "Admin"
+- else
+  - button_text = "< Admin"
 
-%nav
-  = link_to 'Logout', logout_path
-  = link_to 'New User', new_admin_user_path
-  = link_to 'Edit My Profile', edit_admin_user_path(current_user)
-  = link_to 'My Blog Posts', admin_user_blogs_path(current_user)
-  = link_to 'Add Work', new_admin_work_path
+.userMenu
+  .layout-wrap-content
+    .layout-content
+      %nav
+        = link_to "#{button_text}", admin_path, class: 'button'
+        = link_to 'My Blog Posts', admin_user_blogs_path(current_user), class: 'button'
+
+      .admin-actions
+        = yield :admin_actions
+
+      .session
+        = link_to 'Logout', logout_path, class: 'button'
+        - if current_user.profile
+          = link_to current_user.profile.full_name, edit_admin_user_path(current_user), class: 'button primary'
+        - else
+          = link_to current_user.email, edit_admin_user_path(current_user), class: 'button primary'

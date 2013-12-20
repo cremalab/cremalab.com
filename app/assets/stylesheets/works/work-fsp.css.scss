@@ -1,0 +1,95 @@
+// You can namespace this particular work's container by using the
+// template_file_name set for the Work, which should
+// also be the name of this file. Example: if the work's
+// template_file_name is 'live_blue' the container would be
+//   .work#live_blue
+
+// #live_blue {
+//   background: blue;
+// }
+
+// Remote Imports
+@import "../imports";
+
+@include keyframes(ipad) {
+  0% {
+    @include transform( translateX(0%) );
+  }
+  50% {
+    @include transform( translateX(30%) );
+  }
+  100% {
+    @include transform( translateX(0%) );
+  }
+}
+
+@include keyframes(iphone) {
+  0% {
+    @include transform( translateX(0%) );
+  }
+  50% {
+    @include transform( translateX(-50%) );
+  }
+  100% {
+    @include transform( translateX(0%) );
+    z-index: 1;
+  }
+}
+
+@include keyframes(cycle-screens) {
+   0%, 24% { background-image: url(../work/fsp/screen-1.png) }
+  25%, 49% { background-image: url(../work/fsp/screen-2.png) }
+  50%, 74% { background-image: url(../work/fsp/screen-1.png) }
+  75%, 99% { background-image: url(../work/fsp/screen-3.png) }
+}
+
+#work-fsp {
+
+  background: #fafafa;
+
+  &.animate {
+    .ipad {
+      @include animation(ipad 1s alternate cubic-bezier(0.68, 0.1, 0.265, 1.55) both);
+    }
+
+    .iphone {
+      @include animation(iphone 1s alternate cubic-bezier(0.68, 0.1, 0.265, 1.55) both);
+    }
+  }
+
+  &.reverse {
+    .ipad {
+      @include animation(ipad 1s alternate-reverse cubic-bezier(0.68, 0.1, 0.265, 1.55) forwards);
+    }
+
+    .iphone {
+      @include animation(iphone 1s alternate-reverse cubic-bezier(0.68, 0.1, 0.265, 1.55) forwards);
+    }
+  }
+
+
+
+  .ipad {
+    margin-bottom: -15%;
+    margin-left: 5%;
+    width: 95%;
+  }
+
+  .ipad-content {
+    background-image: url(../work/fsp/screen-1.png);
+    @include animation(cycle-screens 10s infinite linear);
+  }
+
+  .iphone {
+    position: absolute;
+    bottom: -20%;
+    left: 0%;
+    width: 22%;
+  }
+
+  .phone-content {
+    background-image: url(../work/fsp/screen-2.png);
+    @include animation(cycle-screens 10s infinite linear);
+  }
+
+}

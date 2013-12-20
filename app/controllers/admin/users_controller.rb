@@ -1,11 +1,11 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < AdminController
 
   before_filter :require_login
-  respond_to :html
+  respond_to :html, :json
 
 
   def index
-    @users = User.all
+    @users = User.all.order("order_index ASC")
   end
 
   def new
@@ -25,11 +25,22 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find_by(username: params[:id])
-    if @user.update_attributes(user_params)
-      redirect_to root_path
-    else
-      respond_with @user
+
+    respond_to do |format|
+      format.html  {
+        if @user.update_attributes(user_params)
+          redirect_to root_path
+        else
+          respond_with @user
+        end
+      }
+      format.json  {
+        if @user.update_attributes(user_params)
+          render :json => @user
+        end
+      }
     end
+
   end
 
   def show
@@ -48,8 +59,9 @@ class Admin::UsersController < ApplicationController
 private
   def user_params
     params.require(:user).permit(
-      :password, :password_confirmation, :email,
-      profile_attributes: [:first_name, :last_name, :title, :avatar,
+      :password, :password_confirmation, :email, :order_index,
+      profile_attributes: [:first_name, :last_name,
+        :title, :avatar, :job_title,
         social_links_attributes: [
           :username, :full_url, :network, :_destroy
         ]

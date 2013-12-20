@@ -1,0 +1,95 @@
+.grid {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  &.auto   { table-layout: auto }; // Switch table back to natural layout.
+
+  &.inline { display: inline-table }
+
+  &.rtl {
+    direction: rtl;
+    > * { direction: ltr }
+  }
+
+  &.centered {
+    max-width: 60em;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &.cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    @media (max-width: $small), (max-height: 400px) {
+      position: relative;
+    }
+
+  }
+
+  &.spaced { 
+
+    border-spacing: unit(2);
+
+    > * + * { margin-top: unit(2) } // Applies a matching top margin between elements when display:block.
+    
+    @media (max-width: $small) {
+      border-spacing: unit(1);
+    }
+
+  }
+
+  > * { 
+
+    display: table-cell;
+
+    // Vertical Alignment
+    vertical-align: top;
+
+    // Widths
+    &.one-third    { width: 33.3333% }
+    &.two-third    { width: 66.6666% }
+    &.fourth       { width: 25% }
+    &.half         { width: 50% }
+    &.three-fourth { width: 75% }
+    &.one-fifth    { width: 20% }
+    &.two-fifth    { width: 40% }
+    &.three-fifth  { width: 60% }
+    &.four-fifth   { width: 80% }
+
+  }
+
+  &.break {
+    > * {
+      @media (max-width: $small) {
+        display: block;
+        width: 100%;
+      }
+    }
+    &.work {
+      > * {
+        @media (max-width: $medium) {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &.middle {
+    > * {
+      vertical-align: middle
+    }
+  }
+
+  &.bottom {
+    > * {
+      vertical-align: bottom
+    }
+  }
+
+}

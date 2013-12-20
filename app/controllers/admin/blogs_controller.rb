@@ -1,15 +1,15 @@
-class Admin::BlogsController < ApplicationController
+class Admin::BlogsController < AdminController
 
   before_filter :require_login
   before_filter :check_publish, only: [:create, :update]
 
   def index
     if blog_user
-      @blogs = blog_user.blogs.order("published_at DESC").page(params[:page]).per(5)
+      @blogs = blog_user.blogs.order("published_at DESC").page(params[:page]).per(20)
     else
-      @blogs = Blog.all.order("published_at DESC").page(params[:page]).per(5)
+      @blogs = Blog.all.order("published_at DESC").page(params[:page]).per(20)
     end
-    render 'blogs/index', status: 200
+    render :index, status: 200
   end
 
   def new
@@ -20,12 +20,8 @@ class Admin::BlogsController < ApplicationController
   end
 
   def create
-    if blog_user
-      @blog = blog_user.blogs.new(blog_params)
-    else
-      @blog = Blog.new(blog_params)
-    end
-
+    @blog = Blog.new(blog_params)
+    add_new_images
     if @blog.save
       redirect_to blog_path(@blog)
     else
@@ -68,7 +64,7 @@ private
   def blog_params
     params.require(:blog).permit(
       :title, :content, :published_at,
-      :user_id, :tag_list, :published
+      :user_id, :tag_list, :published, :new_image_ids
     )
   end
 
@@ -81,8 +77,18 @@ private
   end
 
   def check_publish
-    if params[:commit].include?("Publish")
+    if params[:commit] and params[:commit].include?("Publish")
       params[:blog][:published] = true
+    end
+  end
+
+  def add_new_images
+    ids = params[:new_image_ids]
+    if ids
+      ids = ids.split(',')
+      for id in ids
+        @blog.images << Image.find(id)
+      end
     end
   end
 

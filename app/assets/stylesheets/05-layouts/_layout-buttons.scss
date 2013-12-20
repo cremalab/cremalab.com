@@ -1,0 +1,27 @@
+.layout-buttons {
+  @extend .grid;
+  @extend .grid.inline;
+  border-spacing: 0 unit(1);
+  width: auto;
+
+  @media (max-width: $small) {
+    width: 100%;
+  }
+
+}
+
+.layout-buttons-content {
+
+  > * { width: 100% }
+
+  + .layout-buttons-content {
+    padding-left: unit(1);
+    margin-top: unit(1);
+
+    @media (max-width: $small) {
+      padding-left: 0;
+    }
+
+  }
+
+}

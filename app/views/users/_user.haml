@@ -1,4 +1,12 @@
-.team-member
-  = link_to user.profile.full_name, user_blogs_path(user)
-  = image_tag user.profile.avatar.thumb
-  = render user.profile.social_links
+- present user do |up|
+  .teamMember
+    = picture_tag("#{up.avatar.thumb}", "sub-cover")
+    .teamMember-size
+      .teamMember-size-info
+        .teamMember-size-info-content
+          %h2= up.full_name
+          .teamMember-size-info-content-button
+            = up.blog_link
+          .teamMember-size-info-content-links
+            .socialLinks.sub-team
+              = render user.profile.social_links

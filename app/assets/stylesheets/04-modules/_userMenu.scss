@@ -1,0 +1,22 @@
+.userMenu {
+  z-index: 1;
+  background: $white;
+  background: $lt-gray;
+  border-bottom: 6px ridge $dk-gray;
+  .layout-content {
+    padding: 1% unit(2);
+    @extend .grid;
+    @extend .grid.bottom;
+    @extend .grid.break;
+    overflow: hidden;
+    position: relative;
+  }
+  .admin-actions {
+    text-align: center;
+  }
+  .session {
+    text-align: right;
+    padding-right: 32px;
+  }
+
+}

@@ -1,0 +1,30 @@
+// MODULE INDEX
+// .links {}
+// .links-link {}
+
+.links {
+  @extend %verticalSpacing;
+  position: relative;
+  display: table;
+  @media (max-width: $small) {
+    width: 100%;
+  }
+}
+.links-link {
+  display: table-cell;
+  @extend %verticalSpacing;
+  + .links-link {
+    padding-left: unit(1);
+    @media (max-width: $small) {
+      padding-left: 0;
+    }
+  }
+  @media (max-width: $small) {
+    display: inline-block;
+    width: 100%;
+    padding-left: 0;
+    > * {
+      width: 100%;
+    }
+  }
+}

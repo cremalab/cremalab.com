@@ -1,0 +1,121 @@
+%formBase {
+  font-size: inherit;
+}
+
+// Form
+form {
+  @extend %verticalSpacing;
+}
+
+// Fieldset
+fieldset {}
+legend {
+  @extend %formBase;
+}
+
+// Label
+label {}
+
+// Input
+input {
+  @extend %formBase;
+  @extend %verticalSpacing;
+  font-size: inherit;
+}
+input[type="button"] {}
+input[type="checkbox"] {}
+input[type="color"] {}
+input[type="date"] {
+  @extend %skin-textBox;
+}
+input[type="datetime-local"] {
+  @extend %skin-textBox;
+}
+input[type="datetime"] {
+  @extend %skin-textBox;
+}
+input[type="email"] {
+  @extend %skin-textBox;
+}
+input[type="file"] {}
+input[type="hidden"] {}
+input[type="image"] {}
+input[type="max"] {
+  @extend %skin-textBox;
+}
+input[type="min"] {
+  @extend %skin-textBox;
+}
+input[type="month"] {}
+input[type="number"] {
+  @extend %skin-textBox;
+}
+input[type="password"] {
+  @extend %skin-textBox;
+}
+input[type="radio"] {}
+input[type="range"] {}
+input[type="reset"] {}
+input[type="search"] {
+  @extend %skin-textBox;
+}
+input[type="step"] {}
+input[type="submit"] {
+  @media (max-width: $small) {
+    width: 100%;
+  }
+}
+input[type="tel"] {
+  @extend %skin-textBox;
+}
+input[type="text"] {
+  @extend %skin-textBox;
+}
+input[type="time"] {
+  @extend %skin-textBox;
+}
+input[type="url"] {
+  @extend %skin-textBox;  
+}
+input[type="value"] {
+  @extend %skin-textBox;  
+}
+input[type="week"] {
+  @extend %skin-textBox;  
+}
+
+// Select
+select {
+  @extend %formBase;
+}
+datalist {
+  @extend %formBase;
+}
+option {
+  @extend %formBase;
+}
+optgroup {
+  @extend %formBase;
+}
+
+// Text Area
+textarea {
+  @extend %formBase;
+  @extend %skin-textBox;
+  @extend %verticalSpacing;
+  display: block;
+  resize: none;
+  height: unit(5);
+  @media (max-width: $small) {
+    height: unit(10);
+  }
+}
+
+// Button
+button {}
+
+// Misc
+keygen {}
+meter {}
+output {}
+progress {}

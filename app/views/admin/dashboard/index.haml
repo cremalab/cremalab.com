@@ -1,9 +1,16 @@
-%h1 Blog Posts
+- content_for :admin_actions do
+  = link_to 'Team', admin_users_path, class: 'button'
+  = link_to 'Work', admin_works_path, class: 'button'
+  = link_to 'Blogs', admin_blogs_path, class: 'button'
 
-= render partial: 'admin/blogs/preview', collection: @blogs, as: :blog
-= paginate @blogs
+.admin-dashboard
+  .admin-dashboard-blogs
+    %h3= link_to 'Blog Posts', admin_blogs_path
+    .layout-list
+      = render partial: 'admin/blogs/preview', collection: @blogs, as: :blog
+      = paginate @blogs
 
-%h1 Work
-
-.works.sortable
-  = render @work
+  .admin-dashboard-work
+    %h3= link_to 'Work', admin_works_path
+    .works.sortable.layout-list
+      = render @work
