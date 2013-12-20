@@ -24,7 +24,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-  process :resize_to_fit => [1000, 1000]
+  process :resize_to_width => [1000, 1000]
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
@@ -42,6 +42,19 @@ class ImageUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
   def extension_white_list
     %w(jpg jpeg gif png)
+  end
+
+  def resize_to_width(width, height)
+    manipulate! do |img|
+      if img[:width] >= width
+        img.resize "#{width}x#{img[:height]}"
+      end
+      if img[:height] >= height && img[:width] < width
+        img.resize "#{img[:height]}x#{height}}"
+      end
+      img = yield(img) if block_given?
+      img
+    end
   end
 
   # Override the filename of the uploaded files:
