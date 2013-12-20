@@ -13,6 +13,7 @@
     = javascript_include_tag "require"
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
+    = yield(:meta)
 %body
   %button.plain#sideBarToggle
   %aside.layout-sidebar
@@ -23,3 +24,4 @@
       %main.layout-main-content
         = render "layouts/user_menu" if current_user
         = yield
+  = render "layouts/analytics" if Rails.env.production?
