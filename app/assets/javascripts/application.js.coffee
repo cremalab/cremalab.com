@@ -55,9 +55,9 @@ $(document).on 'ready page:load', ->
     hljs.highlightBlock(e)
 
   # Menu Toggle
-  $('button#sideBarToggle').on 'click', ->
+  $('.sideBarToggle').on 'click', ->
     $('.layout-main-wrapper').toggleClass 'open'
-    $('button#sideBarToggle').toggleClass 'close'
+    $('.sideBarToggle').toggleClass 'close'
 
 
   bindSidebar() if Modernizr.csstransitions
