@@ -36,6 +36,7 @@ class BlogPresenter < BasePresenter
 
   def featured_image
     if @object.featured_image.nil?
+      # TODO: CHANGE THIS TO A DEFAULT IMAGE
       "https://www.google.com/logos/doodles/2013/raymond-loewys-120th-birthday-ca-fr-us-nl-uk-ie-6388231276855296-hp.jpg"
     else
       @object.featured_image.image.url
@@ -54,6 +55,23 @@ class BlogPresenter < BasePresenter
 
   def excerpt
     content.truncate_html(500).html_safe
+  end
+
+  def text_excerpt
+    if @object.excerpt
+      @object.excerpt.truncate(140)
+    else
+      @object.content.truncate(140)
+    end
+  end
+
+  def twitter_username
+    sl = @object.user.profile.social_links.where(network: 'twitter').first
+    if sl
+      @object.user.profile.social_links.where(network: 'twitter').first.username
+    else
+      nil
+    end
   end
 
 end
