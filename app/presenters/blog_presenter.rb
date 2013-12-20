@@ -58,7 +58,11 @@ class BlogPresenter < BasePresenter
   end
 
   def text_excerpt
-    @object.content.truncate(100)
+    if @object.excerpt
+      @object.excerpt.truncate(140)
+    else
+      @object.content.truncate(140)
+    end
   end
 
   def twitter_username
