@@ -10,7 +10,7 @@ gem 'pg'
 # Assets
 gem 'haml-rails', '~> 0.5.1'
 gem 'sass-rails'
-gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'compass-rails', '~> 2.0.alpha.0', git: "git@github.com:Compass/compass-rails.git", branch: '2-0-stable'
 gem 'animation'
 gem 'coffee-rails'
 gem 'uglifier'
