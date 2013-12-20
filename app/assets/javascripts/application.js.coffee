@@ -57,7 +57,7 @@ $(document).on 'ready page:load', ->
   # Menu Toggle
   $('.sideBarToggle').on 'click', ->
     $('.layout-main-wrapper').toggleClass 'open'
-    $('.sideBarToggle').toggleClass 'close'
+    $('.menu_bar, .sideBarToggle').toggleClass 'close'
 
 
   bindSidebar() if Modernizr.csstransitions

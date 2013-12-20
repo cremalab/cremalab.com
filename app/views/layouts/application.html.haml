@@ -5,7 +5,7 @@
       Cremalab
       = yield :title
     %meta{ charset: "UTF-8" }
-    %meta{ content: "initial-scale=1.0, user-scalable=no", name: "viewport"}
+    %meta{ content: "user-scalable=no, width=device-width, height=device-height", name: "viewport" }
     %meta{ content: "yes", name: "apple-mobile-web-app-capable"}
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     - if current_user
@@ -14,6 +14,7 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
 %body
+  .menu_bar
   .sideBarToggle.sub-main.icon-list
   %aside.layout-sidebar
     .sideBarToggle.sub-sidebar.icon-cross

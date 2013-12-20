@@ -1,5 +1,5 @@
 .layout-box {
-  padding: 3em;
+  @extend %padding;
   &.right {
     text-align: right;
   }
