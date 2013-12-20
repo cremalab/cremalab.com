@@ -213,4 +213,20 @@
 
     }
   }
+
+}
+
+$yellow: #fff8d5;
+$dk-yellow: #f7e8c5;
+span.admin-label {
+  background: $yellow;
+  border: 1px solid #f7e8c5;
+  padding: .3em;
+  font-family: "Monaco";
+  font-size: 12px;
+  vertical-align: middle;
+  color: darken($dk-yellow, 60%);
+  @include text-shadow(#fff 0 1px 0);
+  // @include single-box-shadow(transparentize(#000, .6), 0, 0, 4px);
+  @include border-radius(.3em);
 }

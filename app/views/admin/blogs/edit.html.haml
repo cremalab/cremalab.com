@@ -1,5 +1,6 @@
 %h3
   Editing
   = link_to @blog.title, blog_path(@blog)
+  = "<span class='admin-label'>Draft</span>".html_safe unless @blog.published?
 .blog-content
   = render 'form'
