@@ -7,13 +7,16 @@
     %meta{ charset: "UTF-8" }
     %meta{ content: "initial-scale=1.0, user-scalable=no", name: "viewport"}
     %meta{ content: "yes", name: "apple-mobile-web-app-capable"}
+    %meta{ content: "We’re a small team of creatives who turn big ideas into beautiful and useable digital experiences.", name: "description"}/
+    %meta{ content: "@cremalab", name: "twitter:site"}
+    %meta{ content: "Cremalab", property: "og:site_name"}
+    = yield(:meta)
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     - if current_user
       = stylesheet_link_tag    "admin", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "require"
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-    = yield(:meta)
 %body
   %button.plain#sideBarToggle
   %aside.layout-sidebar

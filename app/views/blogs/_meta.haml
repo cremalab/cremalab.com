@@ -2,8 +2,6 @@
   - content_for :meta do
     %meta{:content => "Chaplin JS makes it easy to reuse and inherit Views in your application code, among many other handy features.", :name => "description"}/
     %link{:href => "http://cremalab.com/2013/12/working-with-chaplin-js-part-1-inheritance-and-views/", :rel => "canonical"}/
-    %meta{:content => "summary", :name => "twitter:card"}
-    %meta{:content => "@cremalab", :name => "twitter:site"}
     - if bp.twitter_username
       %meta{:content => "@#{bp.twitter_username}", :name => "twitter:creator"}
     - if bp.featured_image
@@ -15,7 +13,6 @@
     - if bp.text_excerpt
       %meta{:content => "#{bp.text_excerpt}", :property => "og:description"}
     %meta{:content => blog_url(blog), :property => "og:url"}
-    %meta{:content => "Cremalab", :property => "og:site_name"}
     %meta{:content => "article", :property => "og:type"}
     - if bp.featured_image
       %meta{:content => "#{bp.featured_image}", :property => "og:image"}/
