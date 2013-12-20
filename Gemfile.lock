@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:Compass/compass-rails.git
+  remote: https://github.com/Compass/compass-rails.git
   revision: 2fbc4a601d52622f698100bf45e41572fbb9fe3e
   branch: 2-0-stable
   specs:
