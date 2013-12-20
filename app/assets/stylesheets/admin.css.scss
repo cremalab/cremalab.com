@@ -133,7 +133,9 @@
   #ace_container {
     position: relative;
     width: 100%;
-    height: 500px;
+    min-height: 100px;
+    background: transparentize(#fff, .98);
+    overflow-y: hidden;
 
     border: 1px solid darken($lt-gray, 6%);
     @include border-radius(2px);
