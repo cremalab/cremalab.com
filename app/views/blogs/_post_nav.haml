@@ -1,0 +1,5 @@
+%nav.pagination.post
+  - if blog.older_post
+    = link_to("Previously: <span class='title'>#{blog.older_post.title}</span>".html_safe, blog.older_post)
+  - if blog.newer_post
+    = link_to("Up Next: <span class='title'>#{blog.newer_post.title}</span>".html_safe, blog.newer_post)
