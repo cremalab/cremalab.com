@@ -24,7 +24,7 @@ CremalabCom::Application.configure do
 
   config.assets.paths << Rails.root.join('fonts')
 
-  config.assets.precompile += %w( .svg .eot .woff .ttf print.css admin.css)
+  config.assets.precompile += %w( .svg .eot .woff .ttf print.css admin.css admin.js)
 
   config.assets.initialize_on_precompile = false
 
