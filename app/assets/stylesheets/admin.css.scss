@@ -6,179 +6,209 @@
 @import "02-extends/**/*";
 @import "03-base/**/*";
 
-$lt-gray: #f3f8ff;
-$dk-gray: desaturate(darken($lt-gray, 60%), 40%);
-
-.layout-main {
-  margin: 3em;
-}
-
-article {
-  margin: 2em 0;
-}
-
-.blog-content {
-  @extend .grid;
-  @extend .grid.bottom;
-  @extend .grid.break;
-  overflow: hidden;
-}
-
-.blog-form {
-  vertical-align: top;
-  text-align: left;
-  position: relative;
-  padding-bottom: 0;
-  width: 40%;
-  @media (max-width: $small), screen and (orientation:portrait) {
-    width: 100%;
-    display: block;
-  }
-  @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-    width: 50%;
-  }
-}
-
-.markdown-preview {
-  width: 60%;
-  padding: 2em;
-  vertical-align: top;
-  @media (max-width: $small), screen and (orientation:portrait) {
-    width: 100%;
-    display: block;
-  }
-  @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-    width: 50%;
-  }
-}
-
-form fieldset {
-  border: none;
-  margin: 1em 0;
-  background: $lt-gray;
-  border: 1px solid darken($lt-gray, 6%);
-  @include border-radius(4px);
-
-  legend {
-    background: $lt-gray;
-    padding: .3em 1em;
-    border-top: 1px solid darken($lt-gray, 6%);
-    @include border-radius(4px);
-    font-family: "Monaco";
-    font-size: 100%;
-    color: $dk-gray;
-  }
-
-  label {
-    margin-top: 1em;
-    font-family: "Monaco";
-    font-size: 80%;
-    color: $dk-gray;
-  }
-
-  .fields {
-    margin-bottom: 2em;
-    padding-bottom: 2em;
-    border-bottom: 1px dashed $dk-gray;
-    &:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
+.layout-admin {
+  .layout-list {
+    margin-top: unit(1);
+    > * {
+      margin-bottom: unit(1);
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
     }
   }
 
-  .field {
-    margin-top: 0;
-    margin-bottom: 1em;
-    &:last-child {
-      margin-bottom: 0;
-    }
-    input {
-      margin-top: 0 !important;
-      border: 1px solid darken($lt-gray, 6%);
-    }
-
+  .layout-content {
+    max-width: 100em;
   }
 
-  .grouped-inputs {
+  .work > * {
+    padding: unit(.5);
+  }
+
+  .blog-content, .admin-dashboard {
     @extend .grid;
     @extend .grid.bottom;
     @extend .grid.break;
     overflow: hidden;
+    > * {vertical-align: top;}
+  }
 
-    input {
-      display: table-cell;
-      width: 30%;
+  .blog-form {
+    vertical-align: top;
+    text-align: left;
+    position: relative;
+    padding-bottom: 0;
+    width: 40%;
+    @media (max-width: $small), screen and (orientation:portrait) {
+      width: 100%;
+      display: block;
+    }
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+      width: 50%;
     }
   }
 
-  .button {
-    border: 1px solid desaturate(darken($lt-gray, 20%), 60%);
-  }
-}
-
-@import "ace-github";
-@import "highlight-github";
-
-#ace_container {
-  position: relative;
-  width: 100%;
-  height: 500px;
-
-  border: 1px solid darken($lt-gray, 6%);
-  @include border-radius(2px);
-
-  #editor {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-}
-textarea.editor-content {
-  display: none;
-  height: 600px;
-}
-
-a.delete {
-  color: $red;
-}
-
-.button {
-  @include background(linear-gradient(lighten($lt-gray, 10%), $lt-gray));
-  @include border-radius(4px);
-  @include text-shadow(0 -1px 1px $white);
-  // @include box-shadow(0 0 2px darken($lt-gray, 70%));
-  color: darken($gray, 20%);
-  padding: .5em .5em .3em .5em;
-  border: 1px solid darken($lt-gray, 5%);
-  line-height: 1.5em;
-  cursor: pointer;
-  font-weight: normal;
-  font-size: 80%;
-
-  &:hover {
-    @include background(lighten($lt-gray, 10%));
-  }
-  &:active {
-    @include background(linear-gradient(darken(desaturate($lt-gray, 10%), 2%), darken($lt-gray, 0%)));
-    @include single-box-shadow(transparentize(#000, .3), 0, 1px, 3px, 0, true);
-  }
-  &.delete {
-    @include background(linear-gradient(lighten($red, 10%), $red));
-    @include text-shadow(0 -1px 1px darken($red, 20%));
-    border: 1px solid darken($red, 10%);
-    color: $white;
-  }
-}
-
-#existing_images {
-  .image {
-    margin: 1em;
-    display: block;
-    img {
+  .markdown-preview {
+    width: 60%;
+    padding: 2em;
+    vertical-align: top;
+    @media (max-width: $small), screen and (orientation:portrait) {
+      width: 100%;
       display: block;
+    }
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+      width: 50%;
+    }
+  }
+
+  form fieldset {
+    border: none;
+    margin: 1em 0;
+    background: $lt-gray;
+    border: 1px solid darken($lt-gray, 6%);
+    @include border-radius(4px);
+
+    legend {
+      background: $lt-gray;
+      padding: .3em 1em;
+      border-top: 1px solid darken($lt-gray, 6%);
+      @include border-radius(4px);
+      font-family: "Monaco";
+      font-size: 100%;
+      color: $dk-gray;
+    }
+
+    label {
+      margin-top: 1em;
+      font-family: "Monaco";
+      font-size: 80%;
+      color: $dk-gray;
+    }
+
+    .fields {
+      margin-bottom: 2em;
+      padding-bottom: 2em;
+      border-bottom: 1px dashed $dk-gray;
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    .field {
+      margin-top: 0;
+      margin-bottom: 1em;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      input {
+        margin-top: 0 !important;
+        border: 1px solid darken($lt-gray, 6%);
+      }
+
+    }
+
+    .grouped-inputs {
+      @extend .grid;
+      @extend .grid.bottom;
+      @extend .grid.break;
+      overflow: hidden;
+
+      input {
+        display: table-cell;
+        width: 30%;
+      }
+    }
+
+    .button {
+      border: 1px solid desaturate(darken($lt-gray, 20%), 60%);
+    }
+  }
+
+  #ace_container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+
+    border: 1px solid darken($lt-gray, 6%);
+    @include border-radius(2px);
+
+    #editor {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+  textarea.editor-content {
+    display: none;
+    height: 600px;
+  }
+
+  a.delete {
+    color: $red;
+  }
+
+  #existing_images {
+    .image {
+      margin: 1em;
+      display: block;
+      img {
+        display: block;
+      }
+    }
+  }
+}
+
+.layout-admin, .userMenu {
+
+  .button {
+    @include background(linear-gradient(lighten($lt-gray, 10%), $lt-gray));
+    @include border-radius(4px);
+    @include text-shadow(0 -1px 1px $white);
+    // @include box-shadow(0 0 2px darken($lt-gray, 70%));
+    color: darken($gray, 20%);
+    padding: .5em .5em .3em .5em;
+    border: 1px solid darken($lt-gray, 5%);
+    line-height: 1.5em;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 80%;
+
+    &:hover {
+      @include background(lighten($lt-gray, 10%));
+    }
+    &:active {
+      @include background(linear-gradient(darken(desaturate($lt-gray, 10%), 2%), darken($lt-gray, 0%)));
+      @include single-box-shadow(transparentize(#000, .3), 0, 1px, 3px, 0, true);
+    }
+    &.delete {
+      @include background(linear-gradient(lighten($red, 10%), $red));
+      @include text-shadow(0 -1px 1px darken($red, 20%));
+      border: 1px solid darken($red, 10%);
+      color: $white;
+    }
+
+
+    &.primary {
+      @include background(linear-gradient(lighten($dk-gray, 10%), $dk-gray));
+      color: $white;
+      border: 1px solid darken($dk-gray, 5%);
+      @include text-shadow(0 -1px 1px darken($dk-gray, 30%));
+
+      &:hover {
+        @include background(lighten($dk-gray, 10%));
+      }
+      &:active {
+        @include background(linear-gradient(darken(desaturate($dk-gray, 10%), 2%), darken($dk-gray, 0%)));
+        @include single-box-shadow(transparentize(#000, .3), 0, 1px, 3px, 0, true);
+      }
+
+
     }
   }
 }

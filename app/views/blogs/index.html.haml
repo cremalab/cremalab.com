@@ -1,3 +1,5 @@
+- content_for :admin_actions do
+  = link_to 'New Blog Post', new_admin_user_blog_path(current_user), class: 'button'
 %header.layout-header.sub-blog
   .layout-content
     - if @user
@@ -13,7 +15,5 @@
     - else
       - title "Blog"
       %h1 Blog
-- if current_user
-  = link_to 'New Blog Post', new_admin_user_blog_path(current_user), class: 'button'
 = paginate @blogs
 = render partial: "preview", collection: @blogs, as: :blog

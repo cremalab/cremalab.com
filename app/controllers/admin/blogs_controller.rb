@@ -20,11 +20,7 @@ class Admin::BlogsController < AdminController
   end
 
   def create
-    if blog_user
-      @blog = blog_user.blogs.new(blog_params)
-    else
-      @blog = Blog.new(blog_params)
-    end
+    @blog = Blog.new(blog_params)
     add_new_images
     if @blog.save
       redirect_to blog_path(@blog)
