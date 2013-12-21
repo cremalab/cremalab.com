@@ -63,7 +63,7 @@ private
 
   def blog_params
     params.require(:blog).permit(
-      :title, :content, :published_at,
+      :title, :content, :published_at, :excerpt,
       :user_id, :tag_list, :published, :new_image_ids
     )
   end

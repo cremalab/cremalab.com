@@ -2,7 +2,9 @@ class Blog < ActiveRecord::Base
   belongs_to :user
   has_many :images, as: :imageable, :dependent => :destroy
   acts_as_taggable
-
+  unless (ARGV & ['assets:precompile', 'assets:clean']).any?
+    acts_as_taggable
+  end
   accepts_nested_attributes_for :images, allow_destroy: true
 
   validates_presence_of :title, :content

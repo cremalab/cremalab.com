@@ -1,6 +1,8 @@
 - present blog do |blog_presenter|
   %article
-    %h4= blog_presenter.title_link
+    %h4
+      = blog_presenter.title_link
+      = "<span class='admin-label'>Draft</span>".html_safe unless blog.published?
     %time= blog_presenter.published_at
     by
     %span.author= blog_presenter.author_link

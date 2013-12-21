@@ -31,6 +31,8 @@ class @MarkdownEditor
       @editor.getSession().setTabSize(2)
       @editor.renderer.setShowGutter(false)
       @editor.setShowPrintMargin(false)
+      @editor.setOptions
+        minLines: 10
       @editor.commands.addCommand
         name: 'save'
         bindKey:
@@ -40,10 +42,15 @@ class @MarkdownEditor
           @$form.submit()
         readOnly: false
 
+      window.editor = @editor
+
+      @updateHeight()
+
       @bindForm()
 
       @generateMarkdownPreview @editor.getSession().getValue()
       @editor.getSession().on 'change', =>
+        @updateHeight()
         @generateMarkdownPreview @editor.getSession().getValue()
 
     @setupFormHelper()
@@ -188,4 +195,15 @@ class @MarkdownEditor
     @$preview.html marked(text)
     @$preview.find('pre code').each (i, e) ->
       hljs.highlightBlock(e)
+
+  updateHeight: ->
+
+    # http://stackoverflow.com/questions/11584061/
+    newHeight = @editor.getSession().getScreenLength() * @editor.renderer.lineHeight + @editor.renderer.scrollBar.getWidth()
+    $("#editor").height newHeight.toString() + "px"
+    $("#ace_container").height newHeight.toString() + "px"
+
+    # This call is required for the editor to fix all of
+    # its inner structure for adapting to a change in size
+    @editor.resize()
 

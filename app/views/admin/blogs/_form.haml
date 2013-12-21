@@ -26,9 +26,13 @@
         = f.label :tag_list, 'Tag list (comma separated)'
         = f.text_field :tag_list
     %fieldset
-      = f.label :content, 'Content (markdown enabled)'
-      = render partial: 'ace_editor', locals: {content: @blog.content}
-      = f.text_area :content, rows: 60, cols: 60, class: 'blog-content editor-content'
+      .field
+        = f.label :content, 'Content (markdown enabled)'
+        = render partial: 'ace_editor', locals: {content: @blog.content}
+        = f.text_area :content, rows: 60, cols: 60, class: 'blog-content editor-content'
+      .field
+        = f.label :excerpt, "Excerpt/Summary (optional)"
+        = f.text_area :excerpt
     %fieldset
       %legend Images
       #images_json{style: "display: none"}= @blog.images.to_json
