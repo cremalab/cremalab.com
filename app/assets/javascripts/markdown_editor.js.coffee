@@ -146,7 +146,7 @@ class @MarkdownEditor
     <img src='#{image.image.thumb.url}' />
     <label><input id='image_#{image.id}_featured' class='featured' type='checkbox' #{'checked' if image.featured} /> Featured?</label>
     <button class='button' data-imageurl='#{image.image.thumb.url}'>Insert Thumbnail</button>
-    <button class='button' data-imageurl='#{image.image.url}'>Insert Full Size</button>
+    <button class='button' data-imageurl='#{image.image.display.url}'>Insert Full Size</button>
     <a class='remove delete button' href='#'>Delete image</a>
     "
 
