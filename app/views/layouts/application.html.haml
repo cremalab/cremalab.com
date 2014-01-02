@@ -5,7 +5,7 @@
       Cremalab
       = yield :title
     %meta{ charset: "UTF-8" }
-    %meta{ content: "initial-scale=1.0, user-scalable=no", name: "viewport"}
+    %meta{ content: "user-scalable=no, width=device-width, height=device-height", name: "viewport" }
     %meta{ content: "yes", name: "apple-mobile-web-app-capable"}
     %meta{ content: "We’re a small team of creatives who turn big ideas into beautiful and useable digital experiences.", name: "description"}/
     %meta{ content: "@cremalab", name: "twitter:site"}
@@ -13,13 +13,15 @@
     = yield(:meta)
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     - if current_user
-      = stylesheet_link_tag    "admin", media: "all", "data-turbolinks-track" => true
+      = stylesheet_link_tag  "admin", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "require"
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
 %body
-  %button.plain#sideBarToggle
+  .menu_bar
+  .sideBarToggle.sub-main.icon-list
   %aside.layout-sidebar
+    .sideBarToggle.sub-sidebar.icon-cross
     = render "layouts/site_navigation"
   %section.layout-main-wrapper
     .layout-main

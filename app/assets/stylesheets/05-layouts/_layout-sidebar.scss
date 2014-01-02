@@ -1,9 +1,10 @@
 .layout-sidebar {
   position: fixed;
-  top: 0;
+  display: table;
   right: 0;
   bottom: 0;
   width: 260px;
+  height: 100%;
   background: $black;
   color: $gray;
   overflow-y: none;

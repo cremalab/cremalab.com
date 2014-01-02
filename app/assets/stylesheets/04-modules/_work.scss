@@ -1,7 +1,7 @@
 .work {
   @extend .grid;
   @extend .grid.bottom;
-  @extend .grid.break.work;
+  @extend .grid.break.medium;
   overflow: hidden;
   &:nth-child(even) {
     @extend .grid.rtl;
@@ -9,7 +9,7 @@
   }
   script { display: none }
   > * {
-    padding: unit(2);
+    @extend %padding;
   }
 }
 
