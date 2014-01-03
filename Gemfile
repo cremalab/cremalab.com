@@ -10,7 +10,7 @@ gem 'pg'
 # Assets
 gem 'haml-rails', '~> 0.5.1'
 gem 'sass-rails'
-gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'compass-rails', '~> 2.0.alpha.0', git: "https://github.com/Compass/compass-rails.git", branch: '2-0-stable'
 gem 'animation'
 gem 'coffee-rails'
 gem 'uglifier'
@@ -40,10 +40,10 @@ gem "kaminari", "~> 0.14.1"
 gem "carrierwave", "~> 0.9.0"
 gem "mini_magick", "~> 3.6.0"
 gem "fog", "~> 1.15.0"
+gem 'hogan_assets'
 
 group :assets, :development, :test do
   gem "haml-rails", "~> 0.5.1"
-  gem 'hogan_assets'
 end
 
 group :test do
@@ -69,3 +69,7 @@ gem "unicorn", "~> 4.6.3"
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'rails_12factor', group: :production
+
+ruby "2.0.0"

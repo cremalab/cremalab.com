@@ -1,7 +1,7 @@
 .work {
   @extend .grid;
   @extend .grid.bottom;
-  @extend .grid.break.work;
+  @extend .grid.break.medium;
   overflow: hidden;
   &:nth-child(even) {
     @extend .grid.rtl;
@@ -9,7 +9,7 @@
   }
   script { display: none }
   > * {
-    padding: unit(2);
+    @extend %padding;
   }
 }
 
@@ -21,7 +21,7 @@
 }
 
 .work-content-links {
-  
+
 }
 
 .work-showcase {
@@ -42,14 +42,14 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
   &.sub-landscape {
-    &.sub-black { background-image: url(devices/ipad-black-landscape.png);}
-    &.sub-white { background-image: url(devices/ipad-white-landscape.png);}
+    &.sub-black { background-image: image-url("devices/ipad-black-landscape.png");}
+    &.sub-white { background-image: image-url("devices/ipad-white-landscape.png");}
     &:after {
       content: "";
       display: block;
       padding-top: 77.02702703%;
     }
-    
+
     .ipad-content {
       position: absolute;
       top: 10.25%;
@@ -71,7 +71,7 @@
   position: relative;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  &.sub-black { background-image: url(devices/iphone-black.svg);}
+  &.sub-black { background-image: image-url("devices/iphone-black.svg");}
   &:after {
     content: "";
     display: block;

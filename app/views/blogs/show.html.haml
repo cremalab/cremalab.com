@@ -1,7 +1,7 @@
 - title @blog.title
+= render 'meta', blog: @blog
 - content_for :admin_actions do
   = link_to 'Edit this Post', edit_admin_blog_path(@blog), class: 'button primary'
-
 .post
   = render 'blog', blog: @blog
   = render 'post_nav', blog: @blog

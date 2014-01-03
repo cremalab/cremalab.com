@@ -4,11 +4,12 @@
   right: 0;
   bottom: 0;
   left: 0;
+  min-height: 530px;
   z-index: -1;
   background-color: #333;
 
   @media (max-width: $small) {
-    background-image:  url("/video/cremalab.gif");
+    background-image:  image-url("/video/cremalab.gif");
     background-position: center;
     background-size: cover;
   }

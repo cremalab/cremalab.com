@@ -32,12 +32,12 @@
     .contactBlock-size
       .contactBlock-size-wrap
         .contactBlock-size-wrap-content.sub-indigo
-          .icon-twitter2
+          .icon-twitter
   .contactBlock
     .contactBlock-size
       .contactBlock-size-wrap
         .contactBlock-size-wrap-content.sub-violet
-          .icon-linked_in2
+          .icon-linked_in
   .contactBlock
     .contactBlock-size
       .contactBlock-size-wrap
@@ -46,7 +46,6 @@
 .layout-content.sub-narrow
   %h2.sub-centered
     Have more to say?
-    %span.subHeading Use this handy form to start a conversation with us.
 
   = form_for @message, url: contact_path do |f|
     - if @message.errors.any?

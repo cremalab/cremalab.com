@@ -1,7 +1,6 @@
 .layout-header {
 
   // Dimensions
-  position: relative;
   padding: 5% 0;
 
   // Typography
@@ -18,31 +17,31 @@
     background-image:
       linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
       url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
-      url(kelly-desk.jpg)
+      image-url("kelly-desk.jpg")
   }
   &.sub-contact {
     background-image:
       linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
       url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
-      url(kelly-desk.jpg)
+      image-url("kelly-desk.jpg")
   }
   &.sub-process {
-    background-image: 
+    background-image:
       linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
       url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
-      url(rob-ross.jpg)
+      image-url("rob-ross.jpg")
   }
   &.sub-team {
-    background-image: 
+    background-image:
       linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
       url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
-      url(team.jpg)
+      image-url("team.jpg")
   }
   &.sub-work {
-    background-image: 
+    background-image:
       linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
       url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
-      url(team.jpg)
+      image-url("team.jpg")
   }
 
 }

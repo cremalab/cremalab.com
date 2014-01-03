@@ -40,7 +40,7 @@ bindSidebar = ->
   $('.layout-main-wrapper').bind 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', (e) ->
     $(window).trigger('nav-transition-done')
 
-  $('.siteNav a ').on 'click', (e) ->
+  $('.site_nav-list a ').on 'click', (e) ->
     href = @href
     e.preventDefault()
     $('.layout-main-wrapper').toggleClass 'open'
@@ -55,9 +55,9 @@ $(document).on 'ready page:load', ->
     hljs.highlightBlock(e)
 
   # Menu Toggle
-  $('button#sideBarToggle').on 'click', ->
+  $('.sideBarToggle').on 'click', ->
     $('.layout-main-wrapper').toggleClass 'open'
-    $('button#sideBarToggle').toggleClass 'close'
+    $('.menu_bar, .sideBarToggle').toggleClass 'close'
 
 
   bindSidebar() if Modernizr.csstransitions

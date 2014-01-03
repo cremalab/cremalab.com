@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/Compass/compass-rails.git
+  revision: 2fbc4a601d52622f698100bf45e41572fbb9fe3e
+  branch: 2-0-stable
+  specs:
+    compass-rails (2.0.0.pre)
+      compass (>= 0.12.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -54,8 +62,6 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    compass-rails (2.0.alpha.0)
-      compass (>= 0.12.2, < 0.14)
     erubis (2.7.0)
     excon (0.25.3)
     execjs (2.0.2)
@@ -206,7 +212,7 @@ DEPENDENCIES
   animation
   carrierwave (~> 0.9.0)
   coffee-rails
-  compass-rails (~> 2.0.alpha.0)
+  compass-rails (~> 2.0.alpha.0)!
   fog (~> 1.15.0)
   haml-rails (~> 0.5.1)
   hogan_assets

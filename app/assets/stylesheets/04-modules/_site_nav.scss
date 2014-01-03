@@ -1,0 +1,27 @@
+.site_nav {
+  display: table-cell;
+  vertical-align: bottom;
+  overflow: auto;
+  font-family: "AvenirLTCom-Light";
+  text-transform: uppercase;
+}
+
+.site_nav-list {
+  padding: unit();
+  overflow: auto;
+  &::-webkit-scrollbar { 
+    display: none; 
+  }
+  a {
+    display: block;
+    line-height: 2;
+  }
+  + .site_nav-list {
+    border-top: 1px solid $black-light;
+  }
+
+  &.sub-social {
+    font-size: 0.875em;
+  }
+
+}
