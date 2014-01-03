@@ -9,7 +9,7 @@ class UserPresenter < BasePresenter
     if @object.profile.bio_url
       url = @object.profile.bio_url
     else
-      h.user_blogs_path(@object)
+      url = h.user_blogs_path(@object)
     end
     h.link_to "Meet #{first_name}", url, class: "button sub-outline"
   end
