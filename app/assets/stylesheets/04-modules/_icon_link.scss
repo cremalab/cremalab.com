@@ -1,0 +1,15 @@
+.icon_link {
+  @extend .grid;
+}
+
+.icon_link-icon {
+  vertical-align: middle;
+  width: 2em;
+  padding-bottom: 0.2em;
+}
+
+.icon_link-text {
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

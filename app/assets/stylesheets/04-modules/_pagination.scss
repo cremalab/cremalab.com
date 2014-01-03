@@ -17,6 +17,9 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  @media (max-width: $small) {
+    font-size: 0.87em
+  }
   + .pagination-column {
     text-align: right;
     border-left: 1px solid $gray-light;
@@ -28,10 +31,11 @@
       border: none;
     }
   }
-}
 
-.pagination-arrow {
-  width: unit(3);
-  &.sub-left {}
-  &.sub-right {}
+  .title {
+    @media (max-width: $small) {
+      display: none;
+    }
+  }
+
 }
