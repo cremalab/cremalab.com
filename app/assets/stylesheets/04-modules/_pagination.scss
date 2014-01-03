@@ -1,4 +1,37 @@
-nav.pagination {
-  .page {
+.pagination {
+  @extend .grid;
+  text-transform: uppercase;
+  
+  &.sub-post {
+    position: absolute;
+    border-top: 1px solid $gray-light;
+    bottom: 0;
+    height: unit(3);
   }
+
+}
+
+.pagination-column {
+  vertical-align: middle;
+  padding: 1.5em 1.5em 1.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  + .pagination-column {
+    text-align: right;
+    border-left: 1px solid $gray-light;
+  }
+  &.sub-empty {
+    border: none;
+    width: 0%;
+    + .pagination-column {
+      border: none;
+    }
+  }
+}
+
+.pagination-arrow {
+  width: unit(3);
+  &.sub-left {}
+  &.sub-right {}
 }
