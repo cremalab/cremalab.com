@@ -8,23 +8,25 @@
   %fieldset
     %legend Account Info
     .field
-      = f.label :email
       = f.text_field :email
+      = f.label :email
     .field
-      = f.label :password
       = f.password_field :password
+      = f.label :password
     .field
-      = f.label :password_confirmation
       = f.password_field :password_confirmation
+      = f.label :password_confirmation
   %fieldset
     %legend Profile
     = f.fields_for :profile do |pf|
-      = pf.label :first_name
       = pf.text_field :first_name
-      = pf.label :last_name
+      = pf.label :first_name
       = pf.text_field :last_name
-      = pf.label :job_title
+      = pf.label :last_name
       = pf.text_field :job_title
+      = pf.label :job_title
+      = pf.text_field :bio_url
+      = pf.label :bio_url, "Meet Me URL"
       %fieldset
         %legend Avatar
         - if @user.profile.avatar

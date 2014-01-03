@@ -6,7 +6,12 @@ class UserPresenter < BasePresenter
     @object.full_name
   end
   def blog_link
-    h.link_to "Meet #{first_name}", h.user_blogs_path(@object), class: "button sub-outline"
+    if @object.profile.bio_url
+      url = @object.profile.bio_url
+    else
+      h.user_blogs_path(@object)
+    end
+    h.link_to "Meet #{first_name}", url, class: "button sub-outline"
   end
   def avatar
     @object.profile.avatar
