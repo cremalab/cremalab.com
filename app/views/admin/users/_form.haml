@@ -32,6 +32,7 @@
         - if @user.profile.avatar
           = image_tag @user.profile.avatar.thumb
         = pf.file_field :avatar
+        = pf.hidden_field :avatar_cache
 
       %fieldset
         %legend Social Links
