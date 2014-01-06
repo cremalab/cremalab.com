@@ -3,9 +3,9 @@ class BlogsController < ApplicationController
   def index
     if blog_user
       @user  = blog_user
-      @blogs = blog_user.blogs.active.order("published_at DESC").page(params[:page]).per(2)
+      @blogs = blog_user.blogs.active.order("published_at DESC").page(params[:page]).per(10)
     else
-      @blogs = Blog.active.order("published_at DESC").page(params[:page]).per(2)
+      @blogs = Blog.active.order("published_at DESC").page(params[:page]).per(10)
     end
     render :index, status: 200
   end
