@@ -1,0 +1,80 @@
+$pagination_padding: 1.5em 1.5em 1.2em;
+
+.pagination {
+  @extend .grid;
+  bottom: 0;
+  position: absolute;
+  text-transform: uppercase;
+  border-top: 1px solid $gray-light;
+  @media (max-width: $small) {
+    font-size: 0.87em
+  }
+
+  .page.current { 
+    color: $gray-light;
+    padding: $pagination_padding;
+  }
+
+  .page,
+  .next,
+  .last,
+  .first,
+  .prev {
+    text-align: center;
+    a { 
+        display: inline-block;
+        width: 100%;
+        padding: $pagination_padding;
+      }
+    + * {
+      border-left: 1px solid $gray-light
+    }
+  }
+
+  a {
+    font-family: "AvenirLTCom-Black";
+    white-space: nowrap;
+    &:hover {
+      background: $white-dark;
+    }
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    margin-bottom: -0.25em
+  }
+
+}
+
+.pagination-column {
+  vertical-align: middle;
+  padding: $pagination_padding;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  + .pagination-column {
+    text-align: right;
+    border-left: 1px solid $gray-light;
+  }
+  &.sub-empty {
+    border: none;
+    width: 0%;
+    + .pagination-column {
+      border: none;
+    }
+  }
+
+  .title {
+    font-family: "AvenirLTCom-Light";
+    @media (max-width: $small) {
+      display: none;
+    }
+  }
+
+}
+
+.pagination-label {
+  @media (max-width: $small) {
+    display: none;
+  }
+}

@@ -24,4 +24,13 @@ class Blog < ActiveRecord::Base
   def featured_image
     self.images.featured.first
   end
+
+  def older_post
+    self.class.first(:conditions => ["published_at < ?", published_at], :order => "published_at desc")
+  end
+
+  def newer_post
+    self.class.first(:conditions => ["published_at > ?", published_at], :order => "published_at asc")
+  end
+
 end

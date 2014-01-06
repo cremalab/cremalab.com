@@ -4,3 +4,5 @@
   = link_to 'Edit this Post', edit_admin_blog_path(@blog), class: 'button primary'
 .post
   = render 'blog', blog: @blog
+- content_for :content_footer do
+  = render 'post_nav', blog: @blog

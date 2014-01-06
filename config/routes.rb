@@ -17,7 +17,9 @@ CremalabCom::Application.routes.draw do
   resources :users, path: 'team' do
     resources :blogs
   end
-  resources :blogs, path: 'blog'
+  resources :blogs, path: 'blog' do
+    get 'page/:page', :action => :index, :on => :collection
+  end
 
   get 'blog/categories/:id' => 'blogs#category'
 

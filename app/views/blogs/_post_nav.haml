@@ -1,0 +1,11 @@
+%nav.pagination.sub-post
+  
+  - if blog.older_post
+    = link_to("<span class='icon_link'><span class='icon_link-icon icon-arrow-left'></span><span class='icon_link-text'><strong>Previously</strong> <span class='title'>“#{blog.older_post.title}”</span> </span></span>".html_safe, blog.older_post, class: "pagination-column")
+  - else
+    .pagination-column.sub-empty
+
+  - if blog.newer_post
+    = link_to("<span class='icon_link'><span class='icon_link-text'><strong>Up Next</strong> <span class='title'>“#{blog.newer_post.title}”</span> </span><span class='icon_link-icon icon-arrow-right'></span></span>".html_safe, blog.newer_post, class: "pagination-column")
+  - else
+    .pagination-column.sub-empty
