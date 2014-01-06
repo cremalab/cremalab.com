@@ -17,6 +17,8 @@ gem 'animation'
 gem 'coffee-rails'
 gem 'uglifier'
 
+gem "non-stupid-digest-assets"
+
 gem "redcarpet", "~> 3.0.0"
 gem 'active_attr'
 
