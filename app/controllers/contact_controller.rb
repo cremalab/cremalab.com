@@ -8,9 +8,9 @@ class ContactController < ApplicationController
     if @message.valid?
       # TODO send message here
       ContactMailer.contact_email(@message).deliver
-      redirect_to root_url, notice: "Message sent! Thank you for contacting us."
+      render :json => @message, status: 200
     else
-      render "new"
+      render :json => @message.errors.full_messages, status: 422
     end
   end
 private

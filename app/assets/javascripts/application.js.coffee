@@ -50,6 +50,28 @@ bindSidebar = ->
       $(window).off 'nav-transition-done'
       Turbolinks.visit(href) # Visit the page via Turbolinks
 
+bindContactForm = ->
+  $form = $("#new_message")
+  $form.on("ajax:success", (e, data, status, xhr) ->
+    $form.find(".form-errors").remove()
+    message_json = $.parseJSON(xhr.responseText)
+    name = message_json.name
+    $form[0].reset()
+    $form.prepend "<h4>Thanks for contacting us, #{name}.</h4>"
+
+  ).bind "ajax:error", (e, xhr, status, error) ->
+    errs = $.parseJSON(xhr.responseText)
+    console.log $err_list
+    $err_list = $form.find(".form-errors")
+    if $form.find(".form-errors").length
+      $err_list.empty()
+    else
+      $err_list = $("<ul class='form-errors'></ul>")
+      $form.prepend($err_list)
+    for error in errs
+      markup = "<li>#{error}</li>"
+      $err_list.append markup
+
 $(document).on 'ready page:load', ->
   $('pre code').each (i, e) ->
     hljs.highlightBlock(e)
@@ -59,5 +81,5 @@ $(document).on 'ready page:load', ->
     $('.layout-main-wrapper').toggleClass 'open'
     $('.menu_bar, .sideBarToggle').toggleClass 'close'
 
-
+  bindContactForm()
   bindSidebar() if Modernizr.csstransitions
