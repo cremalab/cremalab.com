@@ -70,7 +70,15 @@ bindContactForm = ->
       markup = "<li>#{error}</li>"
       $err_list.append markup
 
+playVideo = ->
+  if $(".videoBackground").length
+    $(".videoBackground video")[0].play()
+
+$(document).on 'page:restore', ->
+  playVideo()
 $(document).on 'ready page:load', ->
+  playVideo()
+
   $('pre code').each (i, e) ->
     hljs.highlightBlock(e)
 
