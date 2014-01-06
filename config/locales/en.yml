@@ -22,6 +22,16 @@
 en:
   hello: "Hello world"
 
+  address: "Cremalab 1815 Central St Kansas City, MO 64108"
+  phone: "(913) 735-9864"
+  email: "info@cremalab.com"
+
+  social_links:
+    facebook: https://www.facebook.com/CremaLab
+    twitter: https://twitter.com/cremalab
+    instagram: http://instagram.com/cremalab
+    linked_in: http://www.linkedin.com/company/cremalab
+
   activerecord:
     symbolizes:
       social_link:

@@ -6,17 +6,17 @@
   .contactBlock
     .contactBlock-size
       .contactBlock-size-wrap
-        %a.contactBlock-size-wrap-content.sub-red{href: map_url("Cremalab 1815 Central St Kansas City, MO 64108")}
+        %a.contactBlock-size-wrap-content.sub-red{href: map_url(t("address"))}
           .icon-location
   .contactBlock
     .contactBlock-size
       .contactBlock-size-wrap
-        .contactBlock-size-wrap-content.sub-orange
+        %a.contactBlock-size-wrap-content.sub-orange{href: "tel:#{t('phone')}"}
           .icon-mobile
   .contactBlock
     .contactBlock-size
       .contactBlock-size-wrap
-        .contactBlock-size-wrap-content.sub-yellow
+        %a.contactBlock-size-wrap-content.sub-yellow{href: "mailto:#{t('email')}"}
           .icon-mail
   .contactBlock
     .contactBlock-size
@@ -26,22 +26,22 @@
   .contactBlock
     .contactBlock-size
       .contactBlock-size-wrap
-        .contactBlock-size-wrap-content.sub-blue
+        %a.contactBlock-size-wrap-content.sub-blue{href: t('social_links.facebook')}
           .icon-facebook
   .contactBlock
     .contactBlock-size
       .contactBlock-size-wrap
-        .contactBlock-size-wrap-content.sub-indigo
+        %a.contactBlock-size-wrap-content.sub-indigo{href: t('social_links.twitter')}
           .icon-twitter
   .contactBlock
     .contactBlock-size
       .contactBlock-size-wrap
-        .contactBlock-size-wrap-content.sub-violet
+        %a.contactBlock-size-wrap-content.sub-violet{href: t('social_links.linked_in')}
           .icon-linked_in
   .contactBlock
     .contactBlock-size
       .contactBlock-size-wrap
-        .contactBlock-size-wrap-content.sub-brown
+        %a.contactBlock-size-wrap-content.sub-brown{href: t('social_links.instagram')}
           .icon-instagram
 .layout-content.sub-narrow
   %h2.sub-centered
