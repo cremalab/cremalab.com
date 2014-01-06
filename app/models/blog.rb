@@ -26,11 +26,11 @@ class Blog < ActiveRecord::Base
   end
 
   def older_post
-    self.class.first(:conditions => ["published_at < ?", published_at], :order => "published_at desc")
+    self.class.first(:conditions => ["published_at < ? AND published = true", published_at], :order => "published_at desc")
   end
 
   def newer_post
-    self.class.first(:conditions => ["published_at > ?", published_at], :order => "published_at asc")
+    self.class.first(:conditions => ["published_at > ? AND published = true", published_at], :order => "published_at asc")
   end
 
 end
