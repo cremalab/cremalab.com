@@ -35,10 +35,24 @@ loadCss = (url) ->
     window.scrollWatcher.addItem($el.parent())
 
 
-bindSidebar = ->
+bindCancel = ->
+  $(".layout-main-wrapper.open").on 'click', (e) ->
+    e.stopPropagation()
+    e.preventDefault()
+    $('.layout-main-wrapper').toggleClass 'open'
+    $('button#sideBarToggle').toggleClass 'close'
 
+
+bindSidebar = ->
   $('.layout-main-wrapper').bind 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', (e) ->
     $(window).trigger('nav-transition-done')
+
+
+  $(window).on 'nav-transition-done', ->
+    if $('.layout-main-wrapper').hasClass('open')
+      bindCancel()
+    else
+      $(".layout-main-wrapper").off('click')
 
   $('.site_nav-list a ').on 'click', (e) ->
     href = @href
@@ -48,6 +62,7 @@ bindSidebar = ->
 
     $(window).on 'nav-transition-done', ->
       $(window).off 'nav-transition-done'
+      $(".layout-main-wrapper").off()
       Turbolinks.visit(href) # Visit the page via Turbolinks
 
 bindContactForm = ->
@@ -88,4 +103,5 @@ $(document).on 'ready page:load', ->
     $('.menu_bar, .sideBarToggle').toggleClass 'close'
 
   bindContactForm()
+  $(window).off 'nav-transition-done'
   bindSidebar() if Modernizr.csstransitions

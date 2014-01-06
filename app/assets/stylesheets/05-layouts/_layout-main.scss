@@ -8,8 +8,8 @@
   overflow: hidden;
 
   // STATE - Navigation Revealed
-  &.open { @include transform(translate3d(-260px,0,0)) }
-  
+  &.open { @include transform(translate3d(-260px,0,0)); cursor: pointer}
+
 }
 
 .layout-main {
