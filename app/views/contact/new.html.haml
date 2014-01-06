@@ -47,7 +47,7 @@
   %h2.sub-centered
     Have more to say?
 
-  = form_for @message, url: contact_path do |f|
+  = form_for @message, remote: true, url: contact_path do |f|
     - if @message.errors.any?
       .error_messages
         %h5

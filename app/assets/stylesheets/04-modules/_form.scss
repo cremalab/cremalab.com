@@ -75,13 +75,13 @@ input[type="time"] {
   @extend %skin-textBox;
 }
 input[type="url"] {
-  @extend %skin-textBox;  
+  @extend %skin-textBox;
 }
 input[type="value"] {
-  @extend %skin-textBox;  
+  @extend %skin-textBox;
 }
 input[type="week"] {
-  @extend %skin-textBox;  
+  @extend %skin-textBox;
 }
 
 // Select
@@ -109,6 +109,13 @@ textarea {
   @media (max-width: $small) {
     height: unit(10);
   }
+}
+
+// Form errors
+ul.form-errors {
+  padding:        unit(.8);
+  border-bottom:  unit(.1) solid $red;
+  border-top:     unit(.1) solid $red;
 }
 
 // Button
