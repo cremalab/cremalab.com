@@ -27,7 +27,7 @@ loadCss = (url) ->
 
 @loadWorkTemplate = (slug, id) ->
   loadCss("/assets/works/#{slug}.css");
-  require ["/assets/templates/#{slug}"], ->
+  require ["/assets/templates/#{slug}.js"], ->
     template = HoganTemplates["#{slug}"].render()
     $el = $(".work-showcase[data-id='#{id}']")
     $el.html(template)
