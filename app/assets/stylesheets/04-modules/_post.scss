@@ -10,9 +10,6 @@
   }
 }
 
-// POST BODY
-.post-body {}
-
 // POST INFO
 .post-info {
   @extend %verticalSpacing;
@@ -34,7 +31,7 @@
   }
   .post-info-content {
     padding-left: unit(1);
-    line-height: 1;
+    line-height: 1.2;
     text-align: left;
     @media (max-width: $small) {
       padding-left: unit(0.5);
@@ -44,10 +41,20 @@
     }
   }
 
+    .post-publish_info {
+      padding-top: 0.3em;
+    }
+
 .post-excerpt {
   @extend %verticalSpacing
 }
 
 .post-action {
-  @extend %verticalSpacing
+  @extend %verticalSpacing;
+
+  .button {
+    @media (max-width: $small) {
+      width: 100%;
+    }
+  }
 }

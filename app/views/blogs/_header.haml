@@ -1,5 +1,5 @@
 %header.layout-header{style: "background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC), url(#{blog_presenter.featured_image});"}
-  .layout-content
+  .layout-content.sub-wide
     %h1
       = blog_presenter.title
       = "<span class='admin-label'>Draft</span>".html_safe unless @blog.published?

@@ -17,6 +17,5 @@
       %h1 Blog
 
 = render partial: "preview", collection: @blogs, as: :blog
-.layout-content
 - content_for :content_footer do
   = paginate @blogs

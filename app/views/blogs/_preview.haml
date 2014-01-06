@@ -3,7 +3,7 @@
     - present blog do |blog_presenter|
       .post
         .post-body
-          %h2= blog_presenter.title_link
+          %h2.post-body-title= blog_presenter.title_link
           = render :partial => "post_info", locals: {blog_presenter: blog_presenter, list: true}
           .post-excerpt= blog_presenter.excerpt
-          / .post-action= link_to "Continue", blog_presenter.path, :class => "button sub-outline"
+          .post-action= link_to "Keep Reading", blog_presenter.path, :class => "button"

@@ -4,6 +4,11 @@
   overflow: auto;
   font-family: "AvenirLTCom-Light";
   text-transform: uppercase;
+  a {
+    display: block;
+    line-height: 2;
+    color: $link-color-secondary;
+  }
 }
 
 .site_nav-list {
@@ -11,10 +16,6 @@
   overflow: auto;
   &::-webkit-scrollbar { 
     display: none; 
-  }
-  a {
-    display: block;
-    line-height: 2;
   }
   + .site_nav-list {
     border-top: 1px solid $black-light;
@@ -26,7 +27,7 @@
 
 }
 
-.site_nav-list-logo {
+a.site_nav-list-logo {
   background: url("cremalab_logo-horizontal.svg") no-repeat;
   background-size: contain;
   color: transparent;
