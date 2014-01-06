@@ -14,8 +14,8 @@
 .site_nav-list {
   padding: unit();
   overflow: auto;
-  &::-webkit-scrollbar { 
-    display: none; 
+  &::-webkit-scrollbar {
+    display: none;
   }
   + .site_nav-list {
     border-top: 1px solid $black-light;
@@ -28,7 +28,7 @@
 }
 
 a.site_nav-list-logo {
-  background: url("cremalab_logo-horizontal.svg") no-repeat;
+  background: image-url("cremalab_logo-horizontal.svg") no-repeat;
   background-size: contain;
   color: transparent;
   margin-bottom: 0.75em;
