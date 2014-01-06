@@ -39,8 +39,8 @@ bindCancel = ->
   $(".layout-main-wrapper.open").on 'click', (e) ->
     e.stopPropagation()
     e.preventDefault()
-    $('.layout-main-wrapper').toggleClass 'open'
-    $('button#sideBarToggle').toggleClass 'close'
+    $('.layout-main-wrapper').removeClass 'open'
+    $('.menu_bar, .sideBarToggle').removeClass 'close'
 
 
 bindSidebar = ->
