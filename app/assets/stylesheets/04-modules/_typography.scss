@@ -19,20 +19,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "AvenirLTCom-Black";
   line-height: 1.2;
   font-weight: normal;
-}
 
-// Heading Weight
-// h1 { 
-//   text-transform: uppercase
-// }
-h2 {
-  // text-transform: uppercase;
-  font-family: "AvenirLTCom-Light";
+  a {
+    color: $link-color-secondary !important;
+  }
+  
 }
-h3 {}
-h4 {}
-h5 {}
-h6 {}
 
 span.subHeading {
   display: block;
@@ -42,7 +34,7 @@ span.subHeading {
 }
 
 a {
-  color: $link-color;
+  color: $link-color-secondary;
   text-decoration: none;
 }
 

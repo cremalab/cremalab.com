@@ -14,10 +14,14 @@
 
 .layout-main {
   position: relative;
+  &.sub-blogs {
+    padding-bottom: unit(2.75);
+  }
 }
 
 .layout-main-content {
   width: 100%;
   min-height: 100%;
-  padding-bottom: unit(3);
+
+
 }

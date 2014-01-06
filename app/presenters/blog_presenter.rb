@@ -44,13 +44,17 @@ class BlogPresenter < BasePresenter
   end
 
   def tag_list
-    list = h.content_tag(:div)
-    last = @object.tags[@object.tags.length - 1]
-    @object.tags.collect do |tag|
-      spacing = tag == last ? "" : ", "
-      list.concat(h.link_to(tag.name, "/blog/categories/#{tag.name.downcase}", class: 'tag') + spacing)
+    if @object.tag_list.any?
+      container = h.content_tag(:div, nil, {class: "post-tag_list"})
+      list = h.content_tag(:div)
+      last = @object.tags[@object.tags.length - 1]
+      @object.tags.collect do |tag|
+        spacing = tag == last ? "" : ", "
+        list.concat(h.link_to(tag.name, "/blog/categories/#{tag.name.downcase}", class: 'tag') + spacing)
+      end
+      container.concat(list)
+      container.html_safe
     end
-    list.html_safe
   end
 
   def excerpt

@@ -14,4 +14,13 @@
     max-width: $small;
   }
 
+  &.sub-wide {
+    max-width: $large;
+  }
+
+  a {
+    color: $link-color;
+    text-decoration: none;
+  }
+  
 }
