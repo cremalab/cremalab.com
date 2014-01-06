@@ -57,10 +57,11 @@ CremalabCom::Application.configure do
   # config.log_tags = [ :subdomain, :uuid ]
 
   config.action_mailer.smtp_settings = {
-    :address              => 'smtp.gmail.com',
+    :domain               => 'cremalab.com',
+    :address              => 'smtp.sendgrid.net',
     :port                 => 587,
-    :user_name            => ENV['GMAIL_USERNAME'],
-    :password             => ENV['GMAIL_PASSWORD'],
+    :user_name            => ENV['SENDGRID_USERNAME'],
+    :password             => ENV['SENDGRID_PASSWORD'],
     :authentication       => :plain,
     :enable_starttls_auto => true
   }
