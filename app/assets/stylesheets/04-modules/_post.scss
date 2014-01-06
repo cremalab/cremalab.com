@@ -1,15 +1,3 @@
-.post {}
-
-// POST HEADER
-.post-header {
-  background-size: cover;
-  background-position: center;
-  color: white;
-  a {
-    color: white;
-  }
-}
-
 // POST INFO
 .post-info {
   @extend %verticalSpacing;

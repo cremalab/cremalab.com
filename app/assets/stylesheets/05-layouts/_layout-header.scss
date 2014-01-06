@@ -6,7 +6,10 @@
   // Typography
   text-align: center;
   color: $white;
-  a { color: $white; }
+  a { 
+    color: $white; 
+    text-decoration: underline;
+  }
 
   // Global Background Styles
   background-size: auto, auto, cover;
