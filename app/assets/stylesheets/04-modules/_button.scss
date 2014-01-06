@@ -1,19 +1,25 @@
 .button, button, a.button {
+
+  // Base
   -webkit-appearance: none !important;
+  display: inline-block;
   background: none;
   border: none;
-  padding: 0;
+
+  // Dimentions
+  padding: unit(0.5) unit(1) unit(0.35);
   margin: 0;
-  text-decoration: none;
-  text-align: center;
-  white-space: nowrap;
+
+  // Typography
   font-family: "AvenirLTCom-Black";
   font-weight: normal !important;
-  display: inline-block;
-
-  color: $link-color-secondary !important;
-  border: 2px solid;
-  padding: unit(0.5) unit(1) unit(0.35);
+  text-align: center;
+  text-decoration: none;
   text-transform: uppercase;
+  color: inherit !important;
+  white-space: nowrap;
+
+  // Skin
+  border: 2px solid;
 
 }

@@ -1,7 +1,7 @@
 .layout-cover {
   @extend .grid;
   @extend .grid.cover;
-  @extend .grid.spaced;
+  border-spacing: unit(2);
 }
 
 .layout-cover-content {
