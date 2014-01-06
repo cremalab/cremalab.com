@@ -5,7 +5,7 @@
   background: $lt-gray;
   border-bottom: 6px ridge $dk-gray;
   .layout-content {
-    padding: 1% unit(2);
+    padding: 0.9em unit(2);
     @extend .grid;
     @extend .grid.bottom;
     @extend .grid.break;
