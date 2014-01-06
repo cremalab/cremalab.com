@@ -1,7 +1,36 @@
 .teamMember {
+  @extend %transition;
   position: relative;
+  z-index: 0;
   color: $white;
+  overflow: hidden;
   @media (max-width: $small) { padding: 0 }
+
+  &:hover, &:active {
+    @include transform( scale(1.2) );
+    z-index: 1;
+    .teamMember-size-info {
+      opacity: 1;
+    }
+    .teamMember-size-info-content-links {
+      @extend %transition;
+      -webkit-backface-visibility: none;
+      margin-top: unit();
+    }
+  }
+
+  $color-list: $red, $orange, $yellow, $green, $blue, $indigo, $violet, $brown;
+  @for $i from 1 through length($color-list) {
+    $color: nth($color-list, $i);
+    &:nth-child(#{length($color-list)}n - #{length($color-list) - $i}) { 
+      &:hover, &:active {
+        .teamMember-size-info {
+          background: rgba($color, 0.8) 
+        }
+      }
+    }
+  }
+
 }
 
 .teamMember-size {
@@ -14,19 +43,15 @@
 }
 
 .teamMember-size-info {
-  @extend %transition.sub-fast;
+  @extend %transition;
   opacity: 0;
   display: table;
   table-layout: fixed;
   position: absolute;
   width: 100%;
   height: 100%;
+  background: rgba(black, 0);
   @media (max-width: $small) { position: relative }
-
-  &:hover, &:active {
-    opacity: 1;
-  }
-
 }
 
 .touch .teamMember-size-info {
@@ -41,4 +66,9 @@
   > * {
     @extend %verticalSpacing;
   }
+}
+
+.teamMember-size-info-content-links {
+  @extend %transition;
+  margin-top: - unit(2)
 }
