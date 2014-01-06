@@ -32,3 +32,9 @@ en:
           linked_in: LinkedIn
           dribbble: dribbble
           rdio: Rdio
+  views:
+    pagination:
+      first: <span class="arrow-double sub-left"><span class="icon-arrow-left"></span><span class="icon-arrow-left"></span></span> <span class="pagination-label">First</span>
+      previous: <span class="icon-arrow-left"></span> <span class="pagination-label">Prev</span>
+      next: <span class="pagination-label">Next</span> <span class="icon-arrow-right"></span>
+      last: <span class="pagination-label">Last</span> <span class="arrow-double sub-right"><span class="icon-arrow-right"></span><span class="icon-arrow-right"></span></span>

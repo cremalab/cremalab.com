@@ -147,8 +147,20 @@
   content: "\e62b";
 }
 .icon-arrow-right:after {
+  display: inline-block;
   content: "\e62c";
 }
 .icon-arrow-left:before {
+  display: inline-block;
   content: "\e62d";
+}
+
+// Misc
+.arrow-double {
+  margin: 0 0.2em;
+  > * {
+    width: 0.5em;
+    display: inline-block;
+    text-indent: -0.15em
+  }
 }
