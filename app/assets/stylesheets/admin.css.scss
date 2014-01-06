@@ -173,7 +173,7 @@
     @include border-radius(4px);
     @include text-shadow(0 -1px 1px $white);
     // @include box-shadow(0 0 2px darken($lt-gray, 70%));
-    color: darken($gray, 20%);
+    color: darken($gray, 20%) !important;
     padding: .5em .5em .3em .5em;
     border: 1px solid darken($lt-gray, 5%);
     line-height: 1.5em;
@@ -192,13 +192,13 @@
       @include background(linear-gradient(lighten($red, 10%), $red));
       @include text-shadow(0 -1px 1px darken($red, 20%));
       border: 1px solid darken($red, 10%);
-      color: $white;
+      color: $white !important;
     }
 
 
     &.primary {
       @include background(linear-gradient(lighten($dk-gray, 10%), $dk-gray));
-      color: $white;
+      color: $white !important;
       border: 1px solid darken($dk-gray, 5%);
       @include text-shadow(0 -1px 1px darken($dk-gray, 30%));
 
