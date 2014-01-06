@@ -7,7 +7,7 @@ module VideoHelper
     ]
     content_tag(:video, loop: true, autoplay: true, class: "background", autobuffer: true) do
       types.each do |video|
-        concat tag(:source, src: "/video/#{filename}.#{video[:extension]}", type: video[:type])
+        concat tag(:source, src: "https://s3.amazonaws.com/cremalab/static/video/#{filename}.#{video[:extension]}", type: video[:type])
       end
     end
   end
