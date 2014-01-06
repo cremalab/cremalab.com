@@ -46,7 +46,11 @@
     }
 
 .post-excerpt {
-  @extend %verticalSpacing
+  @extend %verticalSpacing;
+
+  > *:last-child:after {
+    content: "..."
+  }
 }
 
 .post-action {
