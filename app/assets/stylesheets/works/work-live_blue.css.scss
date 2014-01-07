@@ -38,10 +38,10 @@
 }
 
 @include keyframes(cycle-screens) {
-   0%, 24% { background-image: image-url("../work/fsp/screen-1.png") }
-  25%, 49% { background-image: image-url("../work/fsp/screen-2.png") }
-  50%, 74% { background-image: image-url("../work/fsp/screen-1.png") }
-  75%, 99% { background-image: image-url("../work/fsp/screen-3.png") }
+   0%, 24% { background-image: image-url("work/fsp/screen-1.png") }
+  25%, 49% { background-image: image-url("work/fsp/screen-2.png") }
+  50%, 74% { background-image: image-url("work/fsp/screen-1.png") }
+  75%, 99% { background-image: image-url("work/fsp/screen-3.png") }
 }
 
 #work-live_blue {
@@ -64,7 +64,7 @@
   }
 
   .ipad-content {
-    background-image: image-url("../work/fsp/screen-1.png");
+    background-image: image-url("work/fsp/screen-1.png");
     @include animation(cycle-screens 10s infinite linear);
   }
 
@@ -76,7 +76,7 @@
   }
 
   .phone-content {
-    background-image: image-url("../work/fsp/screen-2.png");
+    background-image: image-url("work/fsp/screen-2.png");
     @include animation(cycle-screens 10s infinite linear);
   }
 
