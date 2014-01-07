@@ -9,6 +9,10 @@ body {
   position: absolute;
   width: 100%;
   min-height: 100%;
+  @media (max-width: $small) {
+    height: 100%;
+    min-height: 640px; // Makes scrolling nice and smooth on iphone.
+  }
   margin: 0;
 
   // Skin
