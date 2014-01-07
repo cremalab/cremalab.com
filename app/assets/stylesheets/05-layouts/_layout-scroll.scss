@@ -1,0 +1,24 @@
+.layout-scroll {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.layout-scroll-a {
+  width: 100%;
+  height: 100%;
+}
+
+.layout-scroll-b {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.layout-scroll-c {
+  display: table-cell;
+  vertical-align: middle;
+}
