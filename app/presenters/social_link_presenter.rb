@@ -25,7 +25,7 @@ private
   end
 
   def linked_in_url
-    return "www.linkedin.com/in/#{@username}"
+    return "http://www.linkedin.com/in/#{@username}"
   end
 
   def dribbble_url
