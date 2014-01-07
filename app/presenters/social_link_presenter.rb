@@ -10,7 +10,11 @@ class SocialLinkPresenter < BasePresenter
     h.link_to h.content_tag(:span, I18n.t("activerecord.symbolizes.social_link.network.#{@network}"), class: "hiddenText"), url, class: "icon-#{@network}-circle"
   end
   def url
-    self.send("#{@network}_url")
+    if @social_link.full_url.empty?
+      self.send("#{@network}_url")
+    else
+      @social_link.full_url
+    end
   end
 
 private
