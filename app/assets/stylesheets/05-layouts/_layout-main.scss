@@ -17,11 +17,14 @@
   &.sub-blogs {
     padding-bottom: unit(2.75);
   }
+  &.sub-home {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .layout-main-content {
   width: 100%;
   min-height: 100%;
-
-
 }

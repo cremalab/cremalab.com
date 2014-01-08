@@ -3,19 +3,22 @@
     = video_tag("cremalab")
 
 / START LAYOUT
-.layout-cover
-  .layout-cover-content
-    / END LAYOUT
+.layout-scroll
+  .layout-scroll-a
+    .layout-scroll-b
+      .layout-scroll-c 
+        / END LAYOUT
+        
+        .layout-content
+          / CONTENT
+          .siteIntro
+            = image_tag "cremalab_logo.svg", class: "logo landing"
+            %h1 We believe in building the right thing.
+            %p.subHeading We’re a small team of creatives who turn big ideas into beautiful and useable digital experiences.
 
-    / CONTENT
-    .siteIntro
-      = image_tag "cremalab_logo.svg", class: "logo landing"
-      %h1 We believe in building the right thing.
-      %p.subHeading We’re a small team of creatives who turn big ideas into beautiful and useable digital experiences.
-
-      / START LAYOUT
-      .layout-buttons
-        .layout-buttons-content
-          = link_to "Our Process", "process", class: "button sub-outline"
-        .layout-buttons-content
-          = link_to "Our Work", "work", class: "button sub-outline"
+            / START LAYOUT
+            .layout-buttons
+              .layout-buttons-content
+                = link_to "Our Process", "process", class: "button sub-outline"
+              .layout-buttons-content
+                = link_to "Our Work", "work", class: "button sub-outline"
