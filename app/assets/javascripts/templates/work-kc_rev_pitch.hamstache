@@ -1,0 +1,5 @@
+.browser
+  .browser-header
+  .browser-body
+    .browser-body-content
+      .browser-body-content-img

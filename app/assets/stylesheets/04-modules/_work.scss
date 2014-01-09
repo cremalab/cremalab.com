@@ -6,15 +6,22 @@
   &:nth-child(even) {
     @extend .grid.rtl;
     background: whitesmoke;
+    @media (min-width: $medium) {
+      .work-content { padding-left: 0 }
+    }
   }
-  script { display: none }
+  &:nth-child(odd) { 
+    @media (min-width: $medium) {
+      .work-content { padding-right: 0 }
+    }
+  }
   > * {
     @extend %padding;
   }
 }
 
 .work-content {
-  width: 40em;
+  width: 40%;
   @media (max-width: $medium) {
     width: 100%;
   }
@@ -25,11 +32,11 @@
 }
 
 .work-showcase {
-  padding-top: unit(4);
   position: relative;
+  padding-top: unit(3);
   padding-bottom: 0;
   text-align: center;
-  width: 65%;
+  width: 60%;
   @media (max-width: $medium) {
     width: 100%;
     padding-top: 0;
@@ -89,4 +96,50 @@
     display: block;
     padding-top: 177.5%;
   }
+}
+
+.browser {
+  @include box-shadow(0 0.5em 2.5em rgba(black, 0.3));
+  border-radius: 0.5em;
+}
+.browser-header {
+  background: image-url("devices/browser_bar.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center bottom;
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 5.625%;
+  }
+}
+.browser-body {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: #C3C8CF;
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 5%;
+    bottom: 0;
+    left: 0;
+    @include background-image( linear-gradient(rgba(black, 0), rgba(black, 0.1)) );
+  }
+  &:after {
+    content: "";
+    display: block;
+    padding-top: 50%;
+  }
+}
+.browser-body-content {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+.browser-body-content-img {
+  @include box-shadow(0 -2px 2px rgba(black, 0.5))
 }
