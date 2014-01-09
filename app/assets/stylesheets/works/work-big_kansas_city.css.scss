@@ -3,10 +3,22 @@
 
 @include keyframes(scroll) {
   0%, 25% {
+    @include transform( translateY(0) )
+  }
+  50%, 75% {
+    @include transform( translateY(-1000px) )
+  }
+  100%, 99% {
+    @include transform( translateY(0) )
+  }
+}
+
+@include keyframes(container) {
+  0%, 25% {
     @include transform( translateY(0%) )
   }
   50%, 75% {
-    @include transform( translateY(-100%) )
+    @include transform( translateY(100%) )
   }
   100%, 99% {
     @include transform( translateY(0%) )
@@ -15,12 +27,15 @@
 
 #work-big_kansas_city {
 
+  @include background-image( radial-gradient(white, darken(white, 10) ) );
+
   .browser {}
   .browser-header {}
   .browser-body {}
   .browser-body-content {
-    img {
-      @include animation(scroll 10s alternate infinite);
-    }
+    // @include animation(container 10s alternate infinite ease-in-out);
+  }
+  .browser-body-content-img {
+    @include animation(scroll 10s alternate infinite ease-in-out);
   }
 }

@@ -92,7 +92,8 @@
 }
 
 .browser {
-  @include box-shadow(0 0 5em rgba(black, 0.1));
+  @include box-shadow(0 2.5em 2.5em rgba(black, 0.25));
+  border-radius: 1em;
 }
 .browser-header {
   background: image-url("devices/browser_bar.png") no-repeat;
@@ -107,6 +108,18 @@
 .browser-body {
   position: relative;
   overflow: hidden;
+  width: 100%;
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 5%;
+    bottom: 0;
+    left: 0;
+    @include background-image( linear-gradient(rgba(black, 0), rgba(black, 0.15)) );
+  }
   &:after {
     content: "";
     display: block;
@@ -116,13 +129,11 @@
 .browser-body-content {
   position: absolute;
   top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  height: 100%;
+  width: 100%;
+}
+.browser-body-content-img {
   img {
-    position: absolute;
-    min-width: 100%;
-    top: 100%;
-    left: 0;
+    width: 100%;
   }
 }
