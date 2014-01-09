@@ -16,7 +16,6 @@
 #= require work
 #= require turbolinks
 #= require highlight.pack
-#= require hogan
 
 setupScrollWatcher = ->
   if $(".work-showcase").length
