@@ -6,4 +6,8 @@ class Image < ActiveRecord::Base
     where(featured: true).order("created_at DESC")
   end
 
+  symbolize :template, :in => [
+    :none, :iphone, :ipad, :browser
+  ], scopes: true
+
 end

@@ -1,5 +1,8 @@
 .iphone.sub-black
   .iphone-content
+    - work.images.where(template: 'iphone').each do |img|
+      = image_tag(img.image)
 .ipad.sub-landscape.sub-white
   .ipad-content
-    = image_tag(work.images.first.image)
+    - work.images.where(template: 'ipad').each do |img|
+      = image_tag(img.image)

@@ -47,6 +47,12 @@ en:
         template:
           browser: Browser
           ios: iOS
+      image:
+        template:
+          none: None
+          browser: Browser
+          iphone: iPhone
+          ipad: iPad
   views:
     pagination:
       first: <span class="arrow-double sub-left"><span class="icon-arrow-left"></span><span class="icon-arrow-left"></span></span> <span class="pagination-label">First</span>

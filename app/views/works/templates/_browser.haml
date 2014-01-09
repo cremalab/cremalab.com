@@ -3,4 +3,5 @@
   .browser-body
     .browser-body-content
       .browser-body-content-img
-        = image_tag(work.images.first.image)
+        - work.images.where(template: 'browser').each do |img|
+          = image_tag(img.image)

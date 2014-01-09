@@ -18,22 +18,12 @@
 #= require highlight.pack
 #= require hogan
 
-loadCss = (url) ->
-  link = document.createElement("link")
-  link.type = "text/css"
-  link.rel = "stylesheet"
-  link.href = url
-  document.getElementsByTagName("head")[0].appendChild(link)
-
-# @loadWorkTemplate = (slug, id) ->
-#   loadCss("/assets/works/#{slug}.css");
-#   require ["/assets/templates/#{slug}.js"], ->
-#     template = HoganTemplates["#{slug}"].render()
-#     $el = $(".work-showcase[data-id='#{id}']")
-#     $el.html(template)
-#     window.scrollWatcher = new ScrollWatcher unless window.scrollWatcher
-#     window.scrollWatcher.addItem($el.parent())
-
+setupScrollWatcher = ->
+  if $(".work-showcase").length
+    $(".work-showcase").each (i, el) ->
+      $el = $(el)
+      window.scrollWatcher = new ScrollWatcher unless window.scrollWatcher
+      window.scrollWatcher.addItem($el.parent())
 
 bindCancel = ->
   $(".layout-main-wrapper.open").on 'click', (e) ->
@@ -93,6 +83,7 @@ $(document).on 'page:restore', ->
   playVideo()
 $(document).on 'ready page:load', ->
   playVideo()
+  setupScrollWatcher()
 
   $('pre code').each (i, e) ->
     hljs.highlightBlock(e)
