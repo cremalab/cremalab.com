@@ -90,3 +90,39 @@
     padding-top: 177.5%;
   }
 }
+
+.browser {
+  @include box-shadow(0 0 5em rgba(black, 0.1));
+}
+.browser-header {
+  background: image-url("devices/browser_bar.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center bottom;
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 5.625%;
+  }
+}
+.browser-body {
+  position: relative;
+  overflow: hidden;
+  &:after {
+    content: "";
+    display: block;
+    padding-top: 50%;
+  }
+}
+.browser-body-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  img {
+    position: absolute;
+    min-width: 100%;
+    top: 100%;
+    left: 0;
+  }
+}

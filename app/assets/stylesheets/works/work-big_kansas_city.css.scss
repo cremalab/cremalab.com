@@ -1,0 +1,26 @@
+// Remote Imports
+@import "../imports";
+
+@include keyframes(scroll) {
+  0%, 25% {
+    @include transform( translateY(0%) )
+  }
+  50%, 75% {
+    @include transform( translateY(-100%) )
+  }
+  100%, 99% {
+    @include transform( translateY(0%) )
+  }
+}
+
+#work-big_kansas_city {
+
+  .browser {}
+  .browser-header {}
+  .browser-body {}
+  .browser-body-content {
+    img {
+      @include animation(scroll 10s alternate infinite);
+    }
+  }
+}
