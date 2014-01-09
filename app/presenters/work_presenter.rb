@@ -18,6 +18,10 @@ class WorkPresenter < BasePresenter
     end
   end
 
+  def showcase
+    h.render partial: "/works/templates/#{@object.template.to_s}", locals: {work: @object}
+  end
+
   def state
     if @object.published == true
       "Published"

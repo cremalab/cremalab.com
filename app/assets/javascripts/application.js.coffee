@@ -25,14 +25,14 @@ loadCss = (url) ->
   link.href = url
   document.getElementsByTagName("head")[0].appendChild(link)
 
-@loadWorkTemplate = (slug, id) ->
-  loadCss("/assets/works/#{slug}.css");
-  require ["/assets/templates/#{slug}.js"], ->
-    template = HoganTemplates["#{slug}"].render()
-    $el = $(".work-showcase[data-id='#{id}']")
-    $el.html(template)
-    window.scrollWatcher = new ScrollWatcher unless window.scrollWatcher
-    window.scrollWatcher.addItem($el.parent())
+# @loadWorkTemplate = (slug, id) ->
+#   loadCss("/assets/works/#{slug}.css");
+#   require ["/assets/templates/#{slug}.js"], ->
+#     template = HoganTemplates["#{slug}"].render()
+#     $el = $(".work-showcase[data-id='#{id}']")
+#     $el.html(template)
+#     window.scrollWatcher = new ScrollWatcher unless window.scrollWatcher
+#     window.scrollWatcher.addItem($el.parent())
 
 
 bindCancel = ->
