@@ -45,8 +45,6 @@
 
 #work-fsp {
 
-  background: #fafafa;
-
   &.animate {
     .ipad {
       @include animation(ipad 1s alternate cubic-bezier(0.68, 0.1, 0.265, 1.55) both);
