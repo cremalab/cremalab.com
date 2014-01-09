@@ -1,7 +1,7 @@
 - title "Contact"
 %header.layout-header.sub-contact
   .layout-content
-    <h1>Get in touch with us.</h1>
+    %h1 Get in touch with us.
 .layout-grid.sub-four
   .contactBlock
     .contactBlock-size
@@ -45,7 +45,7 @@
           .icon-instagram
 .layout-content.sub-narrow
   %h2.sub-centered
-    Have more to say?
+    Hire us.
 
   = form_for @message, remote: true, url: contact_path do |f|
     - if @message.errors.any?
