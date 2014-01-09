@@ -43,6 +43,10 @@ en:
           linked_in: LinkedIn
           dribbble: dribbble
           rdio: Rdio
+      work:
+        template:
+          browser: Browser
+          ios: iOS
   views:
     pagination:
       first: <span class="arrow-double sub-left"><span class="icon-arrow-left"></span><span class="icon-arrow-left"></span></span> <span class="pagination-label">First</span>
