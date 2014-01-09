@@ -1,7 +1,7 @@
 require 'rexml/parsers/pullparser'
 
 class String
-  def truncate_html(len = 30, at_end = nil)
+  def truncate_html(len = 100, at_end = nil)
     p = REXML::Parsers::PullParser.new(self)
     tags = []
     new_len = len
