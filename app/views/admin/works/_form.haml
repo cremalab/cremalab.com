@@ -54,3 +54,5 @@
   .actions
     = f.submit "Save", class: 'button'
     = f.submit "Save and Publish", class: 'button'
+    - if @work.id
+      = link_to 'Delete', admin_work_path(@work), :confirm => 'Are you sure?', :method => :delete, class: 'delete button'
