@@ -45,3 +45,17 @@ a {
 strong {
   font-family: "AvenirLTCom-Black";
 }
+
+.large {
+  font-size: 1.5em;
+}
+
+ul {
+  &.sub-plain {
+    list-style: none;
+    padding: 0;
+    > * {
+
+    }
+  }
+}
