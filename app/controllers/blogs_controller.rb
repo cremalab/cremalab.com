@@ -25,6 +25,11 @@ class BlogsController < ApplicationController
     render :index
   end
 
+  def categories
+    @categories = Blog.tag_counts
+    render :categories
+  end
+
 private
 
   def blog_user

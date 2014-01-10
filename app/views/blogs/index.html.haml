@@ -15,6 +15,7 @@
     - else
       - title "Blog"
       %h1 The things we learn.
+      %h5= link_to 'Blog Categories', blog_categories_path
 
 = render partial: "preview", collection: @blogs, as: :blog
 - content_for :content_footer do
