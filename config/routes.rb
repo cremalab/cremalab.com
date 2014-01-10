@@ -4,7 +4,7 @@ CremalabCom::Application.routes.draw do
   get "images/create"
   get "images/destroy"
   root 'home#index'
-  get "approach" => 'process#index', :as => "process"
+  get "approach" => 'home#approach', :as => "approach"
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
