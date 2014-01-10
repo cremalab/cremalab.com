@@ -16,10 +16,7 @@
       = f.label :templated, "Templated?"
       = f.check_box :templated
       %small
-        Template (HAML) and CSS (SCSS) files are expected to be at
-        %code app/assets/javascripts/templates/underscored_work_title.hamstache
-        and
-        %code app/assets/stylesheets/work/underscored_work_title.css.scss
+        Select a template for the work, then add images to populate the template.
       .template_name
         = f.label :template
         = f.select :template, Work.get_template_values
