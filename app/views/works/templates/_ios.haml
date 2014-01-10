@@ -1,8 +1,10 @@
-.iphone.sub-black
-  .iphone-content
-    - work.images.where(template: 'iphone').each do |img|
-      = image_tag(img.image)
-.ipad.sub-landscape.sub-white
-  .ipad-content
-    - work.images.where(template: 'ipad').each do |img|
-      = image_tag(img.image)
+- if work.images.where(template: 'iphone').any?
+  .iphone.sub-black
+    .iphone-content
+      - work.images.where(template: 'iphone').each do |img|
+        = image_tag(img.image)
+- if work.images.where(template: 'ipad').any?
+  .ipad.sub-landscape.sub-white
+    .ipad-content
+      - work.images.where(template: 'ipad').each do |img|
+        = image_tag(img.image)
