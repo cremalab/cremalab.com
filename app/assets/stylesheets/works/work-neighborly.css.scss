@@ -11,7 +11,7 @@
 
   &.animate {
     .browser-body-content-img {
-      @include animation( scroll 20s alternate cubic-bezier(.54,.02,.5,1.2) );
+      @include animation( scroll 200s alternate cubic-bezier(.54,.02,.5,1.2) );
     }
   }
 
