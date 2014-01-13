@@ -17,8 +17,6 @@ gem 'animation'
 gem 'coffee-rails'
 gem 'uglifier'
 
-gem "non-stupid-digest-assets"
-
 gem "redcarpet", "~> 3.0.0"
 gem 'active_attr'
 
@@ -44,7 +42,6 @@ gem "kaminari", "~> 0.14.1"
 gem "carrierwave", "~> 0.9.0"
 gem "mini_magick", "~> 3.6.0"
 gem "fog", "~> 1.15.0"
-gem 'hogan_assets'
 
 group :assets, :development, :test do
   gem "haml-rails", "~> 0.5.1"

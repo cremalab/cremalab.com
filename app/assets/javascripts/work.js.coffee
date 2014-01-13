@@ -7,7 +7,7 @@
 
   calcBottom: ($item) ->
     scrollTop = $item.position().top
-    scrollBottom = scrollTop + $item.height()
+    scrollBottom = scrollTop + ($item.height() - 50)
 
   recalculate: ->
     for item in @items

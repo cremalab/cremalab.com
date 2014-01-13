@@ -6,7 +6,11 @@ class Work < ActiveRecord::Base
   accepts_nested_attributes_for :links, allow_destroy: true
 
   validates_presence_of :title
-  validates_presence_of :template_file_name, :if => Proc.new{|w| w.templated == true }
+  validates_presence_of :template, :if => Proc.new{|w| w.templated == true }
+
+  symbolize :template, :in => [
+    :browser, :ios
+  ]
 
   def self.active
     where(published: true)
