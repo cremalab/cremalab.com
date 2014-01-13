@@ -74,7 +74,7 @@
     }
 
     .browser-body-content-img {
-      @include animation( scroll 10s alternate cubic-bezier(.54,.02,.5,1.2) );
+      @include animation( scroll 30s alternate cubic-bezier(.54,.02,.5,1.2) );
     }
   }
 
