@@ -9,7 +9,7 @@ class BaseImageUploader < CarrierWave::Uploader::Base
         img.resize "#{width}x#{img[:height]}"
       end
       if img[:height] >= height && img[:width] < width
-        img.resize "#{img[:height]}x#{height}}"
+        img.resize "#{img[:height]}x#{height}"
       end
       img = yield(img) if block_given?
       img
