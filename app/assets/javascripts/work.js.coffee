@@ -18,7 +18,7 @@
     $(window).on "resize", (e) =>
       @recalculate()
     $(window).on "scroll load", (e) =>
-      pageBottom = window.scrollY + window.innerHeight
+      pageBottom = window.scrollY + window.innerHeight - 30
       for position in @positions
         if pageBottom >= position
           @items[_i].addClass "animate"
