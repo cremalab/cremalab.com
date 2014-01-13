@@ -23,7 +23,7 @@
     .sideBarToggle.sub-sidebar.icon-cross
     = render "layouts/site_navigation"
   %section.layout-main-wrapper
-    .layout-main{ class: "sub-#{params[:controller]}" }
+    .layout-main{ class: @pageClass ? @pageClass : "sub-#{params[:controller]}" }
       = yield :video
       %main.layout-main-content
         = render "layouts/user_menu" if current_user

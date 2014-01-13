@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     render 'index'
   end
   def approach
+    @pageClass = 'sub-approach'
     render 'approach/index'
   end
 end

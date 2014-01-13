@@ -14,6 +14,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require work
+#= require approach
 #= require turbolinks
 #= require highlight.pack
 
