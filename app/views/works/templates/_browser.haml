@@ -1,0 +1,7 @@
+.browser
+  .browser-header
+  .browser-body
+    .browser-body-content
+      .browser-body-content-img
+        - work.images.where(template: 'browser').each do |img|
+          = image_tag(img.image)

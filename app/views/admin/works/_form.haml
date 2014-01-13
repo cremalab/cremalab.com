@@ -16,13 +16,10 @@
       = f.label :templated, "Templated?"
       = f.check_box :templated
       %small
-        Template (HAML) and CSS (SCSS) files are expected to be at
-        %code app/assets/javascripts/templates/underscored_work_title.hamstache
-        and
-        %code app/assets/stylesheets/work/underscored_work_title.css.scss
+        Select a template for the work, then add images to populate the template.
       .template_name
-        = f.label :template_file_name
-        = f.text_field :template_file_name, placeholder: "template file name"
+        = f.label :template
+        = f.select :template, Work.get_template_values
   %fieldset
     .field
       = f.label :description, 'Description (markdown enabled)'
@@ -36,6 +33,8 @@
         = image_tag wf.object.image.thumb
       = wf.label :image
       = wf.file_field :image
+      = wf.label :template
+      = wf.select :template, Image.get_template_values
       = wf.link_to_remove "Remove this image"
 
     %p= f.link_to_add "Add an image", :images, class: 'button'
