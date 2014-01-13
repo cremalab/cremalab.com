@@ -51,7 +51,7 @@ class BoringTextRotator extends TextRotator
     @renderText()
 
 
-$ ->
+$(document).on 'ready page:load page:restore', ->
   $('.text_rotator').each (i, el) ->
     if Modernizr.csstransitions
       new TextRotator $(el)
