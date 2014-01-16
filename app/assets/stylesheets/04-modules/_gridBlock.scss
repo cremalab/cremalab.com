@@ -5,7 +5,7 @@
       font-size: unit(5);
     }
     &:hover {
-      .gridBlock-content-icon { 
+      .gridBlock-content-icon {
         opacity: 0;
       }
       .gridBlock-content-list {
@@ -42,11 +42,11 @@
           z-index: 1;
           color: $white;
         }
-        &.sub-red:hover    { background: transparentize($red, 0.2) }   
+        &.sub-red:hover    { background: transparentize($red, 0.2) }
         &.sub-orange:hover { background: transparentize($orange, 0.2) }
         &.sub-yellow:hover { background: transparentize($yellow, 0.2) }
-        &.sub-green:hover  { background: transparentize($green, 0.2) } 
-        &.sub-blue:hover   { background: transparentize($blue, 0.2) }  
+        &.sub-green:hover  { background: transparentize($green, 0.2) }
+        &.sub-blue:hover   { background: transparentize($blue, 0.2) }
         &.sub-indigo:hover { background: transparentize($indigo, 0.2) }
         &.sub-violet:hover { background: transparentize($violet, 0.2) }
         &.sub-brown:hover  { background: transparentize($brown, 0.2) }
@@ -73,5 +73,6 @@
           }
           .service_list-content {
             vertical-align: middle;
+            -webkit-user-select: none;
           }
         }

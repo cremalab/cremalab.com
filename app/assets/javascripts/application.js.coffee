@@ -79,6 +79,11 @@ playVideo = ->
   if $(".videoBackground").length
     $(".videoBackground video")[0].play()
 
+
+document.addEventListener "touchstart", (e) ->
+  console.log e
+, true
+
 $(document).on 'page:restore', ->
   playVideo()
 $(document).on 'ready page:load', ->
