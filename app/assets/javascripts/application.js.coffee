@@ -15,6 +15,7 @@
 #= require jquery_ujs
 #= require work
 #= require approach
+#= require modernizr
 #= require turbolinks
 #= require highlight.pack
 
@@ -87,6 +88,8 @@ document.addEventListener "touchstart", (e) ->
 $(document).on 'page:restore', ->
   playVideo()
 $(document).on 'ready page:load', ->
+  if Modernizr.touch
+    $('body').addClass('touch')
   playVideo()
   setupScrollWatcher()
 
