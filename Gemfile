@@ -8,7 +8,7 @@ gem 'rails', '4.0.0'
 gem 'pg'
 
 # Assets
-gem 'haml-rails', '~> 0.5.1'
+# gem 'haml-rails', '~> 0.5.1'
 gem 'sass', '3.3.0.alpha.149'
 gem 'sass-rails'
 gem 'compass', '0.12.2'
