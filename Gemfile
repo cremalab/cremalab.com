@@ -8,7 +8,7 @@ gem 'rails', '4.0.0'
 gem 'pg'
 
 # Assets
-# gem 'haml-rails', '~> 0.5.1'
+gem 'haml-rails', '~> 0.5.1'
 gem 'sass', '3.3.0.alpha.149'
 gem 'sass-rails'
 gem 'compass', '0.12.2'
@@ -43,9 +43,6 @@ gem "carrierwave", "~> 0.9.0"
 gem "mini_magick", "~> 3.6.0"
 gem "fog", "~> 1.15.0"
 
-group :assets, :development, :test do
-  gem "haml-rails", "~> 0.5.1"
-end
 
 group :test do
   gem "turn", "~> 0.9.6"
