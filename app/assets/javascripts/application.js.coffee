@@ -45,7 +45,7 @@ bindSidebar = ->
     else
       $(".layout-main-wrapper").off('click')
 
-  $('.site_nav-list a ').on 'click', (e) ->
+  $('.site_nav-list:not(.sub-social) a ').on 'click', (e) ->
     href = @href
     e.preventDefault()
     $('.layout-main-wrapper').toggleClass 'open'
