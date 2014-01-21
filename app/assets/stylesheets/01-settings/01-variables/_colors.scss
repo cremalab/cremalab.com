@@ -32,5 +32,9 @@ $violet: hsl($base + ($offset * 6), $saturation, $lightness);
 $brown:  hsl(30, $saturation, 20);
 
 // Links
-$link-color: $blue;
+$link-color: $violet;
 $link-color-secondary: $gray-dark;
+
+// Text Selection Color
+$selection-bg: $green;
+$selection-color: white;
