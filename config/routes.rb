@@ -40,6 +40,13 @@ CremalabCom::Application.routes.draw do
     resources :works, path: 'work'
   end
 
+  # TODO: Maybe restructure routes like Wordpress'?
+  get "/2013/11/imagine-the-future", :to => redirect("/blog/7-imagine-the-future")
+  get "/2013/12/working-with-chaplin-js-part-1-inheritance-and-views/", :to => redirect("/blog/8-working-with-chaplin-js-part-1-inheritance-and-views")
+  get "/2013/11/just-one/", :to => redirect("/blog/6-just-one")
+  get "/2013/03/the-turnstone-transformation/", :to => redirect("/blog/2-the-turnstone-of-transformation")
+  get "/2013/02/culture-at-cremalab/", :to => redirect("/blog/1-culture-at-cremalab")
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
