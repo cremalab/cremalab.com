@@ -41,6 +41,7 @@ CremalabCom::Application.routes.draw do
   end
 
   # TODO: Maybe restructure routes like Wordpress'?
+  get "/2012/07/asana/", :to => redirect("/blog/4-best-ways-to-use-asana-as-an-web-agency")
   get "/2013/11/imagine-the-future", :to => redirect("/blog/7-imagine-the-future")
   get "/2013/12/working-with-chaplin-js-part-1-inheritance-and-views/", :to => redirect("/blog/8-working-with-chaplin-js-part-1-inheritance-and-views")
   get "/2013/11/just-one/", :to => redirect("/blog/6-just-one")
