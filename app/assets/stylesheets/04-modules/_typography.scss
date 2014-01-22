@@ -59,3 +59,13 @@ ul {
     }
   }
 }
+
+
+::selection {
+  background: $selection-bg;
+  color: $selection-color;
+}
+::-moz-selection {
+  background: $selection-bg;
+  color: $selection-color;
+}
