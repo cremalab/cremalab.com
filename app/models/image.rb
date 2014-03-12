@@ -8,6 +8,6 @@ class Image < ActiveRecord::Base
 
   symbolize :template, :in => [
     :none, :iphone, :ipad, :browser
-  ], scopes: true
+  ], scopes: true, allow_nil: true
 
 end
