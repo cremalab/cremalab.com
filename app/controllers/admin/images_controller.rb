@@ -7,7 +7,7 @@ class Admin::ImagesController < AdminController
     if @image.save
       render json: @image.as_json
     else
-      @image = Image.find(params[:id])
+      render json: @image.errors.full_messages
     end
   end
 
@@ -23,7 +23,7 @@ class Admin::ImagesController < AdminController
     if @image.update_attributes(featured_params)
       render json: @image.as_json
     else
-      @image = Image.find(params[:id])
+      render json: @image.errors.full_messages
     end
   end
 
