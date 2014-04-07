@@ -5,7 +5,7 @@ class CareersController < ApplicationController
   end
 
   def show
-    @careers = Career.find(params[:id])
+    @career = Career.find(params[:id])
   end
 
 

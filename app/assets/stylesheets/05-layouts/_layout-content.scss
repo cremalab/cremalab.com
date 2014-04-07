@@ -2,6 +2,9 @@
   & + .layout-wrap-content {
     border-top: 1px solid $gray-light;
   }
+  &.sub-dark {
+    background-color: whitesmoke;
+  }
 }
 
 .layout-content {
