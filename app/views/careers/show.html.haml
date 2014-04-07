@@ -1,5 +1,10 @@
 - present @career do |career_presenter|
-  = career_presenter.name
-  = career_presenter.description
-  = career_presenter.must_haves
-  = career_presenter.bonus_points
+  %header.layout-header{style: "background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC), url(#{career_presenter.featured_image});"}
+    .layout-content.sub-wide
+      %h1
+        = career_presenter.name
+  .layout-content
+    .post-body
+      = career_presenter.description
+      = career_presenter.must_haves
+      = career_presenter.bonus_points

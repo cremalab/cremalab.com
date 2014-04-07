@@ -26,6 +26,15 @@ class CareerPresenter < BasePresenter
     end
   end
 
+  def featured_image
+    @object.images.first
+    if @object.images.any?
+      @object.images.first.image.url
+    else
+      "https://s3.amazonaws.com/cremalab/static/blog-bg.jpg"
+    end
+  end
+
   def bonus_points
     if @object.bonus_points
       markdown(@object.bonus_points)

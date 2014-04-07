@@ -1,6 +1,5 @@
 class Admin::CareersController < AdminController
   before_filter :require_login
-  before_filter :check_publish, only: [:create, :update]
 
   def index
     @careers = Career.all
@@ -15,7 +14,7 @@ class Admin::CareersController < AdminController
   def create
     @career = Career.new(career_params)
     if @career.save
-      respond_with @career
+      redirect_to admin_careers_path
     else
       render :new
     end
@@ -33,7 +32,7 @@ class Admin::CareersController < AdminController
   def update
     @career = Career.find(params[:id])
     if @career.update_attributes(career_params)
-      redirect_to admin_career_path(@career)
+      redirect_to admin_careers_path
     else
       render :edit
     end
@@ -43,7 +42,7 @@ class Admin::CareersController < AdminController
   def destroy
     @career = Career.find(params[:id])
     if @career.destroy
-      redirect :index
+      redirect admin_careers_path
     else
       render @career
     end
@@ -54,7 +53,10 @@ class Admin::CareersController < AdminController
 
   def career_params
     params.require(:career).permit(:name, :description, :must_haves,
-                                    :bonus_points)
+                                    :bonus_points, images_attributes: [
+                                      :image
+                                    ]
+                                  )
 
   end
 
