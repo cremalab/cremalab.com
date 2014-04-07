@@ -22,15 +22,31 @@ class Admin::CareersController < ApplicationController
 
   end
 
+  def show
+    @career = Career.find(params[:id])
+  end
+
   def edit
     @career = Career.find(params[:id])
   end
 
   def update
+    @career = Career.find(params[:id])
+    if @career.update_attributes(career_params)
+      redirect_to admin_career_path(@career)
+    else
+      render :edit
+    end
 
   end
 
   def destroy
+    @career = Career.find(params[:id])
+    if @career.destroy
+      redirect :index
+    else
+      render @career
+    end
 
   end
 
