@@ -13,11 +13,13 @@ class Admin::CareersController < ApplicationController
 
 
   def create
+    @career = Career.new(career_params)
+    if @career.save
+      respond_with @career
+    else
+      render :new
+    end
 
-  end
-
-  def show
-    @career = Career.find(params[:id])
   end
 
   def edit
@@ -29,6 +31,14 @@ class Admin::CareersController < ApplicationController
   end
 
   def destroy
+
+  end
+
+  private
+
+  def career_params
+    params.require(:career).permit(:name, :description, :must_haves,
+                                    :bonus_points)
 
   end
 
