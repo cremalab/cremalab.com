@@ -1,4 +1,4 @@
-class Admin::CareersController < ApplicationController
+class Admin::CareersController < AdminController
   before_filter :require_login
   before_filter :check_publish, only: [:create, :update]
 
