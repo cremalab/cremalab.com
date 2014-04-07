@@ -25,6 +25,8 @@ CremalabCom::Application.routes.draw do
 
   resources :works, path: 'work'
 
+  resources :careers, path: 'career'
+
   namespace :admin do
     get "/" => 'dashboard#index'
     resources :images
