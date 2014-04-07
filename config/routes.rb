@@ -25,7 +25,7 @@ CremalabCom::Application.routes.draw do
 
   resources :works, path: 'work'
 
-  resources :careers, path: 'career'
+  resources :careers
 
   namespace :admin do
     get "/" => 'dashboard#index'
@@ -39,6 +39,8 @@ CremalabCom::Application.routes.draw do
     resources :blogs, path: 'blog' do
       resources :images
     end
+    resources :careers
+
     resources :works, path: 'work'
   end
 
