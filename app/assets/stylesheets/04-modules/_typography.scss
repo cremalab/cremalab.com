@@ -60,6 +60,10 @@ ul {
   }
 }
 
+li {
+  @extend %verticalSpacing.half
+}
+
 
 ::selection {
   background: $selection-bg;
