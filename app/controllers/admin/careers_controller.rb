@@ -54,7 +54,7 @@ class Admin::CareersController < AdminController
   def career_params
     params.require(:career).permit(:name, :description, :must_haves,
                                     :bonus_points, images_attributes: [
-                                      :image
+                                      :image, :id, :template, :_destroy
                                     ]
                                   )
 

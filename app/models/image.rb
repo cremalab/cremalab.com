@@ -7,7 +7,7 @@ class Image < ActiveRecord::Base
   end
 
   symbolize :template, :in => [
-    :none, :iphone, :ipad, :browser
+    :none, :iphone, :ipad, :browser, :header, :listing
   ], scopes: true, allow_nil: true
 
 end
