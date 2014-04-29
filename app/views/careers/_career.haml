@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 .layout-wrap-content.sub-dark
   .layout-content.sub-wide
     - present career do |career_presenter|
       %h3= career_presenter.name_link
       %p= career_presenter.description
-=======
-- present career do |career_presenter|
-  = career_presenter.name_link
-  = career_presenter.description
-  - if career_presenter.listing_image
-    = picture_tag(career_presenter.listing_image)
->>>>>>> f6fe85ea80936190fcdf2d8f0a67dbf83f4068f4
+      - if career_presenter.listing_image
+        = picture_tag(career_presenter.listing_image)
+
