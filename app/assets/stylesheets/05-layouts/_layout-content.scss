@@ -1,8 +1,6 @@
 .layout-wrap-content {
-  & + .layout-wrap-content {
-    border-top: 1px solid $gray-light;
-  }
-  &.sub-dark {
+  border-top: 1px solid $gray-light;
+  &:nth-child(even) {
     background-color: whitesmoke;
   }
 }
