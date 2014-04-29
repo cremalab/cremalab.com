@@ -7,8 +7,22 @@
         .layout-buttons
           .button.sub-outline Tweet this Job
           .button.sub-outline Share to FB
-  .layout-content
-    .post-body
-      = career_presenter.description
-      = career_presenter.must_haves
-      = career_presenter.bonus_points
+  .layout-wrap-content
+    .layout-content.sub-wide
+      .layout-content-section
+        = career_presenter.description
+  .layout-wrap-content
+    .layout-content.sub-wide
+      .layout-content-section
+        .grid-wrapper
+          .grid.spaced.break
+            .grid-column
+              %h3
+                %span.icon-checkmark
+                The Must-haves
+              = career_presenter.must_haves
+            .grid-column
+              %h3 
+                %span.icon-star
+                Bonus Points
+              = career_presenter.bonus_points

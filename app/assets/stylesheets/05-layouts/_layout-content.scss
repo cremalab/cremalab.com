@@ -1,6 +1,6 @@
 .layout-wrap-content {
   border-top: 1px solid $gray-light;
-  &:nth-child(odd) {
+  &:nth-child(even) {
     background-color: whitesmoke;
   }
 }
@@ -29,5 +29,5 @@
 }
 
 .layout-content-section {
-  @extend %verticalSpacing
+  @extend %verticalSpacing.double
 }

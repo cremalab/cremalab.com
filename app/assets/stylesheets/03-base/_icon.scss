@@ -26,6 +26,9 @@
 .icon-health:before {
   content: "\e630";
 }
+.icon-checkmark:before {
+  content: "\e639";
+}
 .icon-gamepad:before {
   content: "\e635";
 }
@@ -41,6 +44,9 @@
 .icon-plane:before {
   content: "\e638";
 }
+.icon-star:before {
+  content: "\e63a";
+}
 .icon-brush:before {
   content: "\e62f";
 }
@@ -50,7 +56,7 @@
 .icon-arrow-left:before {
   content: "\e62d";
 }
-.icon-uniE62C:before {
+.icon-arrow-right:before {
   content: "\e62c";
 }
 .icon-list:before {
@@ -170,7 +176,7 @@
 .icon-plus:before {
   content: "\e626";
 }
-.icon-cross:before {
+.icon-cross-circle:before {
   content: "\e627";
 }
 .icon-trash:before {
@@ -182,7 +188,7 @@
 .icon-code:before {
   content: "\e62a";
 }
-.icon-cross2:before {
+.icon-cross:before {
   content: "\e62b";
 }
 
