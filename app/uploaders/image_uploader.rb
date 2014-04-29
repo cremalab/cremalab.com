@@ -23,7 +23,7 @@ class ImageUploader < BaseImageUploader
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
-
+  process :fix_exif_rotation
   process :resize_to_width => [1000, 1000]
 
   # Process files as they are uploaded:
@@ -33,13 +33,25 @@ class ImageUploader < BaseImageUploader
   #   # do something
   # end
 
+  def fix_exif_rotation
+    unless @file.extension.downcase == 'svg'
+      manipulate! do |img|
+        img.tap(&:auto_orient)
+      end
+    end
+  end
+
   # Create different versions of your uploaded files:
   version :display do
-    process :quality => 65
+    unless @file.extension.downcase == 'svg'
+      process :quality => 65
+    end
   end
 
   version :thumb do
-    process :resize_to_fit => [300, 300]
+    unless @file.extension.downcase == 'svg'
+      process :resize_to_fit => [300, 300]
+    end
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
