@@ -29,6 +29,14 @@
       padding-top: 12.5%;
     }
   }
+  &.sub-five > * {
+    @media (max-width: $small) { 
+      width: 50%;
+      padding-top: 50%;
+    }
+    width: 20%;
+    padding-top: 20%;
+  }
   &.sub-approach {
     border-top: 1px solid $gray-light;
   }

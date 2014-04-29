@@ -1,3 +1,5 @@
-- present career do |career_presenter|
-  = career_presenter.name_link
-  = career_presenter.description
+.layout-wrap-content.sub-dark
+  .layout-content.sub-wide
+    - present career do |career_presenter|
+      %h3= career_presenter.name_link
+      %p= career_presenter.description
