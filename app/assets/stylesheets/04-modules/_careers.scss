@@ -3,7 +3,7 @@
 }
 
 .career_listing {
-  &:nth-child(even) {
+  &:nth-child(odd) {
     .grid {
       direction: rtl;
       > * {
@@ -13,5 +13,7 @@
   }
 }
 
-.career_listing-image   {}
+.career_listing-image {
+  width: unit(10);
+}
 .career_listing-content {}

@@ -1,11 +1,13 @@
 - present career do |career_presenter|
   .career_listing.layout-wrap-content
-    .layout-content
-      .grid
-        .career_listing-content
-          %h3= career_presenter.name_link
-          %p= career_presenter.excerpt
-        - if career_presenter.listing_image
-          .career_listing-image
-            = picture_tag(career_presenter.listing_image)
+    .layout-content.sub-wide
+      .grid-wrapper
+        .grid.spaced.break.medium.middle
+          - if career_presenter.listing_image
+            .career_listing-image.layout-grid-column
+              = picture_tag(career_presenter.listing_image, "sub-contain sub-square")
+          .career_listing-content.layout-grid-column
+            %h3= career_presenter.name_link
+            %p= career_presenter.excerpt
+            = career_presenter.view_opening
 

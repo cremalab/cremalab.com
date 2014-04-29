@@ -3,7 +3,12 @@
   position: relative;
   background-size: cover;
   background-position: center;
-  padding-top: 40%;
+  background-repeat: no-repeat;
+  &:after {
+    content: '';
+    display: block;
+    padding-top: 40%;
+  }
   img {
     display: none;
   }
@@ -15,5 +20,18 @@
     height: 100%;
     width: 100%;
   }
+
+  &.sub-contain {
+    background-size: contain;
+  }
+  
+  &.sub-square {
+    &:after {
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
+  }
+
 
 }
