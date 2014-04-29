@@ -12,7 +12,10 @@
   %fieldset
     .field
       = f.label :description, 'Description (markdown enabled)'
-      = f.text_area :description, rows: 20, cols: 60, class: 'work-description'
+      = f.text_area :description, rows: 50, cols: 60, class: 'work-description'
+    .field
+      = f.label :excerpt, 'Excerpt (markdown enabled)'
+      = f.text_area :excerpt, rows: 10, cols: 60, class: 'work-excerpt'
     .field
       = f.label :must_haves, 'Must Haves (markdown enabled)'
       = f.text_area :must_haves, rows: 20, cols: 60, class: 'work-must_haves'

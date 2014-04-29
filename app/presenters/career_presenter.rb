@@ -10,6 +10,14 @@ class CareerPresenter < BasePresenter
     end
   end
 
+  def excerpt
+    if @object.excerpt.blank?
+      markdown(@object.description)
+    else
+      markdown(@object.excerpt)
+    end
+  end
+
   def name_link
     h.link_to @object.name, h.career_path(@object)
   end
