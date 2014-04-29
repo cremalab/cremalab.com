@@ -44,7 +44,12 @@ class CareerPresenter < BasePresenter
 
   def listing_image
     if @object.images.where(template: :listing).any?
-      @object.images.where(template: :listing).first.image.url
+      image = @object.images.where(template: :listing).first
+      if image.image.url.include?('.svg')
+        image.image.url
+      else
+        image.image.url.thumb
+      end
     else
       nil
     end

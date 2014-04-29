@@ -10,4 +10,8 @@ class Image < ActiveRecord::Base
     :none, :iphone, :ipad, :browser, :header, :listing
   ], scopes: true, allow_nil: true
 
+  def thumb
+    self.filename
+  end
+
 end
