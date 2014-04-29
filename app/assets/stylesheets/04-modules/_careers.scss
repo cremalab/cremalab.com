@@ -1,3 +1,17 @@
 .career-pillars {
   background: whitesmoke
 }
+
+.career_listing {
+  &:nth-child(even) {
+    .grid {
+      direction: rtl;
+      > * {
+        direction: ltr;
+      }
+    }
+  }
+}
+
+.career_listing-image   {}
+.career_listing-content {}

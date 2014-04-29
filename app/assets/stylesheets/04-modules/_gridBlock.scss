@@ -6,11 +6,23 @@
     }
     &:hover {
       .gridBlock-content-icon {
-        opacity: 0;
+        @include transform(scale(0.75));
+        color: rgba(black, 0.10);
       }
       .gridBlock-content-list {
         opacity: 1;
         @include transform(scale(1.1));
+      }
+    }
+  }
+  $color-list: $red, $orange, $yellow, $green, $blue, $indigo, $violet, $brown;
+  @for $i from 1 through length($color-list) {
+    $color: nth($color-list, $i);
+    &:nth-child(#{length($color-list)}n - #{length($color-list) - $i}) {
+      &:hover, &:active {
+        .gridBlock-size-wrap-content {
+          background-color: rgba($color, 0.8)
+        }
       }
     }
   }
@@ -38,20 +50,14 @@
         color: $gray-light;
         &:hover {
           @include transform(scale(1.1));
+          -webkit-backface-visibility: hidden;
           position: relative;
           z-index: 1;
           color: $white;
         }
-        &.sub-red:hover    { background: transparentize($red, 0.2) }
-        &.sub-orange:hover { background: transparentize($orange, 0.2) }
-        &.sub-yellow:hover { background: transparentize($yellow, 0.2) }
-        &.sub-green:hover  { background: transparentize($green, 0.2) }
-        &.sub-blue:hover   { background: transparentize($blue, 0.2) }
-        &.sub-indigo:hover { background: transparentize($indigo, 0.2) }
-        &.sub-violet:hover { background: transparentize($violet, 0.2) }
-        &.sub-brown:hover  { background: transparentize($brown, 0.2) }
       }
         .gridBlock-content-icon {
+          position: relative;
           @extend %transition.sub-fast;
           font-size: unit(3);
         }
@@ -74,5 +80,6 @@
           .service_list-content {
             vertical-align: middle;
             -webkit-user-select: none;
+            padding: unit(1.5);
           }
         }
