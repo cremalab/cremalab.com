@@ -21,6 +21,10 @@
     max-width: $large;
   }
 
+  &.sub-center {
+    text-align: center;
+  }
+
   a {
     color: $link-color;
     text-decoration: none;
