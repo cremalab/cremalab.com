@@ -22,6 +22,10 @@ class CareerPresenter < BasePresenter
     h.link_to @object.name, h.career_path(@object)
   end
 
+  def view_opening
+    h.link_to "View opening", h.career_path(@object), class: "button sub-outline"
+  end
+
   def admin_links
     if h.current_user
       h.link_to 'Edit', h.edit_admin_career_path(@object)
