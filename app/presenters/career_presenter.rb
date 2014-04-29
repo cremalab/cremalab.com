@@ -27,11 +27,18 @@ class CareerPresenter < BasePresenter
   end
 
   def featured_image
-    @object.images.first
     if @object.images.any?
       @object.images.first.image.url
     else
       "https://s3.amazonaws.com/cremalab/static/blog-bg.jpg"
+    end
+  end
+
+  def listing_image
+    if @object.images.where(template: :listing).any?
+      @object.images.where(template: :listing).first.image.url
+    else
+      nil
     end
   end
 
