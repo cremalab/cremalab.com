@@ -3,10 +3,10 @@
     .layout-content.sub-wide
       %h1
         = career_presenter.name
-      .layout-buttons-wrapper
-        .layout-buttons
-          .button.sub-outline Tweet this Job
-          .button.sub-outline Share to FB
+      / .layout-buttons-wrapper
+      /   .layout-buttons
+      /     .button.sub-outline Tweet this Job
+      /     .button.sub-outline Share to FB
   .layout-wrap-content
     .layout-content.sub-wide
       .layout-content-section
@@ -32,4 +32,4 @@
       %p We care less about the bullet points on your resume, and more about what you actually bring to the laptop (you know, instead of the table). We’re focused on creating a culture that’s fun, challenging, and rewarding. If this sounds like a good fit for you, click that button and get the conversation started! 
       .layout-buttons-wrapper
         .layout-buttons
-          .h3.button Apply Now!
+          .h3= link_to "Apply Now!", "/job_questionnaire/new", class: 'button'

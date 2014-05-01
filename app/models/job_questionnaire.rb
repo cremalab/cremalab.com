@@ -1,4 +1,4 @@
-class JobQuestionaire
+class JobQuestionnaire
   include ActiveAttr::Model
 
     attribute :full_name
@@ -10,7 +10,9 @@ class JobQuestionaire
     attribute :about_yourself
     attribute :anything_else
 
-
-
+    validates_presence_of :full_name,
+      :email,
+      :why_cremalab,
+      :about_yourself
 
 end

@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class JobQuestionaireHelperTest < ActionView::TestCase
+class JobQuestionnaireHelperTest < ActionView::TestCase
 end

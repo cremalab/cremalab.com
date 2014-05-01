@@ -17,6 +17,10 @@ CremalabCom::Application.routes.draw do
   resources :users, path: 'team' do
     resources :blogs
   end
+
+  resources :job_questionnaire, only: [:new, :create]
+  get 'job_questionnaire/success' => "job_questionnaire#success", :as => "job_questionnaire_success"
+
   resources :blogs, path: 'blog' do
     get 'page/:page', :action => :index, :on => :collection
   end

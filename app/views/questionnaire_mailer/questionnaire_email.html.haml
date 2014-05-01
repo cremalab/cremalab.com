@@ -1,0 +1,38 @@
+- name           = @message.full_name
+- email          = @message.email
+- phone          = @message.phone
+- portfolio      = @message.portfolio_website
+- gh_name        = @message.gh_name
+- why_cremalab   = @message.why_cremalab
+- about_yourself = @message.about_yourself
+- anything_else  = @message.anything_else
+
+%h1 Cremalab Job Application
+
+%h2 Name
+%p= name
+
+%h2 Email
+%p= email
+
+- if phone
+  %h2 Phone
+  %p= phone
+
+- if portfolio
+  %h2 Portfolio
+  %p= portfolio
+
+- if gh_name
+  %h2 Github Username
+  %p= gh_name
+
+%h2 Why Cremalab?
+%p= why_cremalab
+
+%h2 About Yourself
+%p= about_yourself
+
+- if anything_else
+  %h2 Anything else?
+  %p= anything_else
