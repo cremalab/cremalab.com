@@ -4,7 +4,8 @@
 %header.layout-header.sub-careers
   .layout-content
     %h1 Our small team is growing fast.
-    .h4= link_to "View openings", "#openings", class: 'button'
+    - if @careers.any?
+      .h4= link_to "View openings", "#openings", class: 'button'
 .layout-content.sub-wide
   %h2 Together, we create experiences that people love.
   %p We’re a small team, growing quickly. We love collaborating on full-stack products that solve real problems for real people. We work together, laugh together, drink together,  and cry together. Okay, we don’t really cry together but you get the gist. We take our culture seriously, but ourselves? Well, not so much. Here’s the deal though: We’re building a user-experience design agency focused on crafting experiences that delight people and better their lives.
@@ -108,11 +109,11 @@
       .gridBlock-size-wrap
         .gridBlock-size-wrap-content.sub-red
           .gridBlock-content-icon
-            .icon-plane
+            .icon-clipboard
           .gridBlock-content-list
             .service_list
               .service_list-content
-                %h5 Unlimited Vacation
+                %h5 ROWE Environment
 
   .gridBlock.sub-approach
     .gridBlock-size
@@ -141,5 +142,10 @@
     %h2.sub-centered We’re growing,<br> so come on-board!
     %p We’re passionate about what we do, where we do it, and who we do it with. So take a look at our current openings, and see if one fits with you! If you don’t see what you're looking for, drop us a line anyway! We love meeting new people and building relationships, especially over coffee.
     %a{name: "openings"}
-= render @careers
-
+- if @careers.any?
+  = render @careers
+- else
+  .layout-wrap-content
+    .layout-content.sub-center
+      %h3 We're not currently hiring.
+      %p.h4= link_to "But feel free to contact us.", contact_path

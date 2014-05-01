@@ -42,7 +42,7 @@ class Admin::CareersController < AdminController
   def destroy
     @career = Career.find(params[:id])
     if @career.destroy
-      redirect admin_careers_path
+      redirect_to admin_careers_path
     else
       render @career
     end
