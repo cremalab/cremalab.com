@@ -1,4 +1,7 @@
 .layout-grid {
+  border-width: 1px 0 0;
+  border-style: solid;
+  border-color: $gray-light;
   font-size: 0;
   width: 101%;
   @media (max-width: $small) {
@@ -28,6 +31,18 @@
       width: 12.5%;
       padding-top: 12.5%;
     }
+  }
+  &.sub-five > * {
+    @media (max-width: $small) { 
+      width: 50%;
+      padding-top: 50%;
+    }
+    @media (min-width: $x-large) { 
+      width: 10%;
+      padding-top: 10%;
+    }
+    width: 20%;
+    padding-top: 20%;
   }
   &.sub-approach {
     border-top: 1px solid $gray-light;

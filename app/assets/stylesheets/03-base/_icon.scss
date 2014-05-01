@@ -14,6 +14,51 @@
 }
 
 // Icon Characters
+.icon-coffee:before {
+  content: "\e632";
+}
+.icon-mug:before {
+  content: "\e633";
+}
+.icon-cake:before {
+  content: "\e634";
+}
+.icon-health:before {
+  content: "\e630";
+}
+.icon-checkmark:before {
+  content: "\e639";
+}
+.icon-gamepad:before {
+  content: "\e635";
+}
+.icon-graduate:before {
+  content: "\e636";
+}
+.icon-moneybag:before {
+  content: "\e637";
+}
+.icon-pig:before {
+  content: "\e631";
+}
+.icon-plane:before {
+  content: "\e638";
+}
+.icon-star:before {
+  content: "\e63a";
+}
+.icon-brush:before {
+  content: "\e62f";
+}
+.icon-light-bulb:before {
+  content: "\e62e";
+}
+.icon-arrow-left:before {
+  content: "\e62d";
+}
+.icon-arrow-right:before {
+  content: "\e62c";
+}
 .icon-list:before {
   content: "\e600";
 }
@@ -83,10 +128,10 @@
 .icon-rdio-circle:before {
   content: "\e616";
 }
-.icon-spotify-circle:before {
+.icon-spotify:before {
   content: "\e617";
 }
-.icon-spotify:before {
+.icon-spotify-circle:before {
   content: "\e618";
 }
 .icon-skype:before {
@@ -131,7 +176,7 @@
 .icon-plus:before {
   content: "\e626";
 }
-.icon-cross:before {
+.icon-cross-circle:before {
   content: "\e627";
 }
 .icon-trash:before {
@@ -145,20 +190,6 @@
 }
 .icon-cross:before {
   content: "\e62b";
-}
-.icon-arrow-right:after {
-  display: inline-block;
-  content: "\e62c";
-}
-.icon-arrow-left:before {
-  display: inline-block;
-  content: "\e62d";
-}
-.icon-light-bulb:before {
-  content: "\e62e";
-}
-.icon-brush:before {
-  content: "\e62f";
 }
 
 

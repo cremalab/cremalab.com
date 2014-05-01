@@ -1,0 +1,2 @@
+module JobQuestionnaireHelper
+end

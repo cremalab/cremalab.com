@@ -50,5 +50,11 @@
       url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
       image-url("headers/bg-work.jpg")
   }
+  &.sub-careers {
+    background-image:
+      linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
+      image-url("headers/bg-careers.jpg")
+  }
 
 }

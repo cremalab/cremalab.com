@@ -1,6 +1,6 @@
 @mixin heading-scale( $ratio: 1.2, $top: 5, $bottom: -0.125, $shift: 0 ) {
   @for $i from 1 through 6 {
-    h#{$i} {
+    h#{$i}, .h#{$i} {
       $power: 6 - ($i - $shift);
       $size: pow($ratio, $power);
       font-size: #{$size}em;

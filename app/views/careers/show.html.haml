@@ -1,0 +1,35 @@
+- present @career do |career_presenter|
+  %header.layout-header{style: "background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC), url(#{career_presenter.featured_image});"}
+    .layout-content.sub-wide
+      %h1
+        = career_presenter.name
+      / .layout-buttons-wrapper
+      /   .layout-buttons
+      /     .button.sub-outline Tweet this Job
+      /     .button.sub-outline Share to FB
+  .layout-wrap-content
+    .layout-content.sub-wide
+      .layout-content-section
+        = career_presenter.description
+  .layout-wrap-content
+    .layout-content.sub-wide
+      .layout-content-section
+        .grid-wrapper
+          .grid.spaced.break
+            .grid-column
+              %h3
+                %span.icon-checkmark
+                The Must-haves
+              = career_presenter.must_haves
+            .grid-column
+              %h3 
+                %span.icon-star
+                Bonus Points
+              = career_presenter.bonus_points
+  .layout-wrap-content
+    .layout-content.sub-narrow.sub-center
+      %h3 We want creative, team-oriented people who get things done.
+      %p We care less about the bullet points on your resume, and more about what you actually bring to the laptop (you know, instead of the table). We’re focused on creating a culture that’s fun, challenging, and rewarding. If this sounds like a good fit for you, click that button and get the conversation started! 
+      .layout-buttons-wrapper
+        .layout-buttons
+          .h3= link_to "Apply Now!", "/job_questionnaire/new", class: 'button'

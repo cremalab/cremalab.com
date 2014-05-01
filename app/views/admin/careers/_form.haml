@@ -1,0 +1,43 @@
+= nested_form_for [:admin, @career] do |f|
+  - if @career.errors.any?
+    .error_messages
+      %h2 Form is invalid
+      %ul
+        - for message in @career.errors.full_messages
+          %li= message
+  %fieldset
+    .field
+      = f.label :name
+      = f.text_field :name
+  %fieldset
+    .field
+      = f.label :description, 'Description (markdown enabled)'
+      = f.text_area :description, rows: 50, cols: 60, class: 'work-description'
+    .field
+      = f.label :excerpt, 'Excerpt (markdown enabled)'
+      = f.text_area :excerpt, rows: 10, cols: 60, class: 'work-excerpt'
+    .field
+      = f.label :must_haves, 'Must Haves (markdown enabled)'
+      = f.text_area :must_haves, rows: 20, cols: 60, class: 'work-must_haves'
+    .field
+      = f.label :bonus_points, 'Bonus Points (markdown enabled)'
+      = f.text_area :bonus_points, rows: 20, cols: 60, class: 'work-bonus_points'
+  .markdown-preview
+
+  %fieldset
+    %legend Images
+    = f.fields_for :images do |wf|
+      - if wf.object.image
+        = image_tag wf.object.image.thumb
+      = wf.label :image
+      = wf.file_field :image
+      = wf.label :template
+      = wf.select :template, [['Header', :header], ['Listing', :listing]]
+      = wf.link_to_remove "Remove this image"
+
+    %p= f.link_to_add "Add an image", :images, class: 'button'
+
+  .actions
+    = f.submit "Save", class: 'button'
+    - if @career.id
+      = link_to 'Delete', admin_career_path(@career), :confirm => 'Are you sure?', :method => :delete, class: 'delete button'

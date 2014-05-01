@@ -1,13 +1,32 @@
+.layout-buttons-wrapper {
+  @extend %verticalSpacing;
+  display: inline-block;
+  margin-left: - unit(1);
+  margin-right: - unit(1);
+  margin-bottom: - unit(1);
+  @media (max-width: $small) {
+    display: block;
+    margin: unit(1) 0 0;
+  }
+}
+
 .layout-buttons {
   @extend .grid;
   @extend .grid.inline;
-  @extend %verticalSpacing.double;
-  border-spacing: unit(1) 0;
+  border-spacing: unit(1);
   width: auto;
+
+  .button {
+    display: table-cell;
+  }
 
   @media (max-width: $small) {
     width: 100%;
     border-spacing: 0;
+    .button {
+      display: block;
+      margin-top: unit(0.75);
+    }
   }
 
 }

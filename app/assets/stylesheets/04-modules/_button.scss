@@ -1,4 +1,5 @@
 .button, button, a.button {
+  @extend %transition.sub-slow;
 
   // Base
   -webkit-appearance: none !important;
@@ -14,12 +15,21 @@
   font-family: "AvenirLTCom-Black";
   font-weight: normal !important;
   text-align: center;
-  text-decoration: none;
+  text-decoration: none !important;
   text-transform: uppercase;
   color: inherit !important;
   white-space: nowrap;
 
   // Skin
-  border: 2px solid;
+  border: 0.1em solid;
+  cursor: pointer;
+
+  &:hover, &:active {
+    border-radius: 200px
+  }
+
+  &.sub-full_width {
+    width: 100%
+  }
 
 }

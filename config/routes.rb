@@ -17,6 +17,10 @@ CremalabCom::Application.routes.draw do
   resources :users, path: 'team' do
     resources :blogs
   end
+
+  resources :job_questionnaire, only: [:new, :create]
+  get 'job_questionnaire/success' => "job_questionnaire#success", :as => "job_questionnaire_success"
+
   resources :blogs, path: 'blog' do
     get 'page/:page', :action => :index, :on => :collection
   end
@@ -24,6 +28,8 @@ CremalabCom::Application.routes.draw do
   get 'blog/categories/:id' => 'blogs#category'
 
   resources :works, path: 'work'
+
+  resources :careers
 
   namespace :admin do
     get "/" => 'dashboard#index'
@@ -37,6 +43,8 @@ CremalabCom::Application.routes.draw do
     resources :blogs, path: 'blog' do
       resources :images
     end
+    resources :careers
+
     resources :works, path: 'work'
   end
 

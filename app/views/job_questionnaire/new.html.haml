@@ -1,0 +1,25 @@
+.layout-content.sub-narrow.sub-center
+  %h2 Hire me.
+  %p Application for — UI Developer
+  = form_for @job_questionnaire, url: job_questionnaire_index_path do |f|
+    - if @job_questionnaire.errors.any?
+      .error_messages
+        %p.h4
+          Whoops! Looks like you forgot to fill out #{pluralize(@job_questionnaire.errors.count, "fields")}.
+          This isn't looking so good for you :(
+          %br
+          %small (Just kidding! Try again.)
+        %p
+          %ul
+            - @job_questionnaire.errors.full_messages.each do |msg|
+              %li= msg
+
+    = f.text_field :full_name, placeholder: "My friends call me..."
+    = f.text_field :email, placeholder: "I respond to emails at..."
+    = f.text_field :phone, :rows => 5, placeholder: "Phone"
+    = f.text_field :portfolio_website, :rows => 5, placeholder: "Portfolio website"
+    = f.text_field :gh_name, :rows => 5, placeholder: "Github username"
+    = f.text_area :why_cremalab, :rows => 5, placeholder: "Why Cremalab?"
+    = f.text_area :about_yourself, :rows => 5, placeholder: "Tell us a little bit about you."
+    = f.text_area :anything_else, :rows => 5, placeholder: "Anything else?"
+    .h4= f.submit "And Go!", class: "button sub-outline sub-full_width"

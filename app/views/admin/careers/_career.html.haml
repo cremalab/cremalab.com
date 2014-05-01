@@ -1,0 +1,5 @@
+%article.career.item
+  %header
+    - present career do |career_presenter|
+      %h4= career_presenter.name_link
+      = link_to 'Edit', edit_admin_career_path(career), class: 'button'

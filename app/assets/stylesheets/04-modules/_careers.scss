@@ -1,0 +1,19 @@
+.career-pillars {
+  background: whitesmoke
+}
+
+.career_listing {
+  &:nth-child(odd) {
+    .grid {
+      direction: rtl;
+      > * {
+        direction: ltr;
+      }
+    }
+  }
+}
+
+.career_listing-image {
+  width: unit(10);
+}
+.career_listing-content {}

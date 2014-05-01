@@ -1,6 +1,7 @@
 .layout-wrap-content {
-  & + .layout-wrap-content {
-    border-top: 1px solid $gray-light;
+  border-top: 1px solid $gray-light;
+  &:nth-child(even) {
+    background-color: whitesmoke;
   }
 }
 
@@ -20,9 +21,17 @@
     max-width: $large;
   }
 
+  &.sub-center {
+    text-align: center;
+  }
+
   a {
     color: $link-color;
     text-decoration: none;
   }
   
+}
+
+.layout-content-section {
+  @extend %verticalSpacing.double
 }

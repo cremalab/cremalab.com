@@ -23,8 +23,8 @@ class ImageUploader < BaseImageUploader
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
-
-  process :resize_to_width => [1000, 1000]
+  process :fix_exif_rotation, :if => :image?
+  process :resize_to_width => [1000, 1000], :if => :image?
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
@@ -33,19 +33,30 @@ class ImageUploader < BaseImageUploader
   #   # do something
   # end
 
+  def fix_exif_rotation
+    unless @file.extension.downcase == 'svg'
+      manipulate! do |img|
+        img.tap(&:auto_orient)
+      end
+    end
+  end
+
   # Create different versions of your uploaded files:
-  version :display do
+  version :display, :if => :image? do
     process :quality => 65
   end
 
-  version :thumb do
+  version :thumb, :if => :image? do
     process :resize_to_fit => [300, 300]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
 
-
+  private
+  def image?(new_file)
+    return new_file.extension.downcase != 'svg'
+  end
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
