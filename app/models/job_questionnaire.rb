@@ -5,10 +5,20 @@ class JobQuestionnaire
     attribute :email
     attribute :phone
     attribute :portfolio_website
-    attribute :gh_name
+    attribute :linked_in
+    attribute :behance
+    attribute :dribble
+    attribute :salary
+    attribute :front_end
+    attribute :last_two_projects
+    attribute :excited_about
+    attribute :difficult_problem
+    attribute :three_websites
+    attribute :favorite_app
+    attribute :change_app
+    attribute :knowlegable
     attribute :why_cremalab
     attribute :about_yourself
-    attribute :anything_else
 
     validates_presence_of :full_name,
       :email,

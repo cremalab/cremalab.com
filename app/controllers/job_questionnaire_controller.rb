@@ -23,9 +23,25 @@ class JobQuestionnaireController < ApplicationController
   private
 
   def questionnaire_params
-    params.require(:job_questionnaire).permit(:full_name, :email,
-                                          :phone, :portfolio_website,
-                                          :gh_name, :why_cremalab,
-                                          :about_yourself, :anything_else)
+    params.require(:job_questionnaire).permit(
+      :full_name,
+      :email,
+      :phone,
+      :portfolio_website,
+      :linked_in,
+      :behance,
+      :dribble,
+      :salary,
+      :front_end,
+      :last_two_projects,
+      :excited_about,
+      :difficult_problem,
+      :three_websites,
+      :favorite_app,
+      :change_app,
+      :knowlegable,
+      :why_cremalab,
+      :about_yourself
+    )
   end
 end
