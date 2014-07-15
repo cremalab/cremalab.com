@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @careers = Career.all
     render 'index'
   end
   def approach
