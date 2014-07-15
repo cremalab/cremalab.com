@@ -2,6 +2,13 @@
   .videoBackground
     = video_tag("cremalab")
 
+/ NOW HIRING
+- if @careers.any?
+  %a.ribbon.sub-green{href: '/careers'}
+    %h3.ribbon-text
+      %div We're
+      %div Hiring
+
 / START LAYOUT
 .layout-scroll
   .layout-scroll-a

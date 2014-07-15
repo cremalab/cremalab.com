@@ -1,0 +1,48 @@
+.ribbon {
+
+  // Position
+  position: absolute;
+  top: 0;
+  left: 15%;
+  z-index: 100;
+  
+  // Dimensions
+  padding: unit(1.5) unit(1);
+
+  // Typography
+  text-align: center;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    width: 50.5%;
+    height: 1em;
+    margin-top: -0.5em;
+    background: $green;
+  }
+
+  &:before {
+    left: 0;
+    @include transform(skew(0, -10deg));
+  }
+
+  &:after {
+    right: 0;
+    @include transform(skew(0, 10deg));
+  }
+  
+  // Variants
+  &.sub-green {
+    background: $green;
+    color: $white;
+  }
+
+}
+
+.ribbon-text {
+  line-height: 1;
+  text-transform: uppercase;
+}
