@@ -13,6 +13,7 @@
       %meta{:content => "#{bp.text_excerpt}", :property => "og:description"}
     - else
       %meta{:content => "#{excerpt}", :name => "description"}/
+      %meta{:content => "#{excerpt}", :property => "og:description"}
     %meta{:content => blog_url(blog), :property => "og:url"}
     %meta{:content => "article", :property => "og:type"}
     - if bp.featured_image
