@@ -58,7 +58,11 @@ class BlogPresenter < BasePresenter
   end
 
   def excerpt
-    content.truncate_html(500).html_safe
+    if @object.excerpt
+      @object.excerpt
+    else
+      content.truncate_html(500).html_safe
+    end
   end
 
   def text_excerpt
