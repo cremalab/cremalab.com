@@ -1,6 +1,6 @@
 CremalabCom::Application.routes.draw do
 
-
+  # get "party", :to => redirect('/party/index.html')
   get "images/create"
   get "images/destroy"
   root 'home#index'
