@@ -19,7 +19,55 @@
   background-size: auto, auto, cover;
   background-position: center;
 
-  // Sub Classes
+}
+
+.layout-footer {
+  display: block;
+  padding: 7% 0;
+  text-align: center;
+  background-color: $black-light;
+  font-size: 1.4em;
+  color: $white;
+  position: relative;
+
+  .sub-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: .2;
+    z-index: 1;
+    transition: opacity .3s;
+    background-size: auto, auto, cover;
+    background-position: center;
+  }
+
+  .text {
+    z-index: 2;
+  }
+
+  .icon-arrow-right {
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin-left: .3em;
+    position: relative;
+    left: 0;
+    transition: all .5s;
+  }
+
+  &:hover {
+    &.sub-bg {
+      opacity: .4;      
+    }
+    .icon-arrow-right {
+      left: 1em;
+      opacity: 0;
+    }
+  }
+}
+
+.layout-header, .sub-bg {
   &.sub-blog {
     background-image:
       linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
@@ -56,5 +104,4 @@
       url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
       image-url("headers/bg-careers.jpg")
   }
-
 }
