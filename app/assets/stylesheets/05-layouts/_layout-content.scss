@@ -1,7 +1,13 @@
 .layout-wrap-content {
   border-top: 1px solid $gray-light;
-  &:nth-child(even) {
+  &:nth-child(even), &.sub-light {
     background-color: whitesmoke;
+  }
+  &.sub-light {
+    border-top: 0;
+  }
+  &.sub-dark {
+    background-color: $black-light;
   }
 }
 
@@ -25,11 +31,22 @@
     text-align: center;
   }
 
+  &.sub-flushtop {
+    padding-top: 0;
+  }
+
   a {
     color: $link-color;
     text-decoration: none;
   }
   
+  &.-whitesmoke {
+    background-color: whitesmoke;
+  }
+}
+
+.layout-pad {
+  padding-top: 4em
 }
 
 .layout-content-section {

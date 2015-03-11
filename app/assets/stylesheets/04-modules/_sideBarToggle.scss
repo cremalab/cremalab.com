@@ -1,12 +1,9 @@
 .sideBarToggle {
   @extend %transition;
-  position: fixed;
-  top: 0.75rem;
-  right: 0.75rem;
   font-size: unit(1.5);
-  color: $white;
-  z-index: 3;
-  &.sub-main {
+  color: #ccc;
+  display: inline-block;
+  &._sub-main {
     color: rgba($white, 0.7);
     &.close {
       opacity: 0.1;
@@ -29,5 +26,9 @@
       opacity: 1;
       @include transform( scale(1) );  
     }
+  }
+
+  .icon-list {
+    display: inline-block;
   }
 }

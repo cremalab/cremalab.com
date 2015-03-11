@@ -6,3 +6,56 @@
     padding: 10% 0;
   }
 }
+.footerSupportingContent {
+  display: block;
+  padding: 7% 0;
+  text-align: center;
+  background-color: $black-light;
+  font-size: 1.4em;
+  color: $white;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: .2;
+    z-index: 1;
+    transition: opacity .3s;
+    background-size: auto, auto, cover;
+    background-position: center;
+    background-image:
+      linear-gradient(rgba(black, 0.5), rgba(black, 0.5)),
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQIHWNgYGCoB2LiAHaVACruAP8af/BmAAAAAElFTkSuQmCC),
+      image-url("headers/bg-team.jpg");
+
+  }
+
+  .text {
+    z-index: 2;
+  }
+
+  .icon-arrow-right {
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin-left: .3em;
+    position: relative;
+    left: 0;
+    transition: all .5s;
+  }
+
+  &:hover {
+    &:after {
+      opacity: .4;      
+    }
+    .icon-arrow-right {
+      left: 1em;
+      opacity: 0;
+    }
+  }
+
+}

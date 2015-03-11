@@ -1,6 +1,10 @@
+.sub-main {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 3;
+}
 .site_nav {
-  display: table-cell;
-  vertical-align: top;
   overflow: auto;
   font-family: "AvenirLTCom-Light";
   text-transform: uppercase;
@@ -32,4 +36,18 @@ a.site_nav-list-logo {
   background-size: contain;
   color: transparent;
   margin-bottom: 0.75em;
+  width: 7em;
+  height: 2em;
+  overflow: hidden;
+  background-size: cover;
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  top: -.2em;
+  .home.index & {
+    display: none;
+  }
+}
+.site_nav-list-logo-placeholder {
+  height: 2.2em;
 }

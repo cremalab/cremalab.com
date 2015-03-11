@@ -32,6 +32,21 @@
       padding-top: 12.5%;
     }
   }
+  &.sub-four-max {
+    border: 0;
+    margin: 1em -2%;
+    & > * {
+      width: 96%;
+      vertical-align: top;
+      margin: 0 2% 2em;
+      @media (min-width: $small) and (max-width: $medium) { 
+        width: 46%;
+      }
+      @media (min-width: $medium) {
+        width: 21%;
+      }
+    }
+  }
   &.sub-five > * {
     @media (max-width: $small) { 
       width: 50%;

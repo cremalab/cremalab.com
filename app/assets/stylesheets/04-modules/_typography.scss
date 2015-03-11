@@ -42,6 +42,23 @@ a {
   text-align: center;
 }
 
+.sub-uppercase {
+  text-transform: uppercase;
+}
+
+.sub-bottomline {
+  position: relative;
+  &:after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: $black-light;
+    width: 3em;
+    border-radius: .2em;
+    margin-top: .3em;
+  }
+}
+
 strong {
   font-family: "AvenirLTCom-Black";
 }
