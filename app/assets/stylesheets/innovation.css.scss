@@ -1,0 +1,40 @@
+// Remote Imports
+@import "compass/css3";
+@import "compass/css3/transform";
+@import "animation";
+
+@include keyframes(dash) {
+  0% {
+    stroke-dashoffset: 3000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.innovation-poster {
+  max-width: 50em;
+  text-align: center;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.innovation-poster--image {
+  position: relative;
+  padding-bottom: 100%;
+  margin-top: -15% !important;
+  
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  path {
+    stroke-dasharray: 3000 !important;
+    stroke-dashoffset: 3000 !important;
+    @include animation(dash 6s linear forwards);
+  }
+}
