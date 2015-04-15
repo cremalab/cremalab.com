@@ -17,7 +17,7 @@
       = stylesheet_link_tag  "admin", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-    = render "layouts/analytics"
+    //= render "layouts/analytics"
     = yield(:content_head)
 %body{class: "#{controller.controller_path} #{controller.action_name}"}
   .sub-main
