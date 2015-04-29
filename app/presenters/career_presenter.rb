@@ -23,7 +23,8 @@ class CareerPresenter < BasePresenter
   end
 
   def view_opening
-    h.link_to "View opening", h.career_path(@object), class: "button sub-outline"
+    path = @object.external_url.blank? ? h.career_path(@object) : @object.external_url
+    h.link_to "View opening", path, class: "button sub-outline"
   end
 
   def admin_links
