@@ -11,6 +11,9 @@
       = f.text_field :name
   %fieldset
     .field
+      = f.label :external_url, 'External URL to link to (optional)'
+      = f.text_field :external_url
+    .field
       = f.label :description, 'Description (markdown enabled)'
       = f.text_area :description, rows: 50, cols: 60, class: 'work-description'
     .field
