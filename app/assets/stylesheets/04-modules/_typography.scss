@@ -34,8 +34,8 @@ span.subHeading {
 }
 
 a {
-  color: $link-color-secondary;
-  text-decoration: none;
+  color: inherit;
+  text-decoration: underline;
 }
 
 .sub-centered {
