@@ -62,6 +62,7 @@ private
       :password, :password_confirmation, :email, :order_index,
       profile_attributes: [:first_name, :last_name,
         :id, :title, :avatar, :avatar_cache, :job_title, :bio_url,
+        :active,
         social_links_attributes: [
           :username, :full_url, :network, :_destroy, :id
         ]
