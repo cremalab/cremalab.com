@@ -1,3 +1,3 @@
 %div.user.item{:'data-index' => "#{user.order_index}", :'data-id' => "#{user.username}"}
   .drag-handle
-  = user.full_name
+  = link_to user.full_name, edit_admin_user_path(user)

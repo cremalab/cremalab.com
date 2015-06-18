@@ -5,8 +5,9 @@
       .teamMember-size-info
         .teamMember-size-info-content
           %h2= up.full_name
-          .teamMember-size-info-content-button
-            = up.blog_link
+          - unless user.profile.bio_url.blank?
+            .teamMember-size-info-content-button
+              = up.blog_link
           .teamMember-size-info-content-links
             .socialLinks.sub-team
               = render user.profile.social_links

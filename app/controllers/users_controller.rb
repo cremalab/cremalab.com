@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   respond_to :html
 
   def index
-    @users = User.all.order("order_index ASC")
+    pids = Profile.where(active: true).pluck(:user_id)
+    @users = User.where(id: pids).order("order_index ASC")
   end
 
   def show

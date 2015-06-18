@@ -27,6 +27,9 @@
       = pf.label :job_title
       = pf.text_field :bio_url
       = pf.label :bio_url, "Meet Me URL"
+      %br
+      = pf.label :active, "Visible on Team Page?"
+      = pf.check_box :active
       %fieldset
         %legend Avatar
         - if @user.profile.avatar
