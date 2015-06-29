@@ -5,7 +5,7 @@ ruby "2.0.0"
 gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.18.2'
 
 # Assets
 gem 'haml-rails', '~> 0.5.1'
